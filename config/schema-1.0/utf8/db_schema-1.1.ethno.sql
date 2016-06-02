@@ -14,9 +14,10 @@
 -- Table structure for table `actionrequest`
 --
 
+DROP TABLE IF EXISTS `actionrequest`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `actionrequest` (
+CREATE TABLE `actionrequest` (
   `actionrequestid` bigint(20) NOT NULL AUTO_INCREMENT,
   `fk` int(11) NOT NULL,
   `tablename` varchar(255) DEFAULT NULL,
@@ -44,9 +45,10 @@ CREATE TABLE IF NOT EXISTS `actionrequest` (
 -- Table structure for table `actionrequesttype`
 --
 
+DROP TABLE IF EXISTS `actionrequesttype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `actionrequesttype` (
+CREATE TABLE `actionrequesttype` (
   `requesttype` varchar(30) NOT NULL,
   `context` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -59,9 +61,10 @@ CREATE TABLE IF NOT EXISTS `actionrequesttype` (
 -- Table structure for table `adminlanguages`
 --
 
+DROP TABLE IF EXISTS `adminlanguages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `adminlanguages` (
+CREATE TABLE `adminlanguages` (
   `langid` int(11) NOT NULL AUTO_INCREMENT,
   `langname` varchar(45) NOT NULL,
   `iso639_1` varchar(10) DEFAULT NULL,
@@ -77,9 +80,10 @@ CREATE TABLE IF NOT EXISTS `adminlanguages` (
 -- Table structure for table `adminstats`
 --
 
+DROP TABLE IF EXISTS `adminstats`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `adminstats` (
+CREATE TABLE `adminstats` (
   `idadminstats` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category` varchar(45) NOT NULL,
   `statname` varchar(45) NOT NULL,
@@ -105,9 +109,10 @@ CREATE TABLE IF NOT EXISTS `adminstats` (
 -- Table structure for table `agentlinks`
 --
 
+DROP TABLE IF EXISTS `agentlinks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `agentlinks` (
+CREATE TABLE `agentlinks` (
   `agentlinksid` bigint(20) NOT NULL AUTO_INCREMENT,
   `agentid` int(11) NOT NULL,
   `type` varchar(50) DEFAULT NULL,
@@ -126,9 +131,10 @@ CREATE TABLE IF NOT EXISTS `agentlinks` (
 -- Table structure for table `agentnames`
 --
 
+DROP TABLE IF EXISTS `agentnames`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `agentnames` (
+CREATE TABLE `agentnames` (
   `agentnamesid` bigint(20) NOT NULL AUTO_INCREMENT,
   `agentid` int(11) NOT NULL,
   `type` varchar(32) NOT NULL DEFAULT 'Full Name',
@@ -149,9 +155,10 @@ CREATE TABLE IF NOT EXISTS `agentnames` (
 -- Table structure for table `agentnumberpattern`
 --
 
+DROP TABLE IF EXISTS `agentnumberpattern`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `agentnumberpattern` (
+CREATE TABLE `agentnumberpattern` (
   `agentnumberpatternid` bigint(20) NOT NULL AUTO_INCREMENT,
   `agentid` bigint(20) NOT NULL,
   `numbertype` varchar(50) DEFAULT 'Collector number',
@@ -171,9 +178,10 @@ CREATE TABLE IF NOT EXISTS `agentnumberpattern` (
 -- Table structure for table `agentrelations`
 --
 
+DROP TABLE IF EXISTS `agentrelations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `agentrelations` (
+CREATE TABLE `agentrelations` (
   `agentrelationsid` bigint(20) NOT NULL AUTO_INCREMENT,
   `fromagentid` bigint(20) NOT NULL,
   `toagentid` bigint(20) NOT NULL,
@@ -197,9 +205,10 @@ CREATE TABLE IF NOT EXISTS `agentrelations` (
 -- Table structure for table `agents`
 --
 
+DROP TABLE IF EXISTS `agents`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `agents` (
+CREATE TABLE `agents` (
   `agentid` bigint(20) NOT NULL AUTO_INCREMENT,
   `familyname` varchar(45) NOT NULL,
   `firstname` varchar(45) DEFAULT NULL,
@@ -240,9 +249,10 @@ CREATE TABLE IF NOT EXISTS `agents` (
 -- Table structure for table `agentsfulltext`
 --
 
+DROP TABLE IF EXISTS `agentsfulltext`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `agentsfulltext` (
+CREATE TABLE `agentsfulltext` (
   `agentsfulltextid` bigint(20) NOT NULL AUTO_INCREMENT,
   `agentid` int(11) NOT NULL,
   `biography` text,
@@ -259,9 +269,10 @@ CREATE TABLE IF NOT EXISTS `agentsfulltext` (
 -- Table structure for table `agentteams`
 --
 
+DROP TABLE IF EXISTS `agentteams`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `agentteams` (
+CREATE TABLE `agentteams` (
   `agentteamid` bigint(20) NOT NULL AUTO_INCREMENT,
   `teamagentid` bigint(20) NOT NULL,
   `memberagentid` bigint(20) NOT NULL,
@@ -278,9 +289,10 @@ CREATE TABLE IF NOT EXISTS `agentteams` (
 -- Table structure for table `chotomouskey`
 --
 
+DROP TABLE IF EXISTS `chotomouskey`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `chotomouskey` (
+CREATE TABLE `chotomouskey` (
   `stmtid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `statement` varchar(300) NOT NULL,
   `nodeid` int(10) unsigned NOT NULL,
@@ -298,9 +310,10 @@ CREATE TABLE IF NOT EXISTS `chotomouskey` (
 -- Table structure for table `configpage`
 --
 
+DROP TABLE IF EXISTS `configpage`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `configpage` (
+CREATE TABLE `configpage` (
   `configpageid` int(11) NOT NULL AUTO_INCREMENT,
   `pagename` varchar(45) NOT NULL,
   `title` varchar(150) NOT NULL,
@@ -319,9 +332,10 @@ CREATE TABLE IF NOT EXISTS `configpage` (
 -- Table structure for table `configpageattributes`
 --
 
+DROP TABLE IF EXISTS `configpageattributes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `configpageattributes` (
+CREATE TABLE `configpageattributes` (
   `attributeid` int(11) NOT NULL AUTO_INCREMENT,
   `configpageid` int(11) NOT NULL,
   `objid` varchar(45) DEFAULT NULL,
@@ -346,9 +360,10 @@ CREATE TABLE IF NOT EXISTS `configpageattributes` (
 -- Table structure for table `ctnametypes`
 --
 
+DROP TABLE IF EXISTS `ctnametypes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `ctnametypes` (
+CREATE TABLE `ctnametypes` (
   `type` varchar(32) NOT NULL,
   PRIMARY KEY (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -358,9 +373,10 @@ CREATE TABLE IF NOT EXISTS `ctnametypes` (
 -- Table structure for table `ctrelationshiptypes`
 --
 
+DROP TABLE IF EXISTS `ctrelationshiptypes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `ctrelationshiptypes` (
+CREATE TABLE `ctrelationshiptypes` (
   `relationship` varchar(50) NOT NULL,
   `inverse` varchar(50) DEFAULT NULL,
   `collective` varchar(50) DEFAULT NULL,
@@ -372,9 +388,10 @@ CREATE TABLE IF NOT EXISTS `ctrelationshiptypes` (
 -- Table structure for table `fmchecklists`
 --
 
+DROP TABLE IF EXISTS `fmchecklists`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmchecklists` (
+CREATE TABLE `fmchecklists` (
   `CLID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) NOT NULL,
   `Title` varchar(150) DEFAULT NULL,
@@ -410,9 +427,10 @@ CREATE TABLE IF NOT EXISTS `fmchecklists` (
 -- Table structure for table `fmchklstchildren`
 --
 
+DROP TABLE IF EXISTS `fmchklstchildren`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmchklstchildren` (
+CREATE TABLE `fmchklstchildren` (
   `clid` int(10) unsigned NOT NULL,
   `clidchild` int(10) unsigned NOT NULL,
   `modifiedUid` int(10) unsigned NOT NULL,
@@ -430,9 +448,10 @@ CREATE TABLE IF NOT EXISTS `fmchklstchildren` (
 -- Table structure for table `fmchklstcoordinates`
 --
 
+DROP TABLE IF EXISTS `fmchklstcoordinates`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmchklstcoordinates` (
+CREATE TABLE `fmchklstcoordinates` (
   `chklstcoordid` int(11) NOT NULL AUTO_INCREMENT,
   `clid` int(10) unsigned NOT NULL,
   `tid` int(10) unsigned NOT NULL,
@@ -451,9 +470,10 @@ CREATE TABLE IF NOT EXISTS `fmchklstcoordinates` (
 -- Table structure for table `fmchklstprojlink`
 --
 
+DROP TABLE IF EXISTS `fmchklstprojlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmchklstprojlink` (
+CREATE TABLE `fmchklstprojlink` (
   `pid` int(10) unsigned NOT NULL,
   `clid` int(10) unsigned NOT NULL,
   `InitialTimeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -468,9 +488,10 @@ CREATE TABLE IF NOT EXISTS `fmchklstprojlink` (
 -- Table structure for table `fmchklsttaxalink`
 --
 
+DROP TABLE IF EXISTS `fmchklsttaxalink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmchklsttaxalink` (
+CREATE TABLE `fmchklsttaxalink` (
   `TID` int(10) unsigned NOT NULL DEFAULT '0',
   `CLID` int(10) unsigned NOT NULL DEFAULT '0',
   `morphospecies` varchar(45) NOT NULL DEFAULT '',
@@ -497,9 +518,10 @@ CREATE TABLE IF NOT EXISTS `fmchklsttaxalink` (
 -- Table structure for table `fmchklsttaxastatus`
 --
 
+DROP TABLE IF EXISTS `fmchklsttaxastatus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmchklsttaxastatus` (
+CREATE TABLE `fmchklsttaxastatus` (
   `clid` int(10) unsigned NOT NULL,
   `tid` int(10) unsigned NOT NULL,
   `geographicRange` int(11) NOT NULL DEFAULT '0',
@@ -529,9 +551,10 @@ CREATE TABLE IF NOT EXISTS `fmchklsttaxastatus` (
 -- Table structure for table `fmcltaxacomments`
 --
 
+DROP TABLE IF EXISTS `fmcltaxacomments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmcltaxacomments` (
+CREATE TABLE `fmcltaxacomments` (
   `cltaxacommentsid` int(11) NOT NULL AUTO_INCREMENT,
   `clid` int(10) unsigned NOT NULL,
   `tid` int(10) unsigned NOT NULL,
@@ -552,9 +575,10 @@ CREATE TABLE IF NOT EXISTS `fmcltaxacomments` (
 -- Table structure for table `fmdynamicchecklists`
 --
 
+DROP TABLE IF EXISTS `fmdynamicchecklists`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmdynamicchecklists` (
+CREATE TABLE `fmdynamicchecklists` (
   `dynclid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `details` varchar(250) DEFAULT NULL,
@@ -571,9 +595,10 @@ CREATE TABLE IF NOT EXISTS `fmdynamicchecklists` (
 -- Table structure for table `fmdyncltaxalink`
 --
 
+DROP TABLE IF EXISTS `fmdyncltaxalink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmdyncltaxalink` (
+CREATE TABLE `fmdyncltaxalink` (
   `dynclid` int(10) unsigned NOT NULL,
   `tid` int(10) unsigned NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -588,9 +613,10 @@ CREATE TABLE IF NOT EXISTS `fmdyncltaxalink` (
 -- Table structure for table `fmprojectcategories`
 --
 
+DROP TABLE IF EXISTS `fmprojectcategories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmprojectcategories` (
+CREATE TABLE `fmprojectcategories` (
   `projcatid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(10) unsigned NOT NULL,
   `categoryname` varchar(150) NOT NULL,
@@ -612,9 +638,10 @@ CREATE TABLE IF NOT EXISTS `fmprojectcategories` (
 -- Table structure for table `fmprojects`
 --
 
+DROP TABLE IF EXISTS `fmprojects`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmprojects` (
+CREATE TABLE `fmprojects` (
   `pid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projname` varchar(45) NOT NULL,
   `displayname` varchar(150) DEFAULT NULL,
@@ -637,9 +664,10 @@ CREATE TABLE IF NOT EXISTS `fmprojects` (
 -- Table structure for table `fmvouchers`
 --
 
+DROP TABLE IF EXISTS `fmvouchers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `fmvouchers` (
+CREATE TABLE `fmvouchers` (
   `TID` int(10) unsigned NOT NULL,
   `CLID` int(10) unsigned NOT NULL,
   `occid` int(10) unsigned NOT NULL,
@@ -658,9 +686,10 @@ CREATE TABLE IF NOT EXISTS `fmvouchers` (
 -- Table structure for table `geothescontinent`
 --
 
+DROP TABLE IF EXISTS `geothescontinent`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `geothescontinent` (
+CREATE TABLE `geothescontinent` (
   `gtcid` int(11) NOT NULL AUTO_INCREMENT,
   `continentterm` varchar(45) NOT NULL,
   `abbreviation` varchar(45) DEFAULT NULL,
@@ -679,9 +708,10 @@ CREATE TABLE IF NOT EXISTS `geothescontinent` (
 -- Table structure for table `geothescountry`
 --
 
+DROP TABLE IF EXISTS `geothescountry`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `geothescountry` (
+CREATE TABLE `geothescountry` (
   `gtcid` int(11) NOT NULL AUTO_INCREMENT,
   `countryterm` varchar(45) NOT NULL,
   `abbreviation` varchar(45) DEFAULT NULL,
@@ -705,9 +735,10 @@ CREATE TABLE IF NOT EXISTS `geothescountry` (
 -- Table structure for table `geothescounty`
 --
 
+DROP TABLE IF EXISTS `geothescounty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `geothescounty` (
+CREATE TABLE `geothescounty` (
   `gtcoid` int(11) NOT NULL AUTO_INCREMENT,
   `countyterm` varchar(45) NOT NULL,
   `abbreviation` varchar(45) DEFAULT NULL,
@@ -729,9 +760,10 @@ CREATE TABLE IF NOT EXISTS `geothescounty` (
 -- Table structure for table `geothesmunicipality`
 --
 
+DROP TABLE IF EXISTS `geothesmunicipality`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `geothesmunicipality` (
+CREATE TABLE `geothesmunicipality` (
   `gtmid` int(11) NOT NULL AUTO_INCREMENT,
   `municipalityterm` varchar(45) NOT NULL,
   `abbreviation` varchar(45) DEFAULT NULL,
@@ -753,9 +785,10 @@ CREATE TABLE IF NOT EXISTS `geothesmunicipality` (
 -- Table structure for table `geothesstateprovince`
 --
 
+DROP TABLE IF EXISTS `geothesstateprovince`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `geothesstateprovince` (
+CREATE TABLE `geothesstateprovince` (
   `gtspid` int(11) NOT NULL AUTO_INCREMENT,
   `stateterm` varchar(45) NOT NULL,
   `abbreviation` varchar(45) DEFAULT NULL,
@@ -777,9 +810,10 @@ CREATE TABLE IF NOT EXISTS `geothesstateprovince` (
 -- Table structure for table `glossary`
 --
 
+DROP TABLE IF EXISTS `glossary`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `glossary` (
+CREATE TABLE `glossary` (
   `glossid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `term` varchar(150) NOT NULL,
   `definition` varchar(600) DEFAULT NULL,
@@ -797,9 +831,10 @@ CREATE TABLE IF NOT EXISTS `glossary` (
 -- Table structure for table `glossaryimages`
 --
 
+DROP TABLE IF EXISTS `glossaryimages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `glossaryimages` (
+CREATE TABLE `glossaryimages` (
   `glimgid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `glossid` int(10) unsigned NOT NULL,
   `url` varchar(255) NOT NULL,
@@ -818,9 +853,10 @@ CREATE TABLE IF NOT EXISTS `glossaryimages` (
 -- Table structure for table `glossarytaxalink`
 --
 
+DROP TABLE IF EXISTS `glossarytaxalink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `glossarytaxalink` (
+CREATE TABLE `glossarytaxalink` (
   `glossgrpid` int(10) unsigned NOT NULL,
   `tid` int(10) unsigned NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -835,9 +871,10 @@ CREATE TABLE IF NOT EXISTS `glossarytaxalink` (
 -- Table structure for table `glossarytermlink`
 --
 
+DROP TABLE IF EXISTS `glossarytermlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `glossarytermlink` (
+CREATE TABLE `glossarytermlink` (
   `gltlinkid` int(10) NOT NULL AUTO_INCREMENT,
   `glossgrpid` int(10) unsigned NOT NULL,
   `glossid` int(10) unsigned NOT NULL,
@@ -854,9 +891,10 @@ CREATE TABLE IF NOT EXISTS `glossarytermlink` (
 -- Table structure for table `guidimages`
 --
 
+DROP TABLE IF EXISTS `guidimages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `guidimages` (
+CREATE TABLE `guidimages` (
   `guid` varchar(45) NOT NULL,
   `imgid` int(10) unsigned DEFAULT NULL,
   `archivestatus` int(3) NOT NULL DEFAULT '0',
@@ -872,9 +910,10 @@ CREATE TABLE IF NOT EXISTS `guidimages` (
 -- Table structure for table `guidoccurdeterminations`
 --
 
+DROP TABLE IF EXISTS `guidoccurdeterminations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `guidoccurdeterminations` (
+CREATE TABLE `guidoccurdeterminations` (
   `guid` varchar(45) NOT NULL,
   `detid` int(10) unsigned DEFAULT NULL,
   `archivestatus` int(3) NOT NULL DEFAULT '0',
@@ -890,9 +929,10 @@ CREATE TABLE IF NOT EXISTS `guidoccurdeterminations` (
 -- Table structure for table `guidoccurrences`
 --
 
+DROP TABLE IF EXISTS `guidoccurrences`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `guidoccurrences` (
+CREATE TABLE `guidoccurrences` (
   `guid` varchar(45) NOT NULL,
   `occid` int(10) unsigned DEFAULT NULL,
   `archivestatus` int(3) NOT NULL DEFAULT '0',
@@ -908,9 +948,10 @@ CREATE TABLE IF NOT EXISTS `guidoccurrences` (
 -- Table structure for table `imageannotations`
 --
 
+DROP TABLE IF EXISTS `imageannotations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `imageannotations` (
+CREATE TABLE `imageannotations` (
   `tid` int(10) unsigned DEFAULT NULL,
   `imgid` int(10) unsigned NOT NULL DEFAULT '0',
   `AnnDate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -927,9 +968,10 @@ CREATE TABLE IF NOT EXISTS `imageannotations` (
 -- Table structure for table `imagekeywords`
 --
 
+DROP TABLE IF EXISTS `imagekeywords`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `imagekeywords` (
+CREATE TABLE `imagekeywords` (
   `imgkeywordid` int(11) NOT NULL AUTO_INCREMENT,
   `imgid` int(10) unsigned NOT NULL,
   `keyword` varchar(45) NOT NULL,
@@ -948,9 +990,10 @@ CREATE TABLE IF NOT EXISTS `imagekeywords` (
 -- Table structure for table `imageprojectlink`
 --
 
+DROP TABLE IF EXISTS `imageprojectlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `imageprojectlink` (
+CREATE TABLE `imageprojectlink` (
   `imgid` int(10) unsigned NOT NULL,
   `imgprojid` int(11) NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -965,9 +1008,10 @@ CREATE TABLE IF NOT EXISTS `imageprojectlink` (
 -- Table structure for table `imageprojects`
 --
 
+DROP TABLE IF EXISTS `imageprojects`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `imageprojects` (
+CREATE TABLE `imageprojects` (
   `imgprojid` int(11) NOT NULL AUTO_INCREMENT,
   `projectname` varchar(75) NOT NULL,
   `managers` varchar(150) DEFAULT NULL,
@@ -985,9 +1029,10 @@ CREATE TABLE IF NOT EXISTS `imageprojects` (
 -- Table structure for table `images`
 --
 
+DROP TABLE IF EXISTS `images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `images` (
+CREATE TABLE `images` (
   `imgid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tid` int(10) unsigned DEFAULT NULL,
   `url` varchar(255) NOT NULL,
@@ -1026,9 +1071,10 @@ CREATE TABLE IF NOT EXISTS `images` (
 -- Table structure for table `imagetag`
 --
 
+DROP TABLE IF EXISTS `imagetag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `imagetag` (
+CREATE TABLE `imagetag` (
   `imagetagid` bigint(20) NOT NULL AUTO_INCREMENT,
   `imgid` int(10) unsigned NOT NULL,
   `keyvalue` varchar(30) NOT NULL,
@@ -1046,9 +1092,10 @@ CREATE TABLE IF NOT EXISTS `imagetag` (
 -- Table structure for table `imagetagkey`
 --
 
+DROP TABLE IF EXISTS `imagetagkey`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `imagetagkey` (
+CREATE TABLE `imagetagkey` (
   `tagkey` varchar(30) NOT NULL,
   `shortlabel` varchar(30) NOT NULL,
   `description_en` varchar(255) NOT NULL,
@@ -1063,9 +1110,10 @@ CREATE TABLE IF NOT EXISTS `imagetagkey` (
 -- Table structure for table `institutions`
 --
 
+DROP TABLE IF EXISTS `institutions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `institutions` (
+CREATE TABLE `institutions` (
   `iid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `InstitutionCode` varchar(45) NOT NULL,
   `InstitutionName` varchar(150) NOT NULL,
@@ -1094,9 +1142,10 @@ CREATE TABLE IF NOT EXISTS `institutions` (
 -- Table structure for table `kmcharacterlang`
 --
 
+DROP TABLE IF EXISTS `kmcharacterlang`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmcharacterlang` (
+CREATE TABLE `kmcharacterlang` (
   `cid` int(10) unsigned NOT NULL,
   `charname` varchar(150) NOT NULL,
   `language` varchar(45) NOT NULL,
@@ -1114,9 +1163,10 @@ CREATE TABLE IF NOT EXISTS `kmcharacterlang` (
 -- Table structure for table `kmcharacters`
 --
 
+DROP TABLE IF EXISTS `kmcharacters`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmcharacters` (
+CREATE TABLE `kmcharacters` (
   `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `charname` varchar(150) NOT NULL,
   `chartype` varchar(2) NOT NULL DEFAULT 'UM',
@@ -1142,9 +1192,10 @@ CREATE TABLE IF NOT EXISTS `kmcharacters` (
 -- Table structure for table `kmchardependance`
 --
 
+DROP TABLE IF EXISTS `kmchardependance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmchardependance` (
+CREATE TABLE `kmchardependance` (
   `CID` int(10) unsigned NOT NULL,
   `CIDDependance` int(10) unsigned NOT NULL,
   `CSDependance` varchar(16) NOT NULL,
@@ -1161,9 +1212,10 @@ CREATE TABLE IF NOT EXISTS `kmchardependance` (
 -- Table structure for table `kmcharheading`
 --
 
+DROP TABLE IF EXISTS `kmcharheading`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmcharheading` (
+CREATE TABLE `kmcharheading` (
   `hid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `headingname` varchar(255) NOT NULL,
   `language` varchar(45) NOT NULL DEFAULT 'English',
@@ -1183,9 +1235,10 @@ CREATE TABLE IF NOT EXISTS `kmcharheading` (
 -- Table structure for table `kmchartaxalink`
 --
 
+DROP TABLE IF EXISTS `kmchartaxalink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmchartaxalink` (
+CREATE TABLE `kmchartaxalink` (
   `CID` int(10) unsigned NOT NULL DEFAULT '0',
   `TID` int(10) unsigned NOT NULL DEFAULT '0',
   `Status` varchar(50) DEFAULT NULL,
@@ -1204,9 +1257,10 @@ CREATE TABLE IF NOT EXISTS `kmchartaxalink` (
 -- Table structure for table `kmcs`
 --
 
+DROP TABLE IF EXISTS `kmcs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmcs` (
+CREATE TABLE `kmcs` (
   `cid` int(10) unsigned NOT NULL DEFAULT '0',
   `cs` varchar(16) NOT NULL,
   `CharStateName` varchar(255) DEFAULT NULL,
@@ -1228,9 +1282,10 @@ CREATE TABLE IF NOT EXISTS `kmcs` (
 -- Table structure for table `kmcsimages`
 --
 
+DROP TABLE IF EXISTS `kmcsimages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmcsimages` (
+CREATE TABLE `kmcsimages` (
   `csimgid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `cid` int(10) unsigned NOT NULL,
   `cs` varchar(16) NOT NULL,
@@ -1249,9 +1304,10 @@ CREATE TABLE IF NOT EXISTS `kmcsimages` (
 -- Table structure for table `kmcslang`
 --
 
+DROP TABLE IF EXISTS `kmcslang`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmcslang` (
+CREATE TABLE `kmcslang` (
   `cid` int(10) unsigned NOT NULL,
   `cs` varchar(16) NOT NULL,
   `charstatename` varchar(150) NOT NULL,
@@ -1269,9 +1325,10 @@ CREATE TABLE IF NOT EXISTS `kmcslang` (
 -- Table structure for table `kmdescr`
 --
 
+DROP TABLE IF EXISTS `kmdescr`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmdescr` (
+CREATE TABLE `kmdescr` (
   `TID` int(10) unsigned NOT NULL DEFAULT '0',
   `CID` int(10) unsigned NOT NULL DEFAULT '0',
   `Modifier` varchar(255) DEFAULT NULL,
@@ -1296,9 +1353,10 @@ CREATE TABLE IF NOT EXISTS `kmdescr` (
 -- Table structure for table `kmdescrdeletions`
 --
 
+DROP TABLE IF EXISTS `kmdescrdeletions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `kmdescrdeletions` (
+CREATE TABLE `kmdescrdeletions` (
   `TID` int(10) unsigned NOT NULL,
   `CID` int(10) unsigned NOT NULL,
   `CS` varchar(16) NOT NULL,
@@ -1321,9 +1379,10 @@ CREATE TABLE IF NOT EXISTS `kmdescrdeletions` (
 -- Table structure for table `lkupcountry`
 --
 
+DROP TABLE IF EXISTS `lkupcountry`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `lkupcountry` (
+CREATE TABLE `lkupcountry` (
   `countryId` int(11) NOT NULL AUTO_INCREMENT,
   `countryName` varchar(100) NOT NULL,
   `iso` varchar(2) DEFAULT NULL,
@@ -1341,9 +1400,10 @@ CREATE TABLE IF NOT EXISTS `lkupcountry` (
 -- Table structure for table `lkupcounty`
 --
 
+DROP TABLE IF EXISTS `lkupcounty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `lkupcounty` (
+CREATE TABLE `lkupcounty` (
   `countyId` int(11) NOT NULL AUTO_INCREMENT,
   `stateId` int(11) NOT NULL,
   `countyName` varchar(100) NOT NULL,
@@ -1360,9 +1420,10 @@ CREATE TABLE IF NOT EXISTS `lkupcounty` (
 -- Table structure for table `lkupstateprovince`
 --
 
+DROP TABLE IF EXISTS `lkupstateprovince`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `lkupstateprovince` (
+CREATE TABLE `lkupstateprovince` (
   `stateId` int(11) NOT NULL AUTO_INCREMENT,
   `countryId` int(11) NOT NULL,
   `stateName` varchar(100) NOT NULL,
@@ -1381,9 +1442,10 @@ CREATE TABLE IF NOT EXISTS `lkupstateprovince` (
 -- Table structure for table `media`
 --
 
+DROP TABLE IF EXISTS `media`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `media` (
+CREATE TABLE `media` (
   `mediaid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tid` int(10) unsigned DEFAULT NULL,
   `occid` int(10) unsigned DEFAULT NULL,
@@ -1413,9 +1475,10 @@ CREATE TABLE IF NOT EXISTS `media` (
 -- Table structure for table `omcollcategories`
 --
 
+DROP TABLE IF EXISTS `omcollcategories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcollcategories` (
+CREATE TABLE `omcollcategories` (
   `ccpk` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category` varchar(75) NOT NULL,
   `icon` varchar(250) DEFAULT NULL,
@@ -1432,9 +1495,10 @@ CREATE TABLE IF NOT EXISTS `omcollcategories` (
 -- Table structure for table `omcollcatlink`
 --
 
+DROP TABLE IF EXISTS `omcollcatlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcollcatlink` (
+CREATE TABLE `omcollcatlink` (
   `ccpk` int(10) unsigned NOT NULL,
   `collid` int(10) unsigned NOT NULL,
   `sortsequence` int(11) DEFAULT NULL,
@@ -1450,9 +1514,10 @@ CREATE TABLE IF NOT EXISTS `omcollcatlink` (
 -- Table structure for table `omcollections`
 --
 
+DROP TABLE IF EXISTS `omcollections`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcollections` (
+CREATE TABLE `omcollections` (
   `CollID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `InstitutionCode` varchar(45) NOT NULL,
   `CollectionCode` varchar(45) DEFAULT NULL,
@@ -1491,9 +1556,10 @@ CREATE TABLE IF NOT EXISTS `omcollections` (
 -- Table structure for table `omcollectionstats`
 --
 
+DROP TABLE IF EXISTS `omcollectionstats`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcollectionstats` (
+CREATE TABLE `omcollectionstats` (
   `collid` int(10) unsigned NOT NULL,
   `recordcnt` int(10) unsigned NOT NULL DEFAULT '0',
   `georefcnt` int(10) unsigned DEFAULT NULL,
@@ -1514,9 +1580,10 @@ CREATE TABLE IF NOT EXISTS `omcollectionstats` (
 -- Table structure for table `omcollectors`
 --
 
+DROP TABLE IF EXISTS `omcollectors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcollectors` (
+CREATE TABLE `omcollectors` (
   `recordedById` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `familyname` varchar(45) NOT NULL,
   `firstname` varchar(45) DEFAULT NULL,
@@ -1538,9 +1605,10 @@ CREATE TABLE IF NOT EXISTS `omcollectors` (
 -- Table structure for table `omcollpublications`
 --
 
+DROP TABLE IF EXISTS `omcollpublications`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcollpublications` (
+CREATE TABLE `omcollpublications` (
   `pubid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `collid` int(10) unsigned NOT NULL,
   `targeturl` varchar(250) NOT NULL,
@@ -1562,9 +1630,10 @@ CREATE TABLE IF NOT EXISTS `omcollpublications` (
 -- Table structure for table `omcollsecondary`
 --
 
+DROP TABLE IF EXISTS `omcollsecondary`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcollsecondary` (
+CREATE TABLE `omcollsecondary` (
   `ocsid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `collid` int(10) unsigned NOT NULL,
   `InstitutionCode` varchar(45) NOT NULL,
@@ -1592,9 +1661,10 @@ CREATE TABLE IF NOT EXISTS `omcollsecondary` (
 -- Table structure for table `omcrowdsourcecentral`
 --
 
+DROP TABLE IF EXISTS `omcrowdsourcecentral`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcrowdsourcecentral` (
+CREATE TABLE `omcrowdsourcecentral` (
   `omcsid` int(11) NOT NULL AUTO_INCREMENT,
   `collid` int(10) unsigned NOT NULL,
   `instructions` text,
@@ -1613,9 +1683,10 @@ CREATE TABLE IF NOT EXISTS `omcrowdsourcecentral` (
 -- Table structure for table `omcrowdsourcequeue`
 --
 
+DROP TABLE IF EXISTS `omcrowdsourcequeue`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omcrowdsourcequeue` (
+CREATE TABLE `omcrowdsourcequeue` (
   `idomcrowdsourcequeue` int(11) NOT NULL AUTO_INCREMENT,
   `omcsid` int(11) NOT NULL,
   `occid` int(10) unsigned NOT NULL,
@@ -1638,9 +1709,10 @@ CREATE TABLE IF NOT EXISTS `omcrowdsourcequeue` (
 -- Table structure for table `omexsiccatinumbers`
 --
 
+DROP TABLE IF EXISTS `omexsiccatinumbers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omexsiccatinumbers` (
+CREATE TABLE `omexsiccatinumbers` (
   `omenid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `exsnumber` varchar(45) NOT NULL,
   `ometid` int(10) unsigned NOT NULL,
@@ -1657,9 +1729,10 @@ CREATE TABLE IF NOT EXISTS `omexsiccatinumbers` (
 -- Table structure for table `omexsiccatiocclink`
 --
 
+DROP TABLE IF EXISTS `omexsiccatiocclink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omexsiccatiocclink` (
+CREATE TABLE `omexsiccatiocclink` (
   `omenid` int(10) unsigned NOT NULL,
   `occid` int(10) unsigned NOT NULL,
   `ranking` int(11) NOT NULL DEFAULT '50',
@@ -1678,9 +1751,10 @@ CREATE TABLE IF NOT EXISTS `omexsiccatiocclink` (
 -- Table structure for table `omexsiccatititles`
 --
 
+DROP TABLE IF EXISTS `omexsiccatititles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omexsiccatititles` (
+CREATE TABLE `omexsiccatititles` (
   `ometid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(150) NOT NULL,
   `abbreviation` varchar(100) DEFAULT NULL,
@@ -1701,9 +1775,10 @@ CREATE TABLE IF NOT EXISTS `omexsiccatititles` (
 -- Table structure for table `omoccurassococcurrences`
 --
 
+DROP TABLE IF EXISTS `omoccurassococcurrences`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurassococcurrences` (
+CREATE TABLE `omoccurassococcurrences` (
   `aoid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `occid` int(10) unsigned NOT NULL,
   `occidassociate` int(10) unsigned DEFAULT NULL,
@@ -1731,9 +1806,10 @@ CREATE TABLE IF NOT EXISTS `omoccurassococcurrences` (
 -- Table structure for table `omoccurassoctaxa`
 --
 
+DROP TABLE IF EXISTS `omoccurassoctaxa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurassoctaxa` (
+CREATE TABLE `omoccurassoctaxa` (
   `assoctaxaid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `occid` int(10) unsigned NOT NULL,
   `tid` int(10) unsigned DEFAULT NULL,
@@ -1755,9 +1831,10 @@ CREATE TABLE IF NOT EXISTS `omoccurassoctaxa` (
 -- Table structure for table `omoccurcomments`
 --
 
+DROP TABLE IF EXISTS `omoccurcomments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurcomments` (
+CREATE TABLE `omoccurcomments` (
   `comid` int(11) NOT NULL AUTO_INCREMENT,
   `occid` int(10) unsigned NOT NULL,
   `comment` text NOT NULL,
@@ -1777,9 +1854,10 @@ CREATE TABLE IF NOT EXISTS `omoccurcomments` (
 -- Table structure for table `omoccurdatasetlink`
 --
 
+DROP TABLE IF EXISTS `omoccurdatasetlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurdatasetlink` (
+CREATE TABLE `omoccurdatasetlink` (
   `occid` int(10) unsigned NOT NULL,
   `datasetid` int(10) unsigned NOT NULL,
   `notes` varchar(250) DEFAULT NULL,
@@ -1796,9 +1874,10 @@ CREATE TABLE IF NOT EXISTS `omoccurdatasetlink` (
 -- Table structure for table `omoccurdatasets`
 --
 
+DROP TABLE IF EXISTS `omoccurdatasets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurdatasets` (
+CREATE TABLE `omoccurdatasets` (
   `datasetid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `notes` varchar(250) DEFAULT NULL,
@@ -1818,9 +1897,10 @@ CREATE TABLE IF NOT EXISTS `omoccurdatasets` (
 -- Table structure for table `omoccurdeterminations`
 --
 
+DROP TABLE IF EXISTS `omoccurdeterminations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurdeterminations` (
+CREATE TABLE `omoccurdeterminations` (
   `detid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `occid` int(10) unsigned NOT NULL,
   `identifiedBy` varchar(60) NOT NULL,
@@ -1855,9 +1935,10 @@ CREATE TABLE IF NOT EXISTS `omoccurdeterminations` (
 -- Table structure for table `omoccurduplicatelink`
 --
 
+DROP TABLE IF EXISTS `omoccurduplicatelink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurduplicatelink` (
+CREATE TABLE `omoccurduplicatelink` (
   `occid` int(10) unsigned NOT NULL,
   `duplicateid` int(11) NOT NULL,
   `notes` varchar(250) DEFAULT NULL,
@@ -1876,9 +1957,10 @@ CREATE TABLE IF NOT EXISTS `omoccurduplicatelink` (
 -- Table structure for table `omoccurduplicates`
 --
 
+DROP TABLE IF EXISTS `omoccurduplicates`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurduplicates` (
+CREATE TABLE `omoccurduplicates` (
   `duplicateid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -1893,9 +1975,10 @@ CREATE TABLE IF NOT EXISTS `omoccurduplicates` (
 -- Table structure for table `omoccureditlocks`
 --
 
+DROP TABLE IF EXISTS `omoccureditlocks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccureditlocks` (
+CREATE TABLE `omoccureditlocks` (
   `occid` int(10) unsigned NOT NULL,
   `uid` int(11) NOT NULL,
   `ts` int(11) NOT NULL,
@@ -1908,9 +1991,10 @@ CREATE TABLE IF NOT EXISTS `omoccureditlocks` (
 -- Table structure for table `omoccuredits`
 --
 
+DROP TABLE IF EXISTS `omoccuredits`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccuredits` (
+CREATE TABLE `omoccuredits` (
   `ocedid` int(11) NOT NULL AUTO_INCREMENT,
   `occid` int(10) unsigned NOT NULL,
   `FieldName` varchar(45) NOT NULL,
@@ -1932,9 +2016,10 @@ CREATE TABLE IF NOT EXISTS `omoccuredits` (
 -- Table structure for table `omoccurexchange`
 --
 
+DROP TABLE IF EXISTS `omoccurexchange`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE  IF NOT EXISTS `omoccurexchange` (
+CREATE TABLE `omoccurexchange` (
   `exchangeid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `identifier` varchar(30) DEFAULT NULL,
   `collid` int(10) unsigned DEFAULT NULL,
@@ -1966,9 +2051,10 @@ CREATE TABLE  IF NOT EXISTS `omoccurexchange` (
 -- Table structure for table `omoccurgenetic`
 --
 
+DROP TABLE IF EXISTS `omoccurgenetic`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurgenetic` (
+CREATE TABLE `omoccurgenetic` (
   `idoccurgenetic` int(11) NOT NULL AUTO_INCREMENT,
   `occid` int(10) unsigned NOT NULL,
   `identifier` varchar(150) DEFAULT NULL,
@@ -1989,10 +2075,10 @@ CREATE TABLE IF NOT EXISTS `omoccurgenetic` (
 -- Table structure for table `omoccurgeoindex`
 --
 
-
+DROP TABLE IF EXISTS `omoccurgeoindex`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurgeoindex` (
+CREATE TABLE `omoccurgeoindex` (
   `tid` int(10) unsigned NOT NULL,
   `decimallatitude` double NOT NULL,
   `decimallongitude` double NOT NULL,
@@ -2006,9 +2092,10 @@ CREATE TABLE IF NOT EXISTS `omoccurgeoindex` (
 -- Table structure for table `omoccuridentifiers`
 --
 
+DROP TABLE IF EXISTS `omoccuridentifiers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccuridentifiers` (
+CREATE TABLE `omoccuridentifiers` (
   `idomoccuridentifiers` int(11) NOT NULL AUTO_INCREMENT,
   `occid` int(10) unsigned NOT NULL,
   `identifiervalue` varchar(45) NOT NULL,
@@ -2028,9 +2115,10 @@ CREATE TABLE IF NOT EXISTS `omoccuridentifiers` (
 -- Table structure for table `omoccurloans`
 --
 
+DROP TABLE IF EXISTS `omoccurloans`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurloans` (
+CREATE TABLE `omoccurloans` (
   `loanid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `loanIdentifierOwn` varchar(30) DEFAULT NULL,
   `loanIdentifierBorr` varchar(30) DEFAULT NULL,
@@ -2079,9 +2167,10 @@ CREATE TABLE IF NOT EXISTS `omoccurloans` (
 -- Table structure for table `omoccurloanslink`
 --
 
+DROP TABLE IF EXISTS `omoccurloanslink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurloanslink` (
+CREATE TABLE `omoccurloanslink` (
   `loanid` int(10) unsigned NOT NULL,
   `occid` int(10) unsigned NOT NULL,
   `returndate` date DEFAULT NULL,
@@ -2099,10 +2188,10 @@ CREATE TABLE IF NOT EXISTS `omoccurloanslink` (
 -- Table structure for table `omoccurpoints`
 --
 
-
+DROP TABLE IF EXISTS `omoccurpoints`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurpoints` (
+CREATE TABLE `omoccurpoints` (
   `geoID` int(11) NOT NULL AUTO_INCREMENT,
   `occid` int(11) NOT NULL,
   `point` point NOT NULL,
@@ -2119,9 +2208,10 @@ CREATE TABLE IF NOT EXISTS `omoccurpoints` (
 -- Table structure for table `omoccurrences`
 --
 
+DROP TABLE IF EXISTS `omoccurrences`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurrences` (
+CREATE TABLE `omoccurrences` (
   `occid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `collid` int(10) unsigned NOT NULL,
   `dbpk` varchar(150) DEFAULT NULL,
@@ -2222,6 +2312,14 @@ CREATE TABLE IF NOT EXISTS `omoccurrences` (
   `recordEnteredBy` varchar(250) DEFAULT NULL,
   `duplicateQuantity` int(10) unsigned DEFAULT NULL,
   `labelProject` varchar(50) DEFAULT NULL,
+  `verbatimIndigenousName` varchar(100) DEFAULT NULL,
+  `validIndigenousName` varchar(100) DEFAULT NULL,
+  `languageIndigenousName` varchar(50) DEFAULT NULL,
+  `villageIndigenousname` varchar(50) DEFAULT NULL,
+  `municipalityIndigenousname` varchar(50) DEFAULT NULL,
+  `stateIndigenousname` varchar(50) DEFAULT NULL,
+  `countryIndigenousname` varchar(50) DEFAULT NULL,
+  `isoIndigenousname` varchar(3) DEFAULT NULL,
   `dateEntered` datetime DEFAULT NULL,
   `dateLastModified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`occid`) USING BTREE,
@@ -2264,10 +2362,8 @@ CREATE TABLE IF NOT EXISTS `omoccurrences` (
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-
-DROP TRIGGER IF EXISTS `omoccurrencesfulltext_insert`;
 DELIMITER ;;
-  /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_insert` AFTER INSERT ON `omoccurrences`
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_insert` AFTER INSERT ON `omoccurrences`
 FOR EACH ROW BEGIN
   INSERT INTO omoccurrencesfulltext (
     `occid`,
@@ -2292,10 +2388,8 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-
-DROP TRIGGER IF EXISTS `omoccurrencesfulltext_update`;
 DELIMITER ;;
-  /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_update` AFTER UPDATE ON `omoccurrences`
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_update` AFTER UPDATE ON `omoccurrences`
 FOR EACH ROW BEGIN
   UPDATE omoccurrencesfulltext SET
     `recordedby` = NEW.`recordedby`,
@@ -2315,10 +2409,8 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-
-DROP TRIGGER IF EXISTS `omoccurrencesfulltext_delete`;
 DELIMITER ;;
-  /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_delete` BEFORE DELETE ON `omoccurrences`
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_delete` BEFORE DELETE ON `omoccurrences`
 FOR EACH ROW BEGIN
   DELETE FROM omoccurrencesfulltext WHERE `occid` = OLD.`occid`;
 END */;;
@@ -2328,14 +2420,14 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
-
 --
 -- Table structure for table `omoccurrencesfulltext`
 --
 
+DROP TABLE IF EXISTS `omoccurrencesfulltext`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurrencesfulltext` (
+CREATE TABLE `omoccurrencesfulltext` (
   `occid` int(11) NOT NULL,
   `locality` text,
   `recordedby` varchar(255) DEFAULT NULL,
@@ -2349,9 +2441,10 @@ CREATE TABLE IF NOT EXISTS `omoccurrencesfulltext` (
 -- Table structure for table `omoccurverification`
 --
 
+DROP TABLE IF EXISTS `omoccurverification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omoccurverification` (
+CREATE TABLE `omoccurverification` (
   `ovsid` int(11) NOT NULL AUTO_INCREMENT,
   `occid` int(10) unsigned NOT NULL,
   `category` varchar(45) NOT NULL,
@@ -2374,9 +2467,10 @@ CREATE TABLE IF NOT EXISTS `omoccurverification` (
 -- Table structure for table `omsurveyoccurlink`
 --
 
+DROP TABLE IF EXISTS `omsurveyoccurlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omsurveyoccurlink` (
+CREATE TABLE `omsurveyoccurlink` (
   `occid` int(10) unsigned NOT NULL,
   `surveyid` int(10) unsigned NOT NULL,
   `notes` varchar(250) DEFAULT NULL,
@@ -2392,9 +2486,10 @@ CREATE TABLE IF NOT EXISTS `omsurveyoccurlink` (
 -- Table structure for table `omsurveyprojlink`
 --
 
+DROP TABLE IF EXISTS `omsurveyprojlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omsurveyprojlink` (
+CREATE TABLE `omsurveyprojlink` (
   `surveyid` int(10) unsigned NOT NULL,
   `pid` int(10) unsigned NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -2409,9 +2504,10 @@ CREATE TABLE IF NOT EXISTS `omsurveyprojlink` (
 -- Table structure for table `omsurveys`
 --
 
+DROP TABLE IF EXISTS `omsurveys`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `omsurveys` (
+CREATE TABLE `omsurveys` (
   `surveyid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projectname` varchar(75) NOT NULL,
   `locality` varchar(1000) DEFAULT NULL,
@@ -2430,9 +2526,10 @@ CREATE TABLE IF NOT EXISTS `omsurveys` (
 -- Table structure for table `referenceagentlinks`
 --
 
+DROP TABLE IF EXISTS `referenceagentlinks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referenceagentlinks` (
+CREATE TABLE `referenceagentlinks` (
   `refid` int(11) NOT NULL,
   `agentid` int(11) NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2445,9 +2542,10 @@ CREATE TABLE IF NOT EXISTS `referenceagentlinks` (
 -- Table structure for table `referenceauthorlink`
 --
 
+DROP TABLE IF EXISTS `referenceauthorlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referenceauthorlink` (
+CREATE TABLE `referenceauthorlink` (
   `refid` int(11) NOT NULL,
   `refauthid` int(11) NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2463,9 +2561,10 @@ CREATE TABLE IF NOT EXISTS `referenceauthorlink` (
 -- Table structure for table `referenceauthors`
 --
 
+DROP TABLE IF EXISTS `referenceauthors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referenceauthors` (
+CREATE TABLE `referenceauthors` (
   `refauthorid` int(11) NOT NULL AUTO_INCREMENT,
   `lastname` varchar(100) NOT NULL,
   `firstname` varchar(100) DEFAULT NULL,
@@ -2482,9 +2581,10 @@ CREATE TABLE IF NOT EXISTS `referenceauthors` (
 -- Table structure for table `referencechecklistlink`
 --
 
+DROP TABLE IF EXISTS `referencechecklistlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referencechecklistlink` (
+CREATE TABLE `referencechecklistlink` (
   `refid` int(11) NOT NULL,
   `clid` int(10) unsigned NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2500,9 +2600,10 @@ CREATE TABLE IF NOT EXISTS `referencechecklistlink` (
 -- Table structure for table `referencechklsttaxalink`
 --
 
+DROP TABLE IF EXISTS `referencechklsttaxalink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referencechklsttaxalink` (
+CREATE TABLE `referencechklsttaxalink` (
   `refid` int(11) NOT NULL,
   `clid` int(10) unsigned NOT NULL,
   `tid` int(10) unsigned NOT NULL,
@@ -2518,9 +2619,10 @@ CREATE TABLE IF NOT EXISTS `referencechklsttaxalink` (
 -- Table structure for table `referencecollectionlink`
 --
 
+DROP TABLE IF EXISTS `referencecollectionlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referencecollectionlink` (
+CREATE TABLE `referencecollectionlink` (
   `refid` int(11) NOT NULL,
   `collid` int(10) unsigned NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2535,9 +2637,10 @@ CREATE TABLE IF NOT EXISTS `referencecollectionlink` (
 -- Table structure for table `referenceobject`
 --
 
+DROP TABLE IF EXISTS `referenceobject`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referenceobject` (
+CREATE TABLE `referenceobject` (
   `refid` int(11) NOT NULL AUTO_INCREMENT,
   `parentRefId` int(11) DEFAULT NULL,
   `ReferenceTypeId` int(11) DEFAULT NULL,
@@ -2580,9 +2683,10 @@ CREATE TABLE IF NOT EXISTS `referenceobject` (
 -- Table structure for table `referenceoccurlink`
 --
 
+DROP TABLE IF EXISTS `referenceoccurlink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referenceoccurlink` (
+CREATE TABLE `referenceoccurlink` (
   `refid` int(11) NOT NULL,
   `occid` int(10) unsigned NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2598,9 +2702,10 @@ CREATE TABLE IF NOT EXISTS `referenceoccurlink` (
 -- Table structure for table `referencetaxalink`
 --
 
+DROP TABLE IF EXISTS `referencetaxalink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referencetaxalink` (
+CREATE TABLE `referencetaxalink` (
   `refid` int(11) NOT NULL,
   `tid` int(10) unsigned NOT NULL,
   `initialtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2616,9 +2721,10 @@ CREATE TABLE IF NOT EXISTS `referencetaxalink` (
 -- Table structure for table `referencetype`
 --
 
+DROP TABLE IF EXISTS `referencetype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `referencetype` (
+CREATE TABLE `referencetype` (
   `ReferenceTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `ReferenceType` varchar(45) NOT NULL,
   `IsParent` int(11) DEFAULT NULL,
@@ -2650,9 +2756,10 @@ CREATE TABLE IF NOT EXISTS `referencetype` (
 -- Table structure for table `salixwordstats`
 --
 
+DROP TABLE IF EXISTS `salixwordstats`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `salixwordstats` (
+CREATE TABLE `salixwordstats` (
   `swsid` int(11) NOT NULL AUTO_INCREMENT,
   `firstword` varchar(45) NOT NULL,
   `secondword` varchar(45) DEFAULT NULL,
@@ -2677,9 +2784,10 @@ CREATE TABLE IF NOT EXISTS `salixwordstats` (
 -- Table structure for table `schemaversion`
 --
 
+DROP TABLE IF EXISTS `schemaversion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `schemaversion` (
+CREATE TABLE `schemaversion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `versionnumber` varchar(20) NOT NULL,
   `dateapplied` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2691,9 +2799,10 @@ CREATE TABLE IF NOT EXISTS `schemaversion` (
 -- Table structure for table `specprocessorprojects`
 --
 
+DROP TABLE IF EXISTS `specprocessorprojects`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `specprocessorprojects` (
+CREATE TABLE `specprocessorprojects` (
   `spprid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `collid` int(10) unsigned NOT NULL,
   `title` varchar(100) NOT NULL,
@@ -2724,9 +2833,10 @@ CREATE TABLE IF NOT EXISTS `specprocessorprojects` (
 -- Table structure for table `specprocessorrawlabels`
 --
 
+DROP TABLE IF EXISTS `specprocessorrawlabels`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `specprocessorrawlabels` (
+CREATE TABLE `specprocessorrawlabels` (
   `prlid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `imgid` int(10) unsigned DEFAULT NULL,
   `occid` int(10) unsigned DEFAULT NULL,
@@ -2752,12 +2862,10 @@ CREATE TABLE IF NOT EXISTS `specprocessorrawlabels` (
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-
-DROP TRIGGER IF EXISTS `specprocessorrawlabelsfulltext_insert`;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `specprocessorrawlabelsfulltext_insert` AFTER INSERT ON `specprocessorrawlabels`
 FOR EACH ROW BEGIN
-  INSERT IGNORE INTO specprocessorrawlabelsfulltext (
+  INSERT INTO specprocessorrawlabelsfulltext (
     `prlid`,
     `imgid`,
     `rawstr`
@@ -2766,7 +2874,6 @@ FOR EACH ROW BEGIN
     NEW.`imgid`,
     NEW.`rawstr`
   );
-
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2781,8 +2888,6 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-
-DROP TRIGGER IF EXISTS `specprocessorrawlabelsfulltext_update`;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `specprocessorrawlabelsfulltext_update` AFTER UPDATE ON `specprocessorrawlabels`
 FOR EACH ROW BEGIN
@@ -2801,9 +2906,10 @@ DELIMITER ;
 -- Table structure for table `specprocessorrawlabelsfulltext`
 --
 
+DROP TABLE IF EXISTS `specprocessorrawlabelsfulltext`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `specprocessorrawlabelsfulltext` (
+CREATE TABLE `specprocessorrawlabelsfulltext` (
   `prlid` int(11) NOT NULL,
   `imgid` int(11) NOT NULL,
   `rawstr` text NOT NULL,
@@ -2820,8 +2926,6 @@ CREATE TABLE IF NOT EXISTS `specprocessorrawlabelsfulltext` (
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-
-DROP TRIGGER IF EXISTS `specprocessorrawlabelsfulltext_delete`;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `specprocessorrawlabelsfulltext_delete` BEFORE DELETE ON `specprocessorrawlabelsfulltext`
 FOR EACH ROW BEGIN
@@ -2837,9 +2941,10 @@ DELIMITER ;
 -- Table structure for table `specprocnlp`
 --
 
+DROP TABLE IF EXISTS `specprocnlp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `specprocnlp` (
+CREATE TABLE `specprocnlp` (
   `spnlpid` int(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
   `sqlfrag` varchar(250) NOT NULL,
@@ -2857,9 +2962,10 @@ CREATE TABLE IF NOT EXISTS `specprocnlp` (
 -- Table structure for table `specprocnlpfrag`
 --
 
+DROP TABLE IF EXISTS `specprocnlpfrag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `specprocnlpfrag` (
+CREATE TABLE `specprocnlpfrag` (
   `spnlpfragid` int(10) NOT NULL AUTO_INCREMENT,
   `spnlpid` int(10) NOT NULL,
   `fieldname` varchar(45) NOT NULL,
@@ -2877,9 +2983,10 @@ CREATE TABLE IF NOT EXISTS `specprocnlpfrag` (
 -- Table structure for table `specprocnlpversion`
 --
 
+DROP TABLE IF EXISTS `specprocnlpversion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `specprocnlpversion` (
+CREATE TABLE `specprocnlpversion` (
   `nlpverid` int(11) NOT NULL AUTO_INCREMENT,
   `prlid` int(10) unsigned NOT NULL,
   `archivestr` text NOT NULL,
@@ -2898,9 +3005,10 @@ CREATE TABLE IF NOT EXISTS `specprocnlpversion` (
 -- Table structure for table `specprococrfrag`
 --
 
+DROP TABLE IF EXISTS `specprococrfrag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `specprococrfrag` (
+CREATE TABLE `specprococrfrag` (
   `ocrfragid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `prlid` int(10) unsigned NOT NULL,
   `firstword` varchar(45) NOT NULL,
@@ -2919,9 +3027,10 @@ CREATE TABLE IF NOT EXISTS `specprococrfrag` (
 -- Table structure for table `taxa`
 --
 
+DROP TABLE IF EXISTS `taxa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxa` (
+CREATE TABLE `taxa` (
   `TID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `kingdomName` varchar(45) DEFAULT NULL,
   `KingdomID` tinyint(3) unsigned DEFAULT NULL,
@@ -2956,9 +3065,10 @@ CREATE TABLE IF NOT EXISTS `taxa` (
 -- Table structure for table `taxadescrblock`
 --
 
+DROP TABLE IF EXISTS `taxadescrblock`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxadescrblock` (
+CREATE TABLE `taxadescrblock` (
   `tdbid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tid` int(10) unsigned NOT NULL,
   `caption` varchar(20) DEFAULT NULL,
@@ -2979,9 +3089,10 @@ CREATE TABLE IF NOT EXISTS `taxadescrblock` (
 -- Table structure for table `taxadescrstmts`
 --
 
+DROP TABLE IF EXISTS `taxadescrstmts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxadescrstmts` (
+CREATE TABLE `taxadescrstmts` (
   `tdsid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tdbid` int(10) unsigned NOT NULL,
   `heading` varchar(75) NOT NULL,
@@ -3000,9 +3111,10 @@ CREATE TABLE IF NOT EXISTS `taxadescrstmts` (
 -- Table structure for table `taxaenumtree`
 --
 
+DROP TABLE IF EXISTS `taxaenumtree`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxaenumtree` (
+CREATE TABLE `taxaenumtree` (
   `tid` int(10) unsigned NOT NULL,
   `taxauthid` int(10) unsigned NOT NULL,
   `parenttid` int(10) unsigned NOT NULL,
@@ -3021,9 +3133,10 @@ CREATE TABLE IF NOT EXISTS `taxaenumtree` (
 -- Table structure for table `taxalinks`
 --
 
+DROP TABLE IF EXISTS `taxalinks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxalinks` (
+CREATE TABLE `taxalinks` (
   `tlid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tid` int(10) unsigned NOT NULL,
   `url` varchar(500) NOT NULL,
@@ -3044,9 +3157,10 @@ CREATE TABLE IF NOT EXISTS `taxalinks` (
 -- Table structure for table `taxamaps`
 --
 
+DROP TABLE IF EXISTS `taxamaps`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxamaps` (
+CREATE TABLE `taxamaps` (
   `mid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tid` int(10) unsigned NOT NULL,
   `url` varchar(255) NOT NULL,
@@ -3062,9 +3176,10 @@ CREATE TABLE IF NOT EXISTS `taxamaps` (
 -- Table structure for table `taxanestedtree`
 --
 
+DROP TABLE IF EXISTS `taxanestedtree`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxanestedtree` (
+CREATE TABLE `taxanestedtree` (
   `tid` int(10) unsigned NOT NULL,
   `taxauthid` int(10) unsigned NOT NULL,
   `leftindex` int(10) unsigned NOT NULL,
@@ -3084,9 +3199,10 @@ CREATE TABLE IF NOT EXISTS `taxanestedtree` (
 -- Table structure for table `taxaprofilepubdesclink`
 --
 
+DROP TABLE IF EXISTS `taxaprofilepubdesclink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxaprofilepubdesclink` (
+CREATE TABLE `taxaprofilepubdesclink` (
   `tdbid` int(10) unsigned NOT NULL,
   `tppid` int(11) NOT NULL,
   `caption` varchar(45) DEFAULT NULL,
@@ -3104,9 +3220,10 @@ CREATE TABLE IF NOT EXISTS `taxaprofilepubdesclink` (
 -- Table structure for table `taxaprofilepubimagelink`
 --
 
+DROP TABLE IF EXISTS `taxaprofilepubimagelink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxaprofilepubimagelink` (
+CREATE TABLE `taxaprofilepubimagelink` (
   `imgid` int(10) unsigned NOT NULL,
   `tppid` int(11) NOT NULL,
   `caption` varchar(45) DEFAULT NULL,
@@ -3124,9 +3241,10 @@ CREATE TABLE IF NOT EXISTS `taxaprofilepubimagelink` (
 -- Table structure for table `taxaprofilepubmaplink`
 --
 
+DROP TABLE IF EXISTS `taxaprofilepubmaplink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxaprofilepubmaplink` (
+CREATE TABLE `taxaprofilepubmaplink` (
   `mid` int(10) unsigned NOT NULL,
   `tppid` int(11) NOT NULL,
   `caption` varchar(45) DEFAULT NULL,
@@ -3144,9 +3262,10 @@ CREATE TABLE IF NOT EXISTS `taxaprofilepubmaplink` (
 -- Table structure for table `taxaprofilepubs`
 --
 
+DROP TABLE IF EXISTS `taxaprofilepubs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxaprofilepubs` (
+CREATE TABLE `taxaprofilepubs` (
   `tppid` int(11) NOT NULL AUTO_INCREMENT,
   `pubtitle` varchar(150) NOT NULL,
   `authors` varchar(150) DEFAULT NULL,
@@ -3172,9 +3291,10 @@ CREATE TABLE IF NOT EXISTS `taxaprofilepubs` (
 -- Table structure for table `taxaresourcelinks`
 --
 
+DROP TABLE IF EXISTS `taxaresourcelinks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxaresourcelinks` (
+CREATE TABLE `taxaresourcelinks` (
   `taxaresourceid` int(11) NOT NULL AUTO_INCREMENT,
   `tid` int(10) unsigned NOT NULL,
   `sourcename` varchar(150) NOT NULL,
@@ -3195,9 +3315,10 @@ CREATE TABLE IF NOT EXISTS `taxaresourcelinks` (
 -- Table structure for table `taxauthority`
 --
 
+DROP TABLE IF EXISTS `taxauthority`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxauthority` (
+CREATE TABLE `taxauthority` (
   `taxauthid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `isprimary` int(1) unsigned NOT NULL DEFAULT '0',
   `name` varchar(45) NOT NULL,
@@ -3217,9 +3338,10 @@ CREATE TABLE IF NOT EXISTS `taxauthority` (
 -- Table structure for table `taxavernaculars`
 --
 
+DROP TABLE IF EXISTS `taxavernaculars`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxavernaculars` (
+CREATE TABLE `taxavernaculars` (
   `TID` int(10) unsigned NOT NULL DEFAULT '0',
   `VernacularName` varchar(80) NOT NULL,
   `Language` varchar(15) NOT NULL DEFAULT 'English',
@@ -3242,9 +3364,10 @@ CREATE TABLE IF NOT EXISTS `taxavernaculars` (
 -- Table structure for table `taxonunits`
 --
 
+DROP TABLE IF EXISTS `taxonunits`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxonunits` (
+CREATE TABLE `taxonunits` (
   `taxonunitid` int(11) NOT NULL AUTO_INCREMENT,
   `kingdomid` tinyint(3) unsigned DEFAULT NULL,
   `kingdomName` varchar(45) NOT NULL DEFAULT 'Organism',
@@ -3264,9 +3387,10 @@ CREATE TABLE IF NOT EXISTS `taxonunits` (
 -- Table structure for table `taxstatus`
 --
 
+DROP TABLE IF EXISTS `taxstatus`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `taxstatus` (
+CREATE TABLE `taxstatus` (
   `tid` int(10) unsigned NOT NULL,
   `tidaccepted` int(10) unsigned NOT NULL,
   `taxauthid` int(10) unsigned NOT NULL COMMENT 'taxon authority id',
@@ -3294,9 +3418,10 @@ CREATE TABLE IF NOT EXISTS `taxstatus` (
 -- Table structure for table `unknowncomments`
 --
 
+DROP TABLE IF EXISTS `unknowncomments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `unknowncomments` (
+CREATE TABLE `unknowncomments` (
   `unkcomid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `unkid` int(10) unsigned NOT NULL,
   `comment` varchar(500) NOT NULL,
@@ -3312,9 +3437,10 @@ CREATE TABLE IF NOT EXISTS `unknowncomments` (
 -- Table structure for table `unknownimages`
 --
 
+DROP TABLE IF EXISTS `unknownimages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `unknownimages` (
+CREATE TABLE `unknownimages` (
   `unkimgid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `unkid` int(10) unsigned NOT NULL,
   `url` varchar(255) NOT NULL,
@@ -3330,9 +3456,10 @@ CREATE TABLE IF NOT EXISTS `unknownimages` (
 -- Table structure for table `unknowns`
 --
 
+DROP TABLE IF EXISTS `unknowns`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `unknowns` (
+CREATE TABLE `unknowns` (
   `unkid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tid` int(10) unsigned DEFAULT NULL,
   `photographer` varchar(100) DEFAULT NULL,
@@ -3356,9 +3483,10 @@ CREATE TABLE IF NOT EXISTS `unknowns` (
 -- Table structure for table `uploaddetermtemp`
 --
 
+DROP TABLE IF EXISTS `uploaddetermtemp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `uploaddetermtemp` (
+CREATE TABLE `uploaddetermtemp` (
   `occid` int(10) unsigned DEFAULT NULL,
   `collid` int(10) unsigned DEFAULT NULL,
   `dbpk` varchar(150) DEFAULT NULL,
@@ -3385,9 +3513,10 @@ CREATE TABLE IF NOT EXISTS `uploaddetermtemp` (
 -- Table structure for table `uploadimagetemp`
 --
 
+DROP TABLE IF EXISTS `uploadimagetemp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `uploadimagetemp` (
+CREATE TABLE `uploadimagetemp` (
   `tid` int(10) unsigned DEFAULT NULL,
   `url` varchar(255) NOT NULL,
   `thumbnailurl` varchar(255) DEFAULT NULL,
@@ -3418,9 +3547,10 @@ CREATE TABLE IF NOT EXISTS `uploadimagetemp` (
 -- Table structure for table `uploadspecmap`
 --
 
+DROP TABLE IF EXISTS `uploadspecmap`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `uploadspecmap` (
+CREATE TABLE `uploadspecmap` (
   `usmid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uspid` int(10) unsigned NOT NULL,
   `sourcefield` varchar(45) NOT NULL,
@@ -3437,9 +3567,10 @@ CREATE TABLE IF NOT EXISTS `uploadspecmap` (
 -- Table structure for table `uploadspecparameters`
 --
 
+DROP TABLE IF EXISTS `uploadspecparameters`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `uploadspecparameters` (
+CREATE TABLE `uploadspecparameters` (
   `uspid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `CollID` int(10) unsigned NOT NULL,
   `UploadType` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '1 = Direct; 2 = DiGIR; 3 = File',
@@ -3468,9 +3599,10 @@ CREATE TABLE IF NOT EXISTS `uploadspecparameters` (
 -- Table structure for table `uploadspectemp`
 --
 
+DROP TABLE IF EXISTS `uploadspectemp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `uploadspectemp` (
+CREATE TABLE `uploadspectemp` (
   `collid` int(10) unsigned NOT NULL,
   `dbpk` varchar(150) DEFAULT NULL,
   `occid` int(10) unsigned DEFAULT NULL,
@@ -3625,9 +3757,10 @@ CREATE TABLE IF NOT EXISTS `uploadspectemp` (
 -- Table structure for table `uploadtaxa`
 --
 
+DROP TABLE IF EXISTS `uploadtaxa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `uploadtaxa` (
+CREATE TABLE `uploadtaxa` (
   `TID` int(10) unsigned DEFAULT NULL,
   `SourceId` int(10) unsigned DEFAULT NULL,
   `KingdomID` tinyint(3) unsigned DEFAULT '3',
@@ -3669,9 +3802,10 @@ CREATE TABLE IF NOT EXISTS `uploadtaxa` (
 -- Table structure for table `userlogin`
 --
 
+DROP TABLE IF EXISTS `userlogin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `userlogin` (
+CREATE TABLE `userlogin` (
   `uid` int(10) unsigned NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
@@ -3689,9 +3823,10 @@ CREATE TABLE IF NOT EXISTS `userlogin` (
 -- Table structure for table `userroles`
 --
 
+DROP TABLE IF EXISTS `userroles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `userroles` (
+CREATE TABLE `userroles` (
   `userroleid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uid` int(10) unsigned NOT NULL,
   `role` varchar(45) NOT NULL,
@@ -3714,9 +3849,10 @@ CREATE TABLE IF NOT EXISTS `userroles` (
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(45) DEFAULT NULL,
   `lastname` varchar(45) NOT NULL,
@@ -3751,9 +3887,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Table structure for table `usertaxonomy`
 --
 
+DROP TABLE IF EXISTS `usertaxonomy`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE IF NOT EXISTS `usertaxonomy` (
+CREATE TABLE `usertaxonomy` (
   `idusertaxonomy` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(10) unsigned NOT NULL,
   `tid` int(10) unsigned NOT NULL,
@@ -3792,42 +3929,42 @@ CREATE TABLE IF NOT EXISTS `usertaxonomy` (
 
 
 -- Prime some tables with default data values
-INSERT IGNORE INTO schemaversion (versionnumber) values ("1.1");
+INSERT INTO schemaversion (versionnumber) values ("1.0");
 
 -- Create the general admin user
-INSERT IGNORE INTO users(uid,firstname,lastname,state,country,email) VALUES (1,"General","Administrator","NA","NA","NA");
-INSERT IGNORE INTO userlogin(uid,username,password) VALUES (1,"admin",password("admin"));
-INSERT IGNORE INTO userroles(uid,role) VALUES (1,"SuperAdmin");
+INSERT INTO users(uid,firstname,lastname,state,country,email) VALUES (1,"General","Administrator","NA","NA","NA");
+INSERT INTO userlogin(uid,username,password) VALUES (1,"admin",password("admin"));
+INSERT INTO userroles(uid,role) VALUES (1,"SuperAdmin");
 
 -- Prime taxonunits table
-INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankName, dirparentrankid, reqparentrankid)
-VALUES ("Organism",1,"Organism",1,1),("Organism",10,"Kingdom",1,1),("Organism",20,"Subkingdom",10,10),("Organism",30,"Division",20,10),("Organism",40,"Subdivision",30,30),("Organism",50,"Superclass",40,30),("Organism",60,"Class",50,30),("Organism",70,"Subclass",60,60),("Organism",100,"Order",70,60),("Organism",110,"Suborder",100,100),("Organism",140,"Family",110,100),("Organism",150,"Subfamily",140,140),("Organism",160,"Tribe",150,140),("Organism",170,"Subtribe",160,140),("Organism",180,"Genus",170,140),("Organism",190,"Subgenus",180,180),("Organism",200,"Section",190,180),("Organism",210,"Subsection",200,180),("Organism",220,"Species",210,180),("Organism",230,"Subspecies",220,180),("Organism",240,"Variety",220,180),("Organism",250,"Subvariety",240,180),("Organism",260,"Form",220,180),("Organism",270,"Subform",260,180),("Organism",300,"Cultivated",220,220);
-INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid)
-VALUES ("Monera",1,"Organism",1,1),("Monera",10,"Kingdom",1,1),("Monera",20,"Subkingdom",10,10),("Monera",30,"Phylum",20,10),("Monera",40,"Subphylum",30,30),("Monera",60,"Class",50,30),("Monera",70,"Subclass",60,60),("Monera",100,"Order",70,60),("Monera",110,"Suborder",100,100),("Monera",140,"Family",110,100),("Monera",150,"Subfamily",140,140),("Monera",160,"Tribe",150,140),("Monera",170,"Subtribe",160,140),("Monera",180,"Genus",170,140),("Monera",190,"Subgenus",180,180),("Monera",220,"Species",210,180),("Monera",230,"Subspecies",220,180),("Monera",240,"Morph",220,180);
-INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid)
-VALUES ("Protista",1,"Organism",1,1),("Protista",10,"Kingdom",1,1),("Protista",20,"Subkingdom",10,10),("Protista",30,"Phylum",20,10),("Protista",40,"Subphylum",30,30),("Protista",60,"Class",50,30),("Protista",70,"Subclass",60,60),("Protista",100,"Order",70,60),("Protista",110,"Suborder",100,100),("Protista",140,"Family",110,100),("Protista",150,"Subfamily",140,140),("Protista",160,"Tribe",150,140),("Protista",170,"Subtribe",160,140),("Protista",180,"Genus",170,140),("Protista",190,"Subgenus",180,180),("Protista",220,"Species",210,180),("Protista",230,"Subspecies",220,180),("Protista",240,"Morph",220,180);
-INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid)
-VALUES ("Plantae",1,"Organism",1,1),("Plantae",10,"Kingdom",1,1),("Plantae",20,"Subkingdom",10,10),("Plantae",30,"Division",20,10),("Plantae",40,"Subdivision",30,30),("Plantae",50,"Superclass",40,30),("Plantae",60,"Class",50,30),("Plantae",70,"Subclass",60,60),("Plantae",100,"Order",70,60),("Plantae",110,"Suborder",100,100),("Plantae",140,"Family",110,100),("Plantae",150,"Subfamily",140,140),("Plantae",160,"Tribe",150,140),("Plantae",170,"Subtribe",160,140),("Plantae",180,"Genus",170,140),("Plantae",190,"Subgenus",180,180),("Plantae",200,"Section",190,180),("Plantae",210,"Subsection",200,180),("Plantae",220,"Species",210,180),("Plantae",230,"Subspecies",220,180),("Plantae",240,"Variety",220,180),("Plantae",250,"Subvariety",240,180),("Plantae",260,"Form",220,180),("Plantae",270,"Subform",260,180),("Plantae",300,"Cultivated",220,220);
-INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid)
-VALUES ("Fungi",1,"Organism",1,1),("Fungi",10,"Kingdom",1,1),("Fungi",20,"Subkingdom",10,10),("Fungi",30,"Division",20,10),("Fungi",40,"Subdivision",30,30),("Fungi",50,"Superclass",40,30),("Fungi",60,"Class",50,30),("Fungi",70,"Subclass",60,60),("Fungi",100,"Order",70,60),("Fungi",110,"Suborder",100,100),("Fungi",140,"Family",110,100),("Fungi",150,"Subfamily",140,140),("Fungi",160,"Tribe",150,140),("Fungi",170,"Subtribe",160,140),("Fungi",180,"Genus",170,140),("Fungi",190,"Subgenus",180,180),("Fungi",200,"Section",190,180),("Fungi",210,"Subsection",200,180),("Fungi",220,"Species",210,180),("Fungi",230,"Subspecies",220,180),("Fungi",240,"Variety",220,180),("Fungi",250,"Subvariety",240,180),("Fungi",260,"Form",220,180),("Fungi",270,"Subform",260,180),("Fungi",300,"Cultivated",220,220);
-INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid)
-VALUES ("Animalia",1,"Organism",1,1),("Animalia",10,"Kingdom",1,1),("Animalia",20,"Subkingdom",10,10),("Animalia",30,"Phylum",20,10),("Animalia",40,"Subphylum",30,30),("Animalia",60,"Class",50,30),("Animalia",70,"Subclass",60,60),("Animalia",100,"Order",70,60),("Animalia",110,"Suborder",100,100),("Animalia",140,"Family",110,100),("Animalia",150,"Subfamily",140,140),("Animalia",160,"Tribe",150,140),("Animalia",170,"Subtribe",160,140),("Animalia",180,"Genus",170,140),("Animalia",190,"Subgenus",180,180),("Animalia",220,"Species",210,180),("Animalia",230,"Subspecies",220,180),("Animalia",240,"Morph",220,180);
+INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankName, dirparentrankid, reqparentrankid) 
+  VALUES ("Organism",1,"Organism",1,1),("Organism",10,"Kingdom",1,1),("Organism",20,"Subkingdom",10,10),("Organism",30,"Division",20,10),("Organism",40,"Subdivision",30,30),("Organism",50,"Superclass",40,30),("Organism",60,"Class",50,30),("Organism",70,"Subclass",60,60),("Organism",100,"Order",70,60),("Organism",110,"Suborder",100,100),("Organism",140,"Family",110,100),("Organism",150,"Subfamily",140,140),("Organism",160,"Tribe",150,140),("Organism",170,"Subtribe",160,140),("Organism",180,"Genus",170,140),("Organism",190,"Subgenus",180,180),("Organism",200,"Section",190,180),("Organism",210,"Subsection",200,180),("Organism",220,"Species",210,180),("Organism",230,"Subspecies",220,180),("Organism",240,"Variety",220,180),("Organism",250,"Subvariety",240,180),("Organism",260,"Form",220,180),("Organism",270,"Subform",260,180),("Organism",300,"Cultivated",220,220);
+INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid) 
+  VALUES ("Monera",1,"Organism",1,1),("Monera",10,"Kingdom",1,1),("Monera",20,"Subkingdom",10,10),("Monera",30,"Phylum",20,10),("Monera",40,"Subphylum",30,30),("Monera",60,"Class",50,30),("Monera",70,"Subclass",60,60),("Monera",100,"Order",70,60),("Monera",110,"Suborder",100,100),("Monera",140,"Family",110,100),("Monera",150,"Subfamily",140,140),("Monera",160,"Tribe",150,140),("Monera",170,"Subtribe",160,140),("Monera",180,"Genus",170,140),("Monera",190,"Subgenus",180,180),("Monera",220,"Species",210,180),("Monera",230,"Subspecies",220,180),("Monera",240,"Morph",220,180);
+INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid) 
+  VALUES ("Protista",1,"Organism",1,1),("Protista",10,"Kingdom",1,1),("Protista",20,"Subkingdom",10,10),("Protista",30,"Phylum",20,10),("Protista",40,"Subphylum",30,30),("Protista",60,"Class",50,30),("Protista",70,"Subclass",60,60),("Protista",100,"Order",70,60),("Protista",110,"Suborder",100,100),("Protista",140,"Family",110,100),("Protista",150,"Subfamily",140,140),("Protista",160,"Tribe",150,140),("Protista",170,"Subtribe",160,140),("Protista",180,"Genus",170,140),("Protista",190,"Subgenus",180,180),("Protista",220,"Species",210,180),("Protista",230,"Subspecies",220,180),("Protista",240,"Morph",220,180);
+INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid) 
+  VALUES ("Plantae",1,"Organism",1,1),("Plantae",10,"Kingdom",1,1),("Plantae",20,"Subkingdom",10,10),("Plantae",30,"Division",20,10),("Plantae",40,"Subdivision",30,30),("Plantae",50,"Superclass",40,30),("Plantae",60,"Class",50,30),("Plantae",70,"Subclass",60,60),("Plantae",100,"Order",70,60),("Plantae",110,"Suborder",100,100),("Plantae",140,"Family",110,100),("Plantae",150,"Subfamily",140,140),("Plantae",160,"Tribe",150,140),("Plantae",170,"Subtribe",160,140),("Plantae",180,"Genus",170,140),("Plantae",190,"Subgenus",180,180),("Plantae",200,"Section",190,180),("Plantae",210,"Subsection",200,180),("Plantae",220,"Species",210,180),("Plantae",230,"Subspecies",220,180),("Plantae",240,"Variety",220,180),("Plantae",250,"Subvariety",240,180),("Plantae",260,"Form",220,180),("Plantae",270,"Subform",260,180),("Plantae",300,"Cultivated",220,220);
+INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid) 
+  VALUES ("Fungi",1,"Organism",1,1),("Fungi",10,"Kingdom",1,1),("Fungi",20,"Subkingdom",10,10),("Fungi",30,"Division",20,10),("Fungi",40,"Subdivision",30,30),("Fungi",50,"Superclass",40,30),("Fungi",60,"Class",50,30),("Fungi",70,"Subclass",60,60),("Fungi",100,"Order",70,60),("Fungi",110,"Suborder",100,100),("Fungi",140,"Family",110,100),("Fungi",150,"Subfamily",140,140),("Fungi",160,"Tribe",150,140),("Fungi",170,"Subtribe",160,140),("Fungi",180,"Genus",170,140),("Fungi",190,"Subgenus",180,180),("Fungi",200,"Section",190,180),("Fungi",210,"Subsection",200,180),("Fungi",220,"Species",210,180),("Fungi",230,"Subspecies",220,180),("Fungi",240,"Variety",220,180),("Fungi",250,"Subvariety",240,180),("Fungi",260,"Form",220,180),("Fungi",270,"Subform",260,180),("Fungi",300,"Cultivated",220,220);
+INSERT IGNORE INTO `taxonunits`(kingdomName,rankid,rankname, dirparentrankid, reqparentrankid) 
+  VALUES ("Animalia",1,"Organism",1,1),("Animalia",10,"Kingdom",1,1),("Animalia",20,"Subkingdom",10,10),("Animalia",30,"Phylum",20,10),("Animalia",40,"Subphylum",30,30),("Animalia",60,"Class",50,30),("Animalia",70,"Subclass",60,60),("Animalia",100,"Order",70,60),("Animalia",110,"Suborder",100,100),("Animalia",140,"Family",110,100),("Animalia",150,"Subfamily",140,140),("Animalia",160,"Tribe",150,140),("Animalia",170,"Subtribe",160,140),("Animalia",180,"Genus",170,140),("Animalia",190,"Subgenus",180,180),("Animalia",220,"Species",210,180),("Animalia",230,"Subspecies",220,180),("Animalia",240,"Morph",220,180);
 
-INSERT IGNORE INTO `taxauthority` (`taxauthid`, `isprimary`, `name`) VALUES ('1', '1', 'Central Thesaurus');
+INSERT INTO `taxauthority` (`taxauthid`, `isprimary`, `name`) VALUES ('1', '1', 'Central Thesaurus');
 
-INSERT IGNORE INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("1", "1", "Organism", "Organism");
-INSERT IGNORE INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("2", "10", "Monera", "Monera");
-INSERT IGNORE INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("3", "10", "Protista", "Protista");
-INSERT IGNORE INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("4", "10", "Plantae", "Plantae");
-INSERT IGNORE INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("5", "10", "Fungi", "Fungi");
-INSERT IGNORE INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("6", "10", "Animalia", "Animalia");
+INSERT INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("1", "1", "Organism", "Organism");
+INSERT INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("2", "10", "Monera", "Monera");
+INSERT INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("3", "10", "Protista", "Protista");
+INSERT INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("4", "10", "Plantae", "Plantae");
+INSERT INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("5", "10", "Fungi", "Fungi");
+INSERT INTO `taxa` (`TID`, `RankId`, `SciName`, `UnitName1`) VALUES ("6", "10", "Animalia", "Animalia");
 
-INSERT IGNORE INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("1", "1", "1", "1");
-INSERT IGNORE INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("2", "2", "1", "1");
-INSERT IGNORE INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("3", "3", "1", "1");
-INSERT IGNORE INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("4", "4", "1", "1");
-INSERT IGNORE INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("5", "5", "1", "1");
-INSERT IGNORE INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("6", "6", "1", "1");
+INSERT INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("1", "1", "1", "1");
+INSERT INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("2", "2", "1", "1");
+INSERT INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("3", "3", "1", "1");
+INSERT INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("4", "4", "1", "1");
+INSERT INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("5", "5", "1", "1");
+INSERT INTO `taxstatus` (`tid`, `tidaccepted`, `taxauthid`, `parenttid`) VALUES ("6", "6", "1", "1");
 
 
 -- Geographic thesaurus tables
@@ -4382,4 +4519,3 @@ CREATE PROCEDURE updateSymbiotaSchema ()
 
 DELIMITER ;
 
-CALL updateSymbiotaSchema();
