@@ -962,24 +962,6 @@ class SpecUploadBase extends SpecUpload{
 			ob_flush();
 			flush();
 			
-			//Check dynamic URL to test if image is truely web ready (JPG, GIF, PNG)
-			$sql = 'SELECT originalurl FROM uploadimagetemp '.
-					'WHERE (originalurl NOT LIKE "%.jpg" AND originalurl NOT LIKE "%.jpeg") AND (collid = '.$this->collId.')';
-			$rs = $this->conn->query($sql);
-			while($r = $rs->fetch_object()){
-				
-			}
-			$rs->free;
-
-			if($this->conn->query($sql)){
-				$this->outputMsg('<li style="margin-left:10px;">step 1 of 4... </li>');
-			}
-			else{
-				$this->outputMsg('<li style="margin-left:20px;">WARNING removing non-jpgs from uploadimagetemp: '.$this->conn->error.'</li> ');
-			}
-			ob_flush();
-			flush();
-				
 			//Update occid for images of occurrence records already in portal 
 			$sql = 'UPDATE uploadimagetemp ui INNER JOIN uploadspectemp u ON ui.collid = u.collid AND ui.dbpk = u.dbpk '.
 				'SET ui.occid = u.occid '.
