@@ -311,7 +311,6 @@ UPDATE taxavernaculars t INNER JOIN adminlanguages l ON t.language = l.langname
 #Misc
 ALTER TABLE `uploadspectemp` 
   ADD COLUMN `exsiccatiIdentifier` INT NULL AFTER `genericcolumn2`,
-  ADD COLUMN `exsiccatiTitle` INT NULL AFTER `exsiccatiIdentifier`,
   ADD COLUMN `exsiccatiNumber` VARCHAR(45) NULL AFTER `exsiccatiIdentifier`,
   ADD COLUMN `exsiccatiNotes` VARCHAR(250) NULL AFTER `exsiccatiNumber`,
   ADD COLUMN `host`  varchar(250) NULL AFTER `substrate`;
@@ -367,6 +366,23 @@ ALTER TABLE `omcollections`
 ALTER TABLE `omcollectionstats`
 	MODIFY COLUMN `dynamicProperties` longtext NULL AFTER `uploadedby`;
 	
+
+ALTER TABLE `omcollcatlink` 
+  ADD COLUMN `isPrimary` TINYINT(1) NULL DEFAULT 1 AFTER `collid`;
+
+# Establishes many-many relationship to be used in DwC eml.xml file
+CREATE TABLE `omcollectioncontacts` (
+  `collid` INT UNSIGNED NOT NULL,
+  `uid` INT UNSIGNED NOT NULL,
+  `positionName` VARCHAR(45) NULL,
+  `role` VARCHAR(45) NULL,
+  `notes` VARCHAR(250) NULL,
+  `initialtimestamp` TIMESTAMP NULL DEFAULT current_timestamp,
+  PRIMARY KEY (`collid`, `uid`),
+  INDEX `FK_contact_uid_idx` (`uid` ASC),
+  CONSTRAINT `FK_contact_collid`   FOREIGN KEY (`collid`)   REFERENCES `omcollections` (`CollID`)   ON DELETE CASCADE   ON UPDATE CASCADE,
+  CONSTRAINT `FK_contact_uid`   FOREIGN KEY (`uid`)   REFERENCES `users` (`uid`)   ON DELETE CASCADE   ON UPDATE CASCADE);
+
 
 ALTER TABLE `omcollcatlink` 
   ADD COLUMN `isPrimary` TINYINT(1) NULL DEFAULT 1 AFTER `collid`;
