@@ -805,19 +805,6 @@ class SpecUploadBase extends SpecUpload{
 		//Exsiccati transfer
 		$rsTest = $this->conn->query('SHOW COLUMNS FROM uploadspectemp WHERE field = "exsiccatiIdentifier"');
 		if($rsTest->num_rows){
-			//Populate NULL exsiccatiIdentifier identifiers
-			$sqlExs1a = 'UPDATE uploadspectemp u INNER JOIN omexsiccatititles e ON u.exsiccatiTitle = e.title'.
-				'SET u.exsiccatiIdentifier = e.ometid '.
-				'WHERE u.exsiccatiIdentifier IS NULL AND (u.collid = '.$this->collId.')';
-			if(!$this->conn->query($sqlExs1a)){
-				$this->outputMsg('<li>ERROR populating NULL exsiccati identifiers (step1a): '.$this->conn->error.'</li>');
-			}
-			$sqlExs1b = 'UPDATE uploadspectemp u INNER JOIN omexsiccatititles e ON u.exsiccatiTitle = e.abbreviation'.
-				'SET u.exsiccatiIdentifier = e.ometid '.
-				'WHERE u.exsiccatiIdentifier IS NULL AND (u.collid = '.$this->collId.')';
-			if(!$this->conn->query($sqlExs1b)){
-				$this->outputMsg('<li>ERROR populating NULL exsiccati identifiers (step1b): '.$this->conn->error.'</li>');
-			}
 			//Add any new exsiccati numbers 
 			$sqlExs2 = 'INSERT INTO omexsiccatinumbers(ometid, exsnumber) '.
 				'SELECT DISTINCT u.exsiccatiIdentifier, u.exsiccatinumber '.
