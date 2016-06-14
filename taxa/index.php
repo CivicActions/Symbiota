@@ -129,7 +129,7 @@ if($taxonManager->getSciName() != "unknown"){
 					</a>
 				</div>
 				<?php 
-			}	
+			}
 			if($links && $links[0]['sortseq'] == 1){
 				$uStr = str_replace('--SCINAME--',urlencode($taxonManager->getSciName()),$links[0]['url']);
 				?>
@@ -449,7 +449,7 @@ if($taxonManager->getSciName() != "unknown"){
 						}
 					}
 					?>
-						<div style='clear:both;'><hr> </div>
+						<div style='clear:both;'><hr></div>
 					</div>
 				</fieldset>
 			</td>
@@ -457,8 +457,9 @@ if($taxonManager->getSciName() != "unknown"){
 			<?php 
 	}
 	?>
-	<tr>
-	<td colspan="2"> 
+		<tr>
+		<td colspan="2">
+	
 	<?php 
 	//Bottom line listing options
 	echo '<div style="margin-top:15px;text-align:center;">';
