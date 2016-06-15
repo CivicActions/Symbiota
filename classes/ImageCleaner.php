@@ -103,6 +103,18 @@ class ImageCleaner{
 		while($row = $result->fetch_object()){
 			$status = true;
 			$webIsEmpty = false;
+			
+			if($collid){
+				$catNum = $row->catalognumber;
+				if(preg_match('/\d{4,}$/', $catNum)){
+					$targetPath .= '/'.substr($catNum, 0, -3).'/';
+				}
+				else{
+					$targetPath .= '/'.date('Ym').'/';
+				}
+			}
+			$imgManager->setTargetPath($targetPath);
+			
 			$imgId = $row->imgid;
 			if($this->verbose){
 				echo '<li>Building thumbnail: <a href="../imgdetails.php?imgid='.$imgId.'" target="_blank">'.$imgId.'</a>...</li> ';
