@@ -171,7 +171,6 @@ else{
 					'recordedby'=>'Collector','recordnumber'=>'Collector Number','eventdate'=>'Collection Date');
 			}
 			else{
-				//CA: Bookmark
 				$advFieldArr = array('family'=>'Family','genus'=>'Genus','specificEpithet'=>'Specific Epithet','sciname'=>'Scientific Name','scientificNameAuthorship'=>'Author','identifiedBy'=>'Identified By',
 					'identificationReferences'=>'Identification References','identificationRemarks'=>'Identification Remarks','taxonRemarks'=>'Taxon Remarks',
 					'identificationQualifier'=>'Identification Qualifier','typeStatus'=>'Type Status',
@@ -187,7 +186,7 @@ else{
 					'georeferencedBy'=>'Georeferenced By','georeferenceProtocol'=>'Georeference Protocol','georeferenceSources'=>'Georeference Sources',
 					'georeferenceVerificationStatus'=>'Georeference Verification Status','georeferenceRemarks'=>'Georeference Remarks','localitySecurity'=>'Locality Security',
 					'minimumElevationInMeters'=>'Elevation Minimum (m)','maximumElevationInMeters'=>'Elevation Maximum (m)',
-					'verbatimElevation'=>'Verbatim Elevation','disposition'=>'Disposition','ocrFragment'=>'OCR Fragment','username'=>'Modified By','dateEntered'=>'Date Entered','basisOfRecord'=>'Basis Of Record','idCollaboratorIndigenous'=>'Collaborator ID','sexCollaboratorIndigenous'=>'Sex','dobCollaboratorIndigenous'=>'Date of Birth','verbatimIndigenous'=>'Verbatim Name','validIndigenous'=>'Valid Name','linkLanguageCollaboratorIndigenous'=>'Link','familyLanguageCollaboratorIndigenous'=>'Family','groupLanguageCollaboratorIndigenous'=>'Group','subgroupLanguageCollaboratorIndigenous'=>'Subgroup','villageCollaboratorIndigenous'=>'Village','municipalityCollaboratorIndigenous'=>'Municipality','stateCollaboratorIndigenousname'=>'State','countryCollaboratorIndigenousname'=>'Country','isoLanguageCollaboratorIndigenousname'=>'ISO','vernacularLexiconIndigenous'=>'Vernacular Name','glossLexiconIndigenous'=>'Gloss','parseLexiconIndigenous'=>'Parse','parentTaxaLexiconIndigenous'=>'Parent Taxonomy','siblingTaxaLexiconIndigenous'=>'Sibling Taxonomy','childTaxaLexiconIndigenous'=>'Child Taxonomy','otherTaxaUseIndigenous'=>'Other Taxonomy','typologyLexiconIndigenous'=>'Typology','semanticsLexiconIndigenous'=>'Semantics','notesLexiconIndigenous'=>'Discussion of Name','categoryUseIndigenous'=>'Category of Use','specificUseIndigenous'=>'Specific Use','partUseIndigenous'=>'Parts Used','notesUseIndigenous'=>'Discussion of Use');
+					'verbatimElevation'=>'Verbatim Elevation','disposition'=>'Disposition','ocrFragment'=>'OCR Fragment','username'=>'Modified By','dateEntered'=>'Date Entered','basisOfRecord'=>'Basis Of Record');
 			}
 			//sort($advFieldArr);
 			?>
