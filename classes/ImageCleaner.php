@@ -114,8 +114,8 @@ class ImageCleaner{
 			$testSql = 'SELECT thumbnailurl, url FROM images WHERE (imgid = '.$imgId.') FOR UPDATE ';
 			$textRS = $this->conn->query($testSql);
 			if($testR = $textRS->fetch_object()){
-				if(!$testR->thumbnailurl || (substr($testR->thumbnailurl,0,10) == 'processing' && $testR->thumbnailurl != 'processing '.date('Y-m-d'))){
-					$tagSql = 'UPDATE images SET thumbnailurl = "processing '.date('Y-m-d').'" '.
+				if(!$testR->thumbnailurl || ($testR->url == 'empty') || (substr($testR->url,0,10) == 'processing' && $testR->url != 'processing '.date('Y-m-d'))){
+					$tagSql = 'UPDATE images SET url = "processing '.date('Y-m-d').'" '.
 						'WHERE (imgid = '.$imgId.')';
 					$this->conn->query($tagSql);
 				}
