@@ -1924,7 +1924,7 @@ class OccurrenceEditorManager {
 		global $charset;
 		$retStr = $inStr;
 		//Get rid of curly quotes
-		$search = array("’", "‘", "`", "”", "“");
+		$search = array("ï¿½", "ï¿½", "`", "ï¿½", "ï¿½");
 		$replace = array("'", "'", "'", '"', '"');
 		$inStr= str_replace($search, $replace, $inStr);
 
