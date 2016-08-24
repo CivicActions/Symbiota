@@ -736,8 +736,8 @@ class DwcArchiverOccurrence{
 			$rs->free();
 		}
 	}
-	
-	public function verifyCollRecords($collId){
+
+    public function verifyCollRecords($collId){
 		$sql = '';
 		$recArr = array();
 		$sql = 'SELECT COUNT(CASE WHEN ISNULL(o.occurrenceID) THEN o.occid ELSE NULL END) AS nullOccurID, '.
