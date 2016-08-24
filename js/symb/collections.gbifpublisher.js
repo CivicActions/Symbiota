@@ -22,7 +22,7 @@ function processGbifOrgKey(){
 			gbifEndpointKey = createGbifEndpoint(gbifDatasetKey,dwcUri);
 		}
 		if(gbifDatasetKey){
-			document.getElementById("aggKeysStr").value = JSON.stringify({
+			document.getElementById("gbifKeysStr").value = JSON.stringify({
 				organizationKey: gbifOrgKey,
 				installationKey: gbifInstKey,
 				datasetKey: gbifDatasetKey,
