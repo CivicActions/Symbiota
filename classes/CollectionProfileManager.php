@@ -566,6 +566,25 @@ class CollectionProfileManager {
         return $this->idigbioKey;
     }
 
+    public function findIdigbioKey($guid){
+        global $CLIENT_ROOT;
+        $url = 'http://search.idigbio.org/v2/search/recordsets?rsq={%22recordids%22:%22';
+        $url .= ($_SERVER['HTTPS']?'https://':'http://');
+        $url .= $_SERVER['HTTP_HOST'].$CLIENT_ROOT;
+        $url .= '/webservices/dwc/'.$guid.'}';
+        echo $url;
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $result = curl_exec($ch);
+        $returnArr = json_decode($result,true);
+
+        if(isset($returnArr['items'][0]['uuid'])){
+            //$this->idigbioKey = $returnArr['items'][0]['uuid'];
+        }
+        return $this->idigbioKey;
+    }
+
     public function getTaxonCounts($f=''){
 		$family = $this->cleanInStr($f);
 		$returnArr = Array();
