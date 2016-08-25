@@ -352,25 +352,23 @@ include($serverRoot. '/header.php');
 					</div>
 					<?php
 				}
-				else{
-					if($publishGBIF){
-                        $dataUrl = 'http://www.gbif.org/dataset/'.$datasetKey;
-                        ?>
-                        <div style="margin:10px;">
-                            <div><b>GBIF Dataset page:</b> <a href="<?php echo $dataUrl; ?>"
-                                                              target="_blank"><?php echo $dataUrl; ?></a></div>
-                        </div>
-                        <?php
-                    }
-                    if($publishIDIGBIO && $idigbioKey){
-                        $dataUrl = 'https://www.idigbio.org/portal/recordsets/'.$idigbioKey;
-                        ?>
-                        <div style="margin:10px;">
-                            <div><b>iDigBio Dataset page:</b> <a href="<?php echo $dataUrl; ?>" target="_blank"><?php echo $dataUrl; ?></a></div>
-                        </div>
-                        <?php
-                    }
-				}
+				if($publishGBIF && $datasetKey){
+                    $dataUrl = 'http://www.gbif.org/dataset/'.$datasetKey;
+                    ?>
+                    <div style="margin:10px;">
+                        <div><b>GBIF Dataset page:</b> <a href="<?php echo $dataUrl; ?>"
+                                                          target="_blank"><?php echo $dataUrl; ?></a></div>
+                    </div>
+                    <?php
+                }
+                if($publishIDIGBIO && $idigbioKey){
+                    $dataUrl = 'https://www.idigbio.org/portal/recordsets/'.$idigbioKey;
+                    ?>
+                    <div style="margin:10px;">
+                        <div><b>iDigBio Dataset page:</b> <a href="<?php echo $dataUrl; ?>" target="_blank"><?php echo $dataUrl; ?></a></div>
+                    </div>
+                    <?php
+                }
 			}
 			?>
 		</fieldset>
