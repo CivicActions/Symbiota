@@ -134,7 +134,7 @@ class ImageShared{
 		$this->copyright = '';
 		$this->notes = '';
 		$this->sortSeq = '';
-		
+	
 		$this->activeImgId = 0;
 	
 		unset($this->errArr);
