@@ -171,6 +171,7 @@ else{
 					'recordedby'=>'Collector','recordnumber'=>'Collector Number','eventdate'=>'Collection Date');
 			}
 			else{
+				//CA: Bookmark
 				$advFieldArr = array('associatedCollectors'=>'Associated Collectors','associatedOccurrences'=>'Associated Occurrences',
 					'associatedTaxa'=>'Associated Taxa','attributes'=>'Attributes','scientificNameAuthorship'=>'Author',
 					'basisOfRecord'=>'Basis Of Record','behavior'=>'Behavior','catalogNumber'=>'Catalog Number','recordNumber'=>'Collection Number',
@@ -193,8 +194,14 @@ else{
 					'reproductiveCondition'=>'Reproductive Condition','samplingEffort'=>'Sampling Effort','samplingProtocol'=>'Sampling Protocol',
 					'sciname'=>'Scientific Name','sex'=>'Sex','specificEpithet'=>'Specific Epithet','stateProvince'=>'State/Province',
 					'substrate'=>'Substrate','taxonRemarks'=>'Taxon Remarks','typeStatus'=>'Type Status','verbatimCoordinates'=>'Verbatim Coordinates',
-					'verbatimEventDate'=>'Verbatim Date','verbatimDepth'=>'Verbatim Depth','verbatimElevation'=>'Verbatim Elevation','ocrFragment'=>'OCR Fragment');
-			}
+					'verbatimEventDate'=>'Verbatim Date','verbatimDepth'=>'Verbatim Depth','verbatimElevation'=>'Verbatim Elevation','ocrFragment'=>'OCR Fragment',
+					'verbatimIndigenousName'=>'Verbatim Name','validIndigenousName'=>'Valid Name','linkIndigenousName'=>'Link','familyLanguageIndigenousName'=>'Family',
+          'groupLanguageIndigenousName'=>'Group','subgroupLanguageIndigenousName'=>'Subgroup','villageIndigenousname'=>'Village','municipalityIndigenousname'=>'Municipality','stateIndigenousname'=>'State',
+          'countryIndigenousname'=>'Country','isoIndigenousname'=>'ISO','vernacularIndigenousName'=>'Vernacular Name','glossIndigenousName'=>'Gloss','parseIndigenousName'=>'Parse',
+          'parentTaxaIndigenousName'=>'Parent Taxonomy','siblingTaxaIndigenousName'=>'Sibling Taxonomy','childTaxaIndigenousName'=>'Child Taxonomy','otherTaxaIndigenousName'=>'Other Taxonomy','typologyNameIndigenousName'=>'Typology',
+          'semanticsNameIndigenousName'=>'Semantics','discussionNameIndigenousName'=>'Discussion of Name','categoryUseIndigenousName'=>'Category of Use','specificUseIndigenousName'=>'Specific Use',
+          'partUseIndigenousName'=>'Parts Used','discussionUseIndigenousName'=>'Discussion of Use');
+      }
 			//sort($advFieldArr);
 			?>
 			<div style="margin:2px 0px;">
