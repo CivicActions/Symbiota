@@ -42,7 +42,7 @@ class OccurrenceEditorManager {
 			'decimallatitude', 'decimallongitude','geodeticdatum', 'coordinateuncertaintyinmeters', 'footprintwkt',
 			'locationremarks', 'verbatimcoordinates', 'georeferencedby', 'georeferenceprotocol', 'georeferencesources',
 			'georeferenceverificationstatus', 'georeferenceremarks', 'minimumelevationinmeters', 'maximumelevationinmeters',
-			'verbatimelevation', 'disposition', 'language', 'duplicatequantity', 'genericcolumn1', 'genericcolumn2', 'labelproject', 
+			'verbatimelevation', 'disposition', 'language', 'duplicatequantity', 'genericcolumn1', 'genericcolumn2', 'labelproject',
 			'observeruid','basisofrecord','ownerinstitutioncode','datelastmodified', 'processingstatus', 'recordenteredby', 'dateentered', 'idcollaboratorindigenous', 'sexcollaboratorindigenous', 'dobcollaboratorindigenous', 'verbatimindigenous', 'validindigenous', 'linklanguagecollaboratorindigenous', 'familylanguagecollaboratorindigenous', 'grouplanguagecollaboratorindigenous', 'subgrouplanguagecollaboratorindigenous', 'villagecollaboratorindigenous', 'municipalitycollaboratorindigenous', 'statecollaboratorindigenous', 'countrycollaboratorindigenous', 'isolanguagecollaboratorindigenous', 'vernacularlexiconindigenous', 'glosslexiconindigenous', 'parselexiconindigenous', 'parenttaxalexiconindigenous', 'siblingtaxalexiconindigenous', 'childtaxalexiconindigenous', 'othertaxauseindigenous', 'typologylexiconindigenous', 'semanticslexiconindigenous', 'noteslexiconindigenous', 'categoryuseindigenous', 'specificuseindigenous', 'partuseindigenous', 'notesuseindigenous');
 	}
 

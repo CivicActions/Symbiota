@@ -600,6 +600,7 @@ class ExsiccatiManager {
 			'dynamicproperties', 'verbatimcoordinatesystem', 'storagelocation', 'disposition', 'genericcolumn1', 'genericcolumn2', 'modified',
 			'observeruid', 'processingstatus', 'recordenteredby', 'duplicatequantity', 'labelproject', 'dateentered', 'datelastmodified',
 			'initialtimestamp', 'idCollaboratorIndigenous', 'sexCollaboratorIndigenous', 'dobCollaboratorIndigenous', 'verbatimIndigenous', 'validIndigenous', 'linkLanguageCollaboratorIndigenous', 'familyLanguageCollaboratorIndigenous', 'groupLanguageCollaboratorIndigenous', 'subgroupLanguageCollaboratorIndigenous', 'villageCollaboratorIndigenous', 'municipalityCollaboratorIndigenous', 'stateCollaboratorIndigenous', 'countryCollaboratorIndigenous', 'isoLanguageCollaboratorIndigenous', 'vernacularLexiconIndigenous', 'glossLexiconIndigenous', 'parseLexiconIndigenous', 'parentTaxaLexiconIndigenous', 'siblingTaxaLexiconIndigenous', 'childTaxaLexiconIndigenous', 'otherTaxaUseIndigenous', 'typologyLexiconIndigenous', 'semanticsLexiconIndigenous', 'notesLexiconIndigenous', 'categoryUseIndigenous', 'specificUseIndigenous', 'partUseIndigenous', 'notesUseIndigenous');
+
 		$sql = "SHOW COLUMNS FROM uploadspectemp";
 		$rs = $this->conn->query($sql);
 		while($row = $rs->fetch_object()){

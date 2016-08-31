@@ -204,7 +204,7 @@ else{
       }
 			//sort($advFieldArr);
 			?>
-			<div style="margin:2px 0px;">
+			div style="margin:2px 0px;">
 				<b>Custom Field 1:</b> 
 				<select name="q_customfield1" onchange="customSelectChanged(1)">
 					<option value="">Select Field Name</option>
