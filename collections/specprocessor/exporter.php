@@ -28,7 +28,7 @@ $isEditor = false;
 if($IS_ADMIN || (array_key_exists("CollAdmin",$USER_RIGHTS) && in_array($collid,$USER_RIGHTS["CollAdmin"]))){
  	$isEditor = true;
 }
-
+//CA: Bookmark
 $advFieldArr = array('family'=>'Family','sciname'=>'Scientific Name','identifiedBy'=>'Identified By','typeStatus'=>'Type Status',
 	'catalogNumber'=>'Catalog Number','otherCatalogNumbers'=>'Other Catalog Numbers','occurrenceId'=>'Occurrence ID (GUID)',
 	'recordedBy'=>'Collector/Observer','recordNumber'=>'Collector Number','associatedCollectors'=>'Associated Collectors',
@@ -42,7 +42,10 @@ $advFieldArr = array('family'=>'Family','sciname'=>'Scientific Name','identified
 	'georeferencedBy'=>'Georeferenced By','georeferenceProtocol'=>'Georeference Protocol','georeferenceSources'=>'Georeference Sources',
 	'georeferenceVerificationStatus'=>'Georeference Verification Status','georeferenceRemarks'=>'Georeference Remarks',
 	'minimumElevationInMeters'=>'Elevation Minimum (m)','maximumElevationInMeters'=>'Elevation Maximum (m)',
-	'verbatimElevation'=>'Verbatim Elevation','disposition'=>'Disposition');
+	'verbatimElevation'=>'Verbatim Elevation','disposition'=>'Disposition','idCollaboratorIndigenous'=>'Collaborator ID','sexCollaboratorIndigenous'=>'Sex','dobCollaboratorIndigenous'=>'Date of Birth','verbatimIndigenous'=>'Verbatim Name','validIndigenous'=>'Valid Name','linkLanguageCollaboratorIndigenous'=>'Link Name','familyLanguageCollaboratorIndigenous'=>'Family','groupLanguageCollaboratorIndigenous'=>'Group','subgroupLanguageCollaboratorIndigenous'=>'Subgroup','villageCollaboratorIndigenous'=>'Village','municipalityCollaboratorIndigenous'=>'Municipality','stateCollaboratorIndigenous'=>'State','countryCollaboratorIndigenous'=>'Country','isoLanguageCollaboratorIndigenous'=>'ISO','vernacularLexiconIndigenous'=>'Vernacular','glossLexiconIndigenous'=>'Gloss','parseLexiconIndigenous'=>'Parse','parentTaxaLexiconIndigenous'=>'Parent Taxonomy','siblingTaxaLexiconIndigenous'=>'Sibling Taxonomy','childTaxaLexiconIndigenous'=>'Child Taxonomy','otherTaxaUseIndigenous'=>'Other Taxonomy','typologyLexiconIndigenous'=>'Typology Name','semanticsLexiconIndigenous'=>'Semantics Name','notesLexiconIndigenous'=>'Discussion of Name','categoryUseIndigenous'=>'Category Use','specificUseIndigenous'=>'Specific Use','partUseIndigenous'=>'Part Used','notesUseIndigenous'=>'Discussion Use');
+
+
+
 ?>
 <html>
 	<head>

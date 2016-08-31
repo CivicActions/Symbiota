@@ -152,7 +152,8 @@ class SpecUpload{
 	//Upload Review
 	public function getUploadMap($start, $limit, $searchVariables = ''){
 		$retArr = Array();
-		if($this->collId){
+		if($limit){
+			//CA: Bookmark
 			$occFieldArr = array('catalognumber', 'othercatalognumbers', 'occurrenceid','family', 'scientificname', 'sciname',
 				'scientificnameauthorship', 'identifiedby', 'dateidentified', 'identificationreferences',
 				'identificationremarks', 'taxonremarks', 'identificationqualifier', 'typestatus', 'recordedby', 'recordnumber',
@@ -165,7 +166,8 @@ class SpecUpload{
 				'locationremarks', 'verbatimcoordinates', 'georeferencedby', 'georeferenceprotocol', 'georeferencesources',
 				'georeferenceverificationstatus', 'georeferenceremarks', 'minimumelevationinmeters', 'maximumelevationinmeters',
 				'verbatimelevation', 'disposition', 'language', 'duplicatequantity', 'genericcolumn1', 'genericcolumn2',
-				'labelproject','basisofrecord','ownerinstitutioncode', 'processingstatus', 'recordenteredby');
+				'labelproject', 'basisofrecord', 'idCollaboratorIndigenous', 'sexCollaboratorIndigenous', 'dobCollaboratorIndigenous', 'verbatimIndigenous', 'validIndigenous', 'linkLanguageCollaboratorIndigenous', 'familyLanguageCollaboratorIndigenous', 'groupLanguageCollaboratorIndigenous', 'subgroupLanguageCollaboratorIndigenous', 'villageCollaboratorIndigenous', 'municipalityCollaboratorIndigenous', 'stateCollaboratorIndigenous', 'countryCollaboratorIndigenous', 'isoLanguageCollaboratorIndigenous', 'vernacularLexiconIndigenous', 'glossLexiconIndigenous', 'parseLexiconIndigenous', 'parentTaxaLexiconIndigenous', 'siblingTaxaLexiconIndigenous', 'childTaxaLexiconIndigenous', 'otherTaxaUseIndigenous', 'typologyLexiconIndigenous', 'semanticsLexiconIndigenous', 'notesLexiconIndigenous', 'categoryUseIndigenous', 'specificUseIndigenous', 'partUseIndigenous', 'notesUseIndigenous', 'ownerinstitutioncode', 'processingstatus', 'recordenteredby');
+
 			$sql = 'SELECT dbpk, '.implode(',',$occFieldArr).' FROM uploadspectemp '.
 				'WHERE collid = '.$this->collId.' ';
 			if($searchVariables){
