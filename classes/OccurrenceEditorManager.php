@@ -44,6 +44,7 @@ class OccurrenceEditorManager {
 			'georeferenceverificationstatus', 'georeferenceremarks', 'minimumelevationinmeters', 'maximumelevationinmeters',
 			'verbatimelevation', 'disposition', 'language', 'duplicatequantity', 'genericcolumn1', 'genericcolumn2', 'labelproject',
 			'observeruid','basisofrecord','ownerinstitutioncode','datelastmodified', 'processingstatus', 'recordenteredby', 'dateentered', 'idcollaboratorindigenous', 'sexcollaboratorindigenous', 'dobcollaboratorindigenous', 'verbatimindigenous', 'validindigenous', 'linklanguagecollaboratorindigenous', 'familylanguagecollaboratorindigenous', 'grouplanguagecollaboratorindigenous', 'subgrouplanguagecollaboratorindigenous', 'villagecollaboratorindigenous', 'municipalitycollaboratorindigenous', 'statecollaboratorindigenous', 'countrycollaboratorindigenous', 'isolanguagecollaboratorindigenous', 'vernacularlexiconindigenous', 'glosslexiconindigenous', 'parselexiconindigenous', 'parenttaxalexiconindigenous', 'siblingtaxalexiconindigenous', 'childtaxalexiconindigenous', 'othertaxauseindigenous', 'typologylexiconindigenous', 'semanticslexiconindigenous', 'noteslexiconindigenous', 'categoryuseindigenous', 'specificuseindigenous', 'partuseindigenous', 'notesuseindigenous');
+
 	}
 
 	public function __destruct(){
@@ -921,7 +922,7 @@ class OccurrenceEditorManager {
 				'decimalLatitude' => 'n', 'decimalLongitude' => 'n', 'geodeticDatum' => 's', 'coordinateUncertaintyInMeters' => 'n', 'verbatimCoordinates' => 's', 'footprintwkt' => 's', 
 				'georeferencedBy' => 's', 'georeferenceProtocol' => 's', 'georeferenceSources' => 's', 
 				'georeferenceVerificationStatus' => 's', 'georeferenceRemarks' => 's', 'minimumElevationInMeters' => 'n', 'maximumElevationInMeters' => 'n', 
-				'verbatimElevation' => 's', 'disposition' => 's', 'language' => 's', 'duplicateQuantity' => 'n', 'labelProject' => 's', 
+				'verbatimElevation' => 's', 'disposition' => 's', 'language' => 's', 'duplicateQuantity' => 'n', 'labelProject' => 's',
 				'processingstatus' => 's', 'recordEnteredBy' => 's', 'observeruid' => 'n', 'dateentered' => 'd', 'genericcolumn2' => 's', 'idCollaboratorIndigenous' => 's', 'sexCollaboratorIndigenous' => 's', 'dobCollaboratorIndigenous' => 'd', 'verbatimIndigenous' => 's', 'validIndigenous' => 's', 'linkLanguageCollaboratorIndigenous' => 's', 'familyLanguageCollaboratorIndigenous' => 's', 'groupLanguageCollaboratorIndigenous' => 's', 'subgroupLanguageCollaboratorIndigenous' => 's', 'villageCollaboratorIndigenous' => 's', 'municipalityCollaboratorIndigenous' => 's', 'stateCollaboratorIndigenous' => 's', 'countryCollaboratorIndigenous' => 's', 'isoLanguageCollaboratorIndigenous' => 's', 'vernacularLexiconIndigenous' => 's', 'glossLexiconIndigenous' => 's', 'parseLexiconIndigenous' => 's', 'parentTaxaLexiconIndigenous' => 's', 'siblingTaxaLexiconIndigenous' => 's', 'childTaxaLexiconIndigenous' => 's', 'otherTaxaUseIndigenous' => 's', 'typologyLexiconIndigenous' => 's', 'semanticsLexiconIndigenous' => 's', 'notesLexiconIndigenous' => 's', 'categoryUseIndigenous' => 's', 'specificUseIndigenous' => 's', 'partUseIndigenous' => 's', 'notesUseIndigenous' => 's');
 			$sql = 'INSERT INTO omoccurrences(collid, '.implode(array_keys($fieldArr),',').') '.
 				'VALUES ('.$occArr["collid"];
