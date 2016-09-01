@@ -2121,6 +2121,213 @@ CREATE TABLE IF NOT EXISTS `omoccurpoints` (
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+CREATE TABLE IF NOT EXISTS `omoccurrences` (
+  `occid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `collid` int(10) unsigned NOT NULL,
+  `dbpk` varchar(150) DEFAULT NULL,
+  `basisOfRecord` varchar(32) DEFAULT 'PreservedSpecimen' COMMENT 'PreservedSpecimen, LivingSpecimen, HumanObservation',
+  `occurrenceID` varchar(255) DEFAULT NULL COMMENT 'UniqueGlobalIdentifier',
+  `catalogNumber` varchar(32) DEFAULT NULL,
+  `otherCatalogNumbers` varchar(255) DEFAULT NULL,
+  `ownerInstitutionCode` varchar(32) DEFAULT NULL,
+  `institutionID` varchar(255) DEFAULT NULL,
+  `collectionID` varchar(255) DEFAULT NULL,
+  `datasetID` varchar(255) DEFAULT NULL,
+  `institutionCode` varchar(64) DEFAULT NULL,
+  `collectionCode` varchar(64) DEFAULT NULL,
+  `family` varchar(255) DEFAULT NULL,
+  `scientificName` varchar(255) DEFAULT NULL,
+  `sciname` varchar(255) DEFAULT NULL,
+  `tidinterpreted` int(10) unsigned DEFAULT NULL,
+  `genus` varchar(255) DEFAULT NULL,
+  `specificEpithet` varchar(255) DEFAULT NULL,
+  `taxonRank` varchar(32) DEFAULT NULL,
+  `infraspecificEpithet` varchar(255) DEFAULT NULL,
+  `scientificNameAuthorship` varchar(255) DEFAULT NULL,
+  `taxonRemarks` text,
+  `identifiedBy` varchar(255) DEFAULT NULL,
+  `dateIdentified` varchar(45) DEFAULT NULL,
+  `identificationReferences` text,
+  `identificationRemarks` text,
+  `identificationQualifier` varchar(255) DEFAULT NULL COMMENT 'cf, aff, etc',
+  `typeStatus` varchar(255) DEFAULT NULL,
+  `recordedBy` varchar(255) DEFAULT NULL COMMENT 'Collector(s)',
+  `recordNumber` varchar(45) DEFAULT NULL COMMENT 'Collector Number',
+  `recordedbyid` bigint(20) DEFAULT NULL,
+  `associatedCollectors` varchar(255) DEFAULT NULL COMMENT 'not DwC',
+  `eventDate` date DEFAULT NULL,
+  `year` int(10) DEFAULT NULL,
+  `month` int(10) DEFAULT NULL,
+  `day` int(10) DEFAULT NULL,
+  `startDayOfYear` int(10) DEFAULT NULL,
+  `endDayOfYear` int(10) DEFAULT NULL,
+  `verbatimEventDate` varchar(255) DEFAULT NULL,
+  `habitat` text COMMENT 'Habitat, substrait, etc',
+  `substrate` varchar(500) DEFAULT NULL,
+  `fieldNotes` text,
+  `fieldnumber` varchar(45) DEFAULT NULL,
+  `occurrenceRemarks` text COMMENT 'General Notes',
+  `informationWithheld` varchar(250) DEFAULT NULL,
+  `dataGeneralizations` varchar(250) DEFAULT NULL,
+  `associatedOccurrences` text,
+  `associatedTaxa` text COMMENT 'Associated Species',
+  `dynamicProperties` text,
+  `verbatimAttributes` text,
+  `behavior` varchar(500) DEFAULT NULL,
+  `reproductiveCondition` varchar(255) DEFAULT NULL COMMENT 'Phenology: flowers, fruit, sterile',
+  `cultivationStatus` int(10) DEFAULT NULL COMMENT '0 = wild, 1 = cultivated',
+  `establishmentMeans` varchar(45) DEFAULT NULL COMMENT 'cultivated, invasive, escaped from captivity, wild, native',
+  `lifeStage` varchar(45) DEFAULT NULL,
+  `sex` varchar(45) DEFAULT NULL,
+  `individualCount` varchar(45) DEFAULT NULL,
+  `samplingProtocol` varchar(100) DEFAULT NULL,
+  `samplingEffort` varchar(200) DEFAULT NULL,
+  `preparations` varchar(100) DEFAULT NULL,
+  `country` varchar(64) DEFAULT NULL,
+  `stateProvince` varchar(255) DEFAULT NULL,
+  `county` varchar(255) DEFAULT NULL,
+  `municipality` varchar(255) DEFAULT NULL,
+  `locality` text,
+  `localitySecurity` int(10) DEFAULT '0' COMMENT '0 = no security; 1 = hidden locality',
+  `localitySecurityReason` varchar(100) DEFAULT NULL,
+  `decimalLatitude` double DEFAULT NULL,
+  `decimalLongitude` double DEFAULT NULL,
+  `geodeticDatum` varchar(255) DEFAULT NULL,
+  `coordinateUncertaintyInMeters` int(10) unsigned DEFAULT NULL,
+  `footprintWKT` text,
+  `coordinatePrecision` decimal(9,7) DEFAULT NULL,
+  `locationRemarks` text,
+  `verbatimCoordinates` varchar(255) DEFAULT NULL,
+  `verbatimCoordinateSystem` varchar(255) DEFAULT NULL,
+  `georeferencedBy` varchar(255) DEFAULT NULL,
+  `georeferenceProtocol` varchar(255) DEFAULT NULL,
+  `georeferenceSources` varchar(255) DEFAULT NULL,
+  `georeferenceVerificationStatus` varchar(32) DEFAULT NULL,
+  `georeferenceRemarks` varchar(255) DEFAULT NULL,
+  `minimumElevationInMeters` int(6) DEFAULT NULL,
+  `maximumElevationInMeters` int(6) DEFAULT NULL,
+  `verbatimElevation` varchar(255) DEFAULT NULL,
+  `minimumDepthInMeters` int(11) DEFAULT NULL,
+  `maximumDepthInMeters` int(11) DEFAULT NULL,
+  `verbatimDepth` varchar(50) DEFAULT NULL,
+  `previousIdentifications` text,
+  `disposition` varchar(100) DEFAULT NULL,
+  `storageLocation` varchar(100) DEFAULT NULL,
+  `genericcolumn1` varchar(100) DEFAULT NULL,
+  `genericcolumn2` varchar(100) DEFAULT NULL,
+  `modified` datetime DEFAULT NULL COMMENT 'DateLastModified',
+  `language` varchar(20) DEFAULT NULL,
+  `observeruid` int(10) unsigned DEFAULT NULL,
+  `processingstatus` varchar(45) DEFAULT NULL,
+  `recordEnteredBy` varchar(250) DEFAULT NULL,
+  `duplicateQuantity` int(10) unsigned DEFAULT NULL,
+  `labelProject` varchar(50) DEFAULT NULL,
+  `dateEntered` datetime DEFAULT NULL,
+  `dateLastModified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`occid`) USING BTREE,
+  UNIQUE KEY `Index_collid` (`collid`,`dbpk`),
+  KEY `Index_sciname` (`sciname`),
+  KEY `Index_family` (`family`),
+  KEY `Index_country` (`country`),
+  KEY `Index_state` (`stateProvince`),
+  KEY `Index_county` (`county`),
+  KEY `Index_collector` (`recordedBy`),
+  KEY `Index_gui` (`occurrenceID`),
+  KEY `Index_ownerInst` (`ownerInstitutionCode`),
+  KEY `FK_omoccurrences_tid` (`tidinterpreted`),
+  KEY `FK_omoccurrences_uid` (`observeruid`),
+  KEY `Index_municipality` (`municipality`),
+  KEY `Index_collnum` (`recordNumber`),
+  KEY `Index_catalognumber` (`catalogNumber`),
+  KEY `FK_recordedbyid` (`recordedbyid`),
+  KEY `Index_eventDate` (`eventDate`),
+  KEY `Index_occurrences_procstatus` (`processingstatus`),
+  KEY `occelevmax` (`maximumElevationInMeters`),
+  KEY `occelevmin` (`minimumElevationInMeters`),
+  KEY `Index_occurrences_cult` (`cultivationStatus`),
+  KEY `Index_occurrences_typestatus` (`typeStatus`),
+  KEY `idx_occrecordedby` (`recordedBy`),
+  KEY `Index_occurDateLastModifed` (`dateLastModified`),
+  KEY `Index_occurDateEntered` (`dateEntered`),
+  KEY `Index_occurRecordEnteredBy` (`recordEnteredBy`),
+  CONSTRAINT `FK_omoccurrences_collid` FOREIGN KEY (`collid`) REFERENCES `omcollections` (`CollID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_omoccurrences_recbyid` FOREIGN KEY (`recordedbyid`) REFERENCES `agents` (`agentid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `FK_omoccurrences_tid` FOREIGN KEY (`tidinterpreted`) REFERENCES `taxa` (`TID`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `FK_omoccurrences_uid` FOREIGN KEY (`observeruid`) REFERENCES `users` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+
+DROP TRIGGER IF EXISTS `omoccurrencesfulltext_insert`;
+DELIMITER ;;
+  /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_insert` AFTER INSERT ON `omoccurrences`
+FOR EACH ROW BEGIN
+  INSERT INTO omoccurrencesfulltext (
+    `occid`,
+    `recordedby`,
+    `locality`
+  ) VALUES (
+    NEW.`occid`,
+    NEW.`recordedby`,
+    NEW.`locality`
+  );
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+
+DROP TRIGGER IF EXISTS `omoccurrencesfulltext_update`;
+DELIMITER ;;
+  /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_update` AFTER UPDATE ON `omoccurrences`
+FOR EACH ROW BEGIN
+  UPDATE omoccurrencesfulltext SET
+    `recordedby` = NEW.`recordedby`,
+    `locality` = NEW.`locality`
+  WHERE `occid` = NEW.`occid`;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+
+DROP TRIGGER IF EXISTS `omoccurrencesfulltext_delete`;
+DELIMITER ;;
+  /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `omoccurrencesfulltext_delete` BEFORE DELETE ON `omoccurrences`
+FOR EACH ROW BEGIN
+  DELETE FROM omoccurrencesfulltext WHERE `occid` = OLD.`occid`;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
 
 --
 -- Table structure for table `omoccurrencesfulltext`
