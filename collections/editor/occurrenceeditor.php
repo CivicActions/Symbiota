@@ -1343,9 +1343,9 @@ else{
                               <a href="#" onclick="return dwcDoc('parentTaxaLexiconIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
                               <textarea name="parenttaxalexiconindigenous" id="parentTaxaLexiconIndigenous" tabindex="133" onchange="fieldChanged('parenttaxalexiconindigenous');" style="height:40px;resize:vertical;" ><?php echo array_key_exists('parenttaxalexiconindigenous',$occArr)?$occArr['parenttaxalexiconindigenous']:''; ?></textarea>
 															<?php
-															//if(!isset($PARENTTAXALEXICONINDIGENOUSLABEL) || $PARENTTAXALEXICONINDIGENOUSLABEL){
-																//echo '<a href="#" onclick="openParentSppAid();return false;"><img src="../../images/list.png" /></a>';
-															//}
+															if(!isset($PARENTTAXALEXICONINDIGENOUSLABEL) || $PARENTTAXALEXICONINDIGENOUSLABEL){
+																echo '<a href="#" onclick="openParentSppAid();return false;"><img src="../../images/list.png" /></a>';
+															}
 															?>
 														</div>
                             <div id="siblingTaxaLexiconIndigenousDiv">
@@ -1362,9 +1362,9 @@ else{
                               <a href="#" onclick="return dwcDoc('childTaxaLexiconIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
                               <textarea name="childtaxalexiconindigenous" id="childTaxaLexiconIndigenous" tabindex="135" onchange="fieldChanged('childtaxalexiconindigenous');" style="height:40px;resize:vertical;" ><?php echo array_key_exists('childtaxalexiconindigenous',$occArr)?$occArr['childtaxalexiconindigenous']:''; ?></textarea>
 															<?php
-															//if(!isset($CHILDTAXALEXICONINDIGENOUSLABEL) || $CHILDTAXALEXICONINDIGENOUSLABEL){
-																//echo '<a href="#" onclick="openChildSppAid();return false;"><img src="../../images/list.png" /></a>';
-															//}
+															if(!isset($CHILDTAXALEXICONINDIGENOUSLABEL) || $CHILDTAXALEXICONINDIGENOUSLABEL){
+																echo '<a href="#" onclick="openChildSppAid();return false;"><img src="../../images/list.png" /></a>';
+															}
 															?>
 														</div>
                             <div id="typologyLexiconIndigenousDiv">
