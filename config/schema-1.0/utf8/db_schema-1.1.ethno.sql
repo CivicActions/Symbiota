@@ -3919,56 +3919,183 @@ CREATE PROCEDURE updateSymbiotaSchema ()
 
 
       IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = 'omoccurrences_collaborator' AND COLUMN_NAME = 'idCollaboratorIndigenous')
+      WHERE TABLE_NAME = 'ethnocollaborator' AND COLUMN_NAME = 'idCollaboratorIndigenous')
       THEN
         --
-        -- Table structure for table `omocurrences_collaborator`
+        -- Table structure for table `ethnocollaborator`
         --
 
         /*!40101 SET @saved_cs_client     = @@character_set_client */;
         /*!40101 SET character_set_client = utf8 */;
-        CREATE TABLE `omoccurrences_collaborator` (
-          `uuidCollaboratorIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `uidCollaboratorIndigenous` int(10) unsigned NOT NULL,
-          `idCollaboratorIndigenous` varchar(100) DEFAULT NULL,
+        CREATE TABLE `ethnocollaborator` (
+          `idCollaboratorIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
           `sexCollaboratorIndigenous` varchar(20) DEFAULT NULL,
           `dobCollaboratorIndigenous` datetime DEFAULT NULL,
           `verbatimIndigenous` varchar(100) DEFAULT NULL,
           `validIndigenous` varchar(100) DEFAULT NULL,
-          `linkLanguageCollaboratorIndigenous` varchar(100) DEFAULT NULL,
-          `familyLanguageCollaboratorIndigenous` varchar(50) DEFAULT NULL,
-          `groupLanguageCollaboratorIndigenous` varchar(50) DEFAULT NULL,
-          `subgroupLanguageCollaboratorIndigenous` varchar(50) DEFAULT NULL,
-          `villageCollaboratorIndigenous` varchar(50) DEFAULT NULL,
-          `municipalityCollaboratorIndigenous` varchar(50) DEFAULT NULL,
-          `stateCollaboratorIndigenous` varchar(50) DEFAULT NULL,
-          `countryCollaboratorIndigenous` varchar(50) DEFAULT NULL,
-          `isoLanguageCollaboratorIndigenous` varchar(5) DEFAULT NULL,
-          PRIMARY KEY (`uuidCollaboratorIndigenous`) USING BTREE,
-          UNIQUE KEY `Index_uidCollaboratorIndigenous` (`uidCollaboratorIndigenous`)) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-          /*!40101 SET character_set_client = @saved_cs_client */;
-        END IF;
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idCollaboratorIndigenous`) USING BTREE,
+          UNIQUE KEY `Index_idCollaboratorIndigenous` (`idCollaboratorIndigenous`)) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+        /*!40101 SET character_set_client = @saved_cs_client */;
+      END IF;
 
 
 
 
       IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = 'omoccurrences_use' AND COLUMN_NAME = 'idUseIndigenous')
+      WHERE TABLE_NAME = 'ethnolanguage' AND COLUMN_NAME = 'idLanguageIndigenous')
       THEN
         --
-        -- Table structure for table `omocurrences_use`
+        -- Table structure for table `ethnolanguage`
         --
 
         /*!40101 SET @saved_cs_client     = @@character_set_client */;
         /*!40101 SET character_set_client = utf8 */;
-        CREATE TABLE `omoccurrences_use` (
-          `uuidUseIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `idUseIndigenous` int(10) unsigned NOT NULL,
+        CREATE TABLE `ethnolanguage` (
+          `idLanguageIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
+          `linkLanguageCollaboratorIndigenous` varchar(100) DEFAULT NULL,
+          `familyLanguageCollaboratorIndigenous` varchar(50) DEFAULT NULL,
+          `groupLanguageCollaboratorIndigenous` varchar(50) DEFAULT NULL,
+          `subgroupLanguageCollaboratorIndigenous` varchar(50) DEFAULT NULL,
+          `isoLanguageCollaboratorIndigenous` varchar(5) DEFAULT NULL,
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idLanguageIndigenous`) USING BTREE,
+          UNIQUE KEY `Index_idLanguageIndigenous` (`idLanguageIndigenous`)) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+        /*!40101 SET character_set_client = @saved_cs_client */;
+      END IF;
+
+
+
+
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = 'ethnocollaboratorlanguage' AND COLUMN_NAME = 'idCollaboratorLanguageIndigenous')
+      THEN
+        --
+        -- Table structure for table `ethnocollaboratorlanguage`
+        --
+
+        /*!40101 SET @saved_cs_client     = @@character_set_client */;
+        /*!40101 SET character_set_client = utf8 */;
+        CREATE TABLE `ethnocollaboratorlanguage` (
+          `idCollaboratorLanguageIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
+          `idCollaboratorIndigenous` int(10) unsigned NOT NULL,
+          `idLanguageIndigenous` int(10) unsigned NOT NULL,
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idCollaboratorLanguageIndigenous`) USING BTREE,
+          UNIQUE KEY `Index_idCollaboratorLanguageIndigenous` (`idCollaboratorLanguageIndigenous`),
+          KEY `FK_ethnocollaboratorlang_id_idx` (`idCollaboratorIndigenous`),
+          KEY `FK_ethnolanguage_id_idx` (`idLanguageIndigenous`),
+          CONSTRAINT `FK_ethnocollaboratorlang_id` FOREIGN KEY (`idCollaboratorIndigenous`) REFERENCES `ethnocollaborator` (`idCollaboratorIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+          CONSTRAINT `FK_ethnolanguage_id` FOREIGN KEY (`idLanguageIndigenous`) REFERENCES `ethnolanguage` (`idLanguageIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+        /*!40101 SET character_set_client = @saved_cs_client */;
+      END IF;
+
+
+
+
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = 'ethnolocation' AND COLUMN_NAME = 'idLocationIndigenous')
+      THEN
+        --
+        -- Table structure for table `ethnolocation`
+        --
+
+        /*!40101 SET @saved_cs_client     = @@character_set_client */;
+        /*!40101 SET character_set_client = utf8 */;
+        CREATE TABLE `ethnolocation` (
+          `idLocationIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
+          `villageCollaboratorIndigenous` varchar(50) DEFAULT NULL,
+          `municipalityCollaboratorIndigenous` varchar(50) DEFAULT NULL,
+          `stateCollaboratorIndigenous` varchar(50) DEFAULT NULL,
+          `countryCollaboratorIndigenous` varchar(50) DEFAULT NULL,
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idLocationIndigenous`) USING BTREE,
+          UNIQUE KEY `Index_idLocationIndigenous` (`idLocationIndigenous`)) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+        /*!40101 SET character_set_client = @saved_cs_client */;
+      END IF;
+
+
+
+
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = 'ethnocollaboratorlocation' AND COLUMN_NAME = 'idCollaboratorLocationIndigenous')
+      THEN
+        --
+        -- Table structure for table `ethnocollaboratorlocation`
+        --
+
+        /*!40101 SET @saved_cs_client     = @@character_set_client */;
+        /*!40101 SET character_set_client = utf8 */;
+        CREATE TABLE `ethnocollaboratorlocation` (
+          `idCollaboratorLocationIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
+          `idCollaboratorIndigenous` int(10) unsigned NOT NULL,
+          `idLocationIndigenous` int(10) unsigned NOT NULL,
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idCollaboratorLocationIndigenous`) USING BTREE,
+          UNIQUE KEY `Index_idCollaboratorLocationIndigenous` (`idCollaboratorLocationIndigenous`),
+          KEY `FK_ethnocollaboratorlocation_id_idx` (`idCollaboratorIndigenous`),
+          KEY `FK_ethnolocation_id_idx` (`idLocationIndigenous`),
+          CONSTRAINT `FK_ethnocollaboratorlocation_id` FOREIGN KEY (`idCollaboratorIndigenous`) REFERENCES `ethnocollaborator` (`idCollaboratorIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+          CONSTRAINT `FK_ethnolocation_id` FOREIGN KEY (`idLocationIndigenous`) REFERENCES `ethnolocation` (`idLocationIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+        /*!40101 SET character_set_client = @saved_cs_client */;
+      END IF;
+
+
+
+
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = 'ethnooccurrence' AND COLUMN_NAME = 'idOccurrenceIndigenous')
+      THEN
+        --
+        -- Table structure for table `ethnooccurence`
+        --
+
+        /*!40101 SET @saved_cs_client     = @@character_set_client */;
+        /*!40101 SET character_set_client = utf8 */;
+        CREATE TABLE `ethnooccurrence` (
+          `idOccurrenceIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
+          `idCollaboratorIndigenous` int(10) unsigned NOT NULL,
+          `idOmOccurrence` int(10) unsigned NOT NULL,
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idOccurrenceIndigenous`) USING BTREE,
+          UNIQUE KEY `Index_idOccurrenceIndigenous` (`idOccurrenceIndigenous`),
+          KEY `FK_ethnooccurrenceom_id_idx` (`idOmOccurrence`),
+          KEY `FK_ethnocollaborator_id_idx` (`idCollaboratorIndigenous`),
+          CONSTRAINT `FK_ethnooccurrenceom_id` FOREIGN KEY (`idOmOccurrence`) REFERENCES `omoccurrences` (`occid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+          CONSTRAINT `FK_ethnocollaborator_id` FOREIGN KEY (`idCollaboratorIndigenous`) REFERENCES `ethnocollaborator` (`idCollaboratorIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+        /*!40101 SET character_set_client = @saved_cs_client */;
+      END IF;
+
+
+
+
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = 'ethnouse' AND COLUMN_NAME = 'idUseIndigenous')
+      THEN
+        --
+        -- Table structure for table `ethnouse`
+        --
+
+        /*!40101 SET @saved_cs_client     = @@character_set_client */;
+        /*!40101 SET character_set_client = utf8 */;
+        CREATE TABLE `ethnouse` (
+          `idUseIndigenous`  int(10) unsigned NOT NULL AUTO_INCREMENT,
           `categoryUseIndigenous` varchar(100) DEFAULT NULL COMMENT 'select list',
           `specificUseIndigenous` varchar(50) DEFAULT NULL COMMENT 'select list',
           `partUseIndigenous` varchar(50) DEFAULT NULL COMMENT 'entire plant, bark, flower, fruit, latex/sap/resin, leaves, leaf plant juice, roots, seeds, stems, thorns/spikes/prickles, trunk, tuber, other',
           `notesUseIndigenous` longtext,
-        PRIMARY KEY (`uuidUseIndigenous`) USING BTREE,
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+        PRIMARY KEY (`idUseIndigenous`) USING BTREE,
         UNIQUE KEY `Index_idUseIndigenous` (`idUseIndigenous`)
         ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
     /*!40101 SET character_set_client = @saved_cs_client ;
@@ -3978,18 +4105,45 @@ CREATE PROCEDURE updateSymbiotaSchema ()
 
 
       IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = 'omoccurrences_lexicon' AND COLUMN_NAME = 'idLexiconIndigenous')
+      WHERE TABLE_NAME = 'ethnooccurrenceuse' AND COLUMN_NAME = 'idOccurrenceUseIndigenous')
       THEN
-
         --
-        -- Table structure for table `omocurrences_lexicon`
+        -- Table structure for table `ethnooccurenceuse`
         --
 
         /*!40101 SET @saved_cs_client     = @@character_set_client */;
         /*!40101 SET character_set_client = utf8 */;
-        CREATE TABLE `omoccurrences_lexicon` (
-          `uuidLexiconIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `idLexiconIndigenous` int(10) unsigned NOT NULL,
+        CREATE TABLE `ethnooccurrenceuse` (
+          `idOccurrenceUseIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
+          `idOccurrenceIndigenous` int(10) unsigned NOT NULL,
+          `idUseIndigenous` int(10) unsigned NOT NULL,
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idOccurrenceUseIndigenous`) USING BTREE,
+          UNIQUE KEY `Index_idOccurrenceUseIndigenous` (`idOccurrenceUseIndigenous`),
+          KEY `FK_ethnooccurrenceuse_id_idx` (`idOccurrenceIndigenous`),
+          KEY `FK_ethnouse_id_idx` (`idUseIndigenous`),
+          CONSTRAINT `FK_ethnooccurrenceuse_id` FOREIGN KEY (`idOccurrenceIndigenous`) REFERENCES `ethnooccurrence` (`idOccurrenceIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+          CONSTRAINT `FK_ethnouse_id` FOREIGN KEY (`idUseIndigenous`) REFERENCES `ethnouse` (`idUseIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+        /*!40101 SET character_set_client = @saved_cs_client */;
+      END IF;
+
+
+
+
+      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = 'ethnolexicon' AND COLUMN_NAME = 'idLexiconIndigenous')
+      THEN
+
+        --
+        -- Table structure for table `ethnolexicon`
+        --
+
+        /*!40101 SET @saved_cs_client     = @@character_set_client */;
+        /*!40101 SET character_set_client = utf8 */;
+        CREATE TABLE `ethnolexicon` (
+          `idLexiconIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
           `vernacularLexiconIndigenous` varchar(100) DEFAULT NULL,
           `glossLexiconIndigenous` varchar(100) DEFAULT NULL,
           `parseLexiconIndigenous` varchar(100) DEFAULT NULL,
@@ -4000,7 +4154,9 @@ CREATE PROCEDURE updateSymbiotaSchema ()
           `typologyLexiconIndigenous` varchar(45) DEFAULT NULL COMMENT 'single term, analyzable, compound, complex',
           `semanticsLexiconIndigenous` varchar(45) DEFAULT NULL COMMENT 'animal, color, habitat, morphology, plant, sense, use, value, emotion',
           `notesLexiconIndigenous` longtext,
-          PRIMARY KEY (`uuidLexiconIndigenous`) USING BTREE,
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idLexiconIndigenous`) USING BTREE,
           UNIQUE KEY `Index_idLexiconIndigenous` (`idLexiconIndigenous`)
         ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
         /*!40101 SET character_set_client = @saved_cs_client ;
@@ -4010,46 +4166,26 @@ CREATE PROCEDURE updateSymbiotaSchema ()
 
 
       IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = 'omoccurrences_collaborator_lexicon' AND COLUMN_NAME = 'idCollaboratorIndigenous')
+      WHERE TABLE_NAME = 'ethnooccurrencelexicon' AND COLUMN_NAME = 'idOccurrenceLexiconIndigenous')
       THEN
-
         --
-        -- Table structure for table `omocurrences_collaborator_lexicon`
+        -- Table structure for table `ethnooccurencelexicon`
         --
 
         /*!40101 SET @saved_cs_client     = @@character_set_client */;
         /*!40101 SET character_set_client = utf8 */;
-        CREATE TABLE `omoccurrences_collaborator_lexicon` (
-          `uuidCollaboratorLexiconIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `idCollaboratorIndigenous` int(10) unsigned NOT NULL,
+        CREATE TABLE `ethnooccurrencelexicon` (
+          `idOccurrenceLexiconIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
+          `idOccurrenceIndigenous` int(10) unsigned NOT NULL,
           `idLexiconIndigenous` int(10) unsigned NOT NULL,
-          PRIMARY KEY (`uuidCollaboratorLexiconIndigenous`) USING BTREE,
-          UNIQUE KEY `Index_uuidCollaboratorLexiconIndigenous` (`uuidCollaboratorLexiconIndigenous`),
-          KEY `FK_idCollaboratorIndigenous` (`idLexiconIndigenous`),
-          KEY `FK_idLexiconIndigenous` (`idLexiconIndigenous`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-        /*!40101 SET character_set_client = @saved_cs_client */;
-      END IF;
-
-
-
-
-      IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = 'omoccurrences_collaborator_use' AND COLUMN_NAME = 'idCollaboratorIndigenous')
-      THEN
-
-        --
-        -- Table structure for table `omocurrences_collaborator_use`
-        --
-
-        /*!40101 SET @saved_cs_client     = @@character_set_client */;
-        /*!40101 SET character_set_client = utf8 */;
-        CREATE TABLE `omoccurrences_collaborator_use` (
-          `uuidCollaboratorUseIndigenous` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `idCollaboratorIndigenous` int(10) unsigned NOT NULL,
-          `idUseIndigenous` int(10) unsigned NOT NULL,
-          PRIMARY KEY (`uuidCollaboratorUseIndigenous`) USING BTREE,
-          UNIQUE KEY `Index_uuidCollaboratorUseIndigenous` (`uuidCollaboratorUseIndigenous`)
+          `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
+          PRIMARY KEY (`idOccurrenceLexiconIndigenous`) USING BTREE,
+          UNIQUE KEY `Index_idOccurrenceLexiconIndigenous` (`idOccurrenceLexiconIndigenous`),
+          KEY `FK_ethnooccurrencelexicon_id_idx` (`idOccurrenceIndigenous`),
+          KEY `FK_ethnolexicon_id_idx` (`idLexiconIndigenous`),
+          CONSTRAINT `FK_ethnooccurrencelexicon_id` FOREIGN KEY (`idOccurrenceIndigenous`) REFERENCES `ethnooccurrence` (`idOccurrenceIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+          CONSTRAINT `FK_ethnolexicon_id` FOREIGN KEY (`idLexiconIndigenous`) REFERENCES `ethnolexicon` (`idLexiconIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION
         ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
         /*!40101 SET character_set_client = @saved_cs_client */;
       END IF;
@@ -4057,30 +4193,31 @@ CREATE PROCEDURE updateSymbiotaSchema ()
 
 
       IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = 'omoccurparenttaxa' AND COLUMN_NAME = 'parenttaxaid')
+      WHERE TABLE_NAME = 'ethnoparenttaxa' AND COLUMN_NAME = 'parenttaxaid')
       THEN
 
 
       --
-      -- Table structure for table `omoccurparenttaxa`
+      -- Table structure for table `ethnoparenttaxa`
       --
 
       /*!40101 SET @saved_cs_client     = @@character_set_client */;
       /*!40101 SET character_set_client = utf8 */;
-      CREATE TABLE IF NOT EXISTS `omoccurparenttaxa` (
+      CREATE TABLE IF NOT EXISTS `ethnoparenttaxa` (
         `parenttaxaid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-        `occid` int(10) unsigned NOT NULL,
+        `idLexiconIndigenous` int(10) unsigned NOT NULL,
         `tid` int(10) unsigned DEFAULT NULL,
         `verbatimstr` varchar(250) DEFAULT NULL,
         `relationship` varchar(45) DEFAULT NULL,
         `verificationscore` int(11) DEFAULT NULL,
         `notes` varchar(250) DEFAULT NULL,
         `initialtimestamp` timestamp NULL DEFAULT NULL,
+        `changedtimestamp` timestamp NULL DEFAULT NULL,
         PRIMARY KEY (`parenttaxaid`),
-        KEY `FK_parenttaxa_occid_idx` (`occid`),
+        KEY `FK_parenttaxa_lexicon_idx` (`idLexiconIndigenous`),
         KEY `FK_pooctaxa_tid_idx` (`tid`),
         KEY `INDEX_verbatim_str` (`verbatimstr`),
-        CONSTRAINT `FK_parenttaxa_occid` FOREIGN KEY (`occid`) REFERENCES `omoccurrences` (`occid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        CONSTRAINT `FK_parenttaxa_lexicon` FOREIGN KEY (`idLexiconIndigenous`) REFERENCES `ethnolexicon` (`idLexiconIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `FK_pooctaxa_tid` FOREIGN KEY (`tid`) REFERENCES `taxa` (`TID`) ON DELETE NO ACTION ON UPDATE NO ACTION
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
       /*!40101 SET character_set_client = @saved_cs_client */;
@@ -4103,18 +4240,19 @@ CREATE PROCEDURE updateSymbiotaSchema ()
         /*!40101 SET character_set_client = utf8 */;
         CREATE TABLE IF NOT EXISTS `omoccurchildtaxa` (
           `childtaxaid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `occid` int(10) unsigned NOT NULL,
+          `idLexiconIndigenous` int(10) unsigned NOT NULL,
           `tid` int(10) unsigned DEFAULT NULL,
           `verbatimstr` varchar(250) DEFAULT NULL,
           `relationship` varchar(45) DEFAULT NULL,
           `verificationscore` int(11) DEFAULT NULL,
           `notes` varchar(250) DEFAULT NULL,
           `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
           PRIMARY KEY (`childtaxaid`),
-          KEY `FK_childtaxa_occid_idx` (`occid`),
+          KEY `FK_childtaxa_lexicon_idx` (`idLexiconIndigenous`),
           KEY `FK_cooctaxa_tid_idx` (`tid`),
           KEY `INDEX_verbatim_str` (`verbatimstr`),
-          CONSTRAINT `FK_childtaxa_occid` FOREIGN KEY (`occid`) REFERENCES `omoccurrences` (`occid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+          CONSTRAINT `FK_childtaxa_lexicon` FOREIGN KEY (`idLexiconIndigenous`) REFERENCES `ethnolexicon` (`idLexiconIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION,
           CONSTRAINT `FK_cooctaxa_tid` FOREIGN KEY (`tid`) REFERENCES `taxa` (`TID`) ON DELETE NO ACTION ON UPDATE NO ACTION
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         /*!40101 SET character_set_client = @saved_cs_client */;
@@ -4125,30 +4263,31 @@ CREATE PROCEDURE updateSymbiotaSchema ()
 
 
       IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = 'omoccursiblingtaxa' AND COLUMN_NAME = 'siblingtaxaid')
+      WHERE TABLE_NAME = 'ethnosiblingtaxa' AND COLUMN_NAME = 'siblingtaxaid')
       THEN
 
 
         --
-        -- Table structure for table `omoccursiblingtaxa`
+        -- Table structure for table `ethnosiblingtaxa`
         --
 
         /*!40101 SET @saved_cs_client     = @@character_set_client */;
         /*!40101 SET character_set_client = utf8 */;
-        CREATE TABLE IF NOT EXISTS `omoccursiblingtaxa` (
+        CREATE TABLE IF NOT EXISTS `ethnosiblingtaxa` (
           `siblingtaxaid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `occid` int(10) unsigned NOT NULL,
+          `idLexiconIndigenous` int(10) unsigned NOT NULL,
           `tid` int(10) unsigned DEFAULT NULL,
           `verbatimstr` varchar(250) DEFAULT NULL,
           `relationship` varchar(45) DEFAULT NULL,
           `verificationscore` int(11) DEFAULT NULL,
           `notes` varchar(250) DEFAULT NULL,
           `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
           PRIMARY KEY (`siblingtaxaid`),
-          KEY `FK_siblingtaxa_occid_idx` (`occid`),
+          KEY `FK_siblingtaxa_lexicon_idx` (`idLexiconIndigenous`),
           KEY `FK_sooctaxa_tid_idx` (`tid`),
           KEY `INDEX_verbatim_str` (`verbatimstr`),
-          CONSTRAINT `FK_siblingtaxa_occid` FOREIGN KEY (`occid`) REFERENCES `omoccurrences` (`occid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+          CONSTRAINT `FK_siblingtaxa_lexicon` FOREIGN KEY (`idLexiconIndigenous`) REFERENCES `ethnolexicon` (`idLexiconIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION,
           CONSTRAINT `FK_sooctaxa_tid` FOREIGN KEY (`tid`) REFERENCES `taxa` (`TID`) ON DELETE NO ACTION ON UPDATE NO ACTION
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         /*!40101 SET character_set_client = @saved_cs_client */;
@@ -4159,30 +4298,31 @@ CREATE PROCEDURE updateSymbiotaSchema ()
 
 
       IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = 'omoccurothertaxa' AND COLUMN_NAME = 'othertaxaid')
+      WHERE TABLE_NAME = 'ethnoothertaxa' AND COLUMN_NAME = 'othertaxaid')
       THEN
 
 
         --
-        -- Table structure for table `omoccurothertaxa`
+        -- Table structure for table `ethnoothertaxa`
         --
 
         /*!40101 SET @saved_cs_client     = @@character_set_client */;
         /*!40101 SET character_set_client = utf8 */;
-        CREATE TABLE IF NOT EXISTS `omoccurothertaxa` (
+        CREATE TABLE IF NOT EXISTS `ethnoothertaxa` (
           `othertaxaid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `occid` int(10) unsigned NOT NULL,
+          `idUseIndigenous` int(10) unsigned NOT NULL,
           `tid` int(10) unsigned DEFAULT NULL,
           `verbatimstr` varchar(250) DEFAULT NULL,
           `relationship` varchar(45) DEFAULT NULL,
           `verificationscore` int(11) DEFAULT NULL,
           `notes` varchar(250) DEFAULT NULL,
           `initialtimestamp` timestamp NULL DEFAULT NULL,
+          `changedtimestamp` timestamp NULL DEFAULT NULL,
           PRIMARY KEY (`othertaxaid`),
-          KEY `FK_othertaxa_occid_idx` (`occid`),
+          KEY `FK_othertaxa_use_idx` (`idUseIndigenous`),
           KEY `FK_oooctaxa_tid_idx` (`tid`),
           KEY `INDEX_verbatim_str` (`verbatimstr`),
-          CONSTRAINT `FK_othertaxa_occid` FOREIGN KEY (`occid`) REFERENCES `omoccurrences` (`occid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+          CONSTRAINT `FK_othertaxa_use` FOREIGN KEY (`idUseIndigenous`) REFERENCES `ethnouse` (`idUseIndigenous`) ON DELETE NO ACTION ON UPDATE NO ACTION,
           CONSTRAINT `FK_oooctaxa_tid` FOREIGN KEY (`tid`) REFERENCES `taxa` (`TID`) ON DELETE NO ACTION ON UPDATE NO ACTION
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         /*!40101 SET character_set_client = @saved_cs_client */;
