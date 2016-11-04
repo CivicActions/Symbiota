@@ -516,8 +516,9 @@ class ChecklistVoucherAdmin {
 		}
 		
 		$sql = 'SELECT DISTINCT '.implode(',',$fieldArr).', o.localitysecurity, o.collid '.
-			'FROM omcollections c INNER JOIN omoccurrences o ON c.collid = o.collid '.
-			'WHERE (o.occid NOT IN (SELECT occid FROM fmvouchers WHERE clid IN('.$clidStr.'))) AND ('.$this->sqlFrag.') '.
+			'FROM omcollections c INNER JOIN omoccurrences o ON c.collid = o.collid ';
+		if(strpos($this->sqlFrag,'MATCH(f.recordedby)')) $sql .= 'INNER JOIN omoccurrencesfulltext f ON o.occid = f.occid ';
+		$sql .= 'WHERE (o.occid NOT IN (SELECT occid FROM fmvouchers WHERE clid IN('.$clidStr.'))) AND ('.$this->sqlFrag.') '.
 			'AND o.tidinterpreted IS NULL AND o.sciname IS NOT NULL ';
 		//echo '<div>'.$sql.'</div>';return;
 		$this->exportCsv($fileName,$sql,$localitySecurityFields);
