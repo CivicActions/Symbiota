@@ -1,6 +1,6 @@
 <?php
-include_once($serverRoot.'/config/dbconnection.php');
-include_once($serverRoot.'/classes/OccurrenceUtilities.php');
+include_once($SERVER_ROOT.'/config/dbconnection.php');
+include_once($SERVER_ROOT.'/classes/OccurrenceUtilities.php');
 
 class OccurrenceManager{
 
@@ -306,8 +306,20 @@ class OccurrenceManager{
 			$searchStr = str_replace("%apos;","'",$this->searchTermsArr["collector"]);
 			$collectorArr = explode(";",$searchStr);
 			$tempArr = Array();
-			foreach($collectorArr as $value){
-				$tempArr[] = '(o.recordedBy LIKE "%'.trim($value).'%")';
+			foreach($collectorArr as $k => $value){
+				if($value == 'NULL'){
+					$tempArr[] = '(o.recordedBy IS NULL)';
+					$collectorArr[$k] = 'Collector IS NULL';
+				}
+				else{
+					//$tempArr[] = '(o.recordedBy LIKE "%'.trim($value).'%")';
+					$tempInnerArr = array();
+					$collValueArr = explode(" ",trim($value));
+					foreach($collValueArr as $collV){
+						$tempInnerArr[] = '(MATCH(f.recordedby) AGAINST("'.$collV.'")) ';
+					}
+					$tempArr[] = implode(' AND ', $tempInnerArr);
+				}
 			}
 			$sqlWhere .= 'AND ('.implode(' OR ',$tempArr).') ';
 			$this->localSearchArr[] = implode(', ',$collectorArr);
