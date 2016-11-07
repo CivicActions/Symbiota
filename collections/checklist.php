@@ -76,15 +76,15 @@ if($stArrCollJson && $stArrSearchJson){
 		ksort($checklistArr);
 		foreach($checklistArr as $family => $sciNameArr){
 			sort($sciNameArr);
-			echo '<div style="margin-left:5;margin-top:5;"><h3>'.$family.'</h3></div>';
+			echo '<div style="margin-left:5px;margin-top:5px;"><h3>'.$family.'</h3></div>';
 			foreach($sciNameArr as $sciName){
-				echo '<div style="margin-left:20;font-style:italic;"><a target="_blank" href="../taxa/index.php?taxon='.$sciName.'">'.$sciName.'</a></div>';
+				echo '<div style="margin-left:20px;font-style:italic;"><a target="_blank" href="../taxa/index.php?taxon='.$sciName.'">'.$sciName.'</a></div>';
 			}
 		}
 		if($undFamilyArray){
-			echo '<div style="margin-left:5;margin-top:5;"><h3>'.$LANG['FAMILY_NOT_DEFINED'].'</h3></div>';
+			echo '<div style="margin-left:5px;margin-top:5px;"><h3>'.$LANG['FAMILY_NOT_DEFINED'].'</h3></div>';
 			foreach($undFamilyArray as $sciName){
-				echo '<div style="margin-left:20;font-style:italic;"><a target="_blank" href="../taxa/index.php?taxon='.$sciName.'">'.$sciName.'</a></div>';
+				echo '<div style="margin-left:20px;font-style:italic;"><a target="_blank" href="../taxa/index.php?taxon='.$sciName.'">'.$sciName.'</a></div>';
 			}
 		}
 	?>
