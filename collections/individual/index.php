@@ -129,11 +129,6 @@ if($SYMB_UID){
 			$statusStr = $indManager->getErrorMessage();
 		}
 	}
-	elseif($submit == "Add Voucher"){
-		if(!$indManager->linkVoucher($_POST)){
-			$statusStr = $indManager->getErrorMessage();
-		}
-	}
 	elseif($submit == "Link to Dataset"){
 		$dsid = (isset($_POST['dsid'])?$_POST['dsid']:0);
 		if(!$indManager->linkToDataset($dsid,$_POST['dsname'],$_POST['notes'],$SYMB_UID)){
@@ -149,6 +144,8 @@ $dupClusterArr = $indManager->getDuplicateArr();
 $commentArr = $indManager->getCommentArr($isEditor);
 
 header("Content-Type: text/html; charset=".$CHARSET);
+header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 ?>
 <html>
 <head>
@@ -162,7 +159,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 	<link href="../../css/jquery-ui.css" type="text/css" rel="stylesheet" />
 	<script src="../../js/jquery.js" type="text/javascript"></script>
 	<script src="../../js/jquery-ui.js" type="text/javascript"></script>
-	<script src="//maps.googleapis.com/maps/api/js?<?php echo (isset($GOOGLE_MAP_KEY) && $GOOGLE_MAP_KEY?'key='.$GOOGLE_MAP_KEY:''); ?>"></script>
+	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript">
 		var tabIndex = <?php echo $tabIndex; ?>;
 		var map;
@@ -1177,21 +1174,21 @@ header("Content-Type: text/html; charset=".$CHARSET);
 								echo '<div>';
 								echo '<b>'.$comArr['username'].'</b> <span style="color:gray;">posted '.$comArr['initialtimestamp'].'</span>';
 								echo '</div>';
-								if($comArr['reviewstatus'] == 0 || $comArr['reviewstatus'] == 2) echo '<div style="color:red;">Comment not public due to pending abuse report (viewable to administrators only)</div>';
+								if($comArr['reviewstatus'] == 0) echo '<div style="color:red;">Comment not public due to pending abuse report (viewable to administrators only)</div>';
 								echo '<div style="margin:10px;">'.$comArr['comment'].'</div>';
 								if($comArr['reviewstatus']){
 									if($SYMB_UID){
 										?>
-										<div><a href="index.php?repcomid=<?php echo $comId.'&occid='.$occid.'&tabindex='.($displayMap?2:1); ?>">Report as inappropriate or abusive</a></div>
+										<div><a href="index.php?repcomid=<?php echo $comId.'&occid='.$occid; ?>">Report as inappropriate or abusive</a></div>
 										<?php
 									}
 								}
 								else{
 									?>
-									<div><a href="index.php?publiccomid=<?php echo $comId.'&occid='.$occid.'&tabindex='.($displayMap?2:1); ?>">Make comment public</a></div>
+									<div><a href="index.php?publiccomid=<?php echo $comId.'&occid='.$occid; ?>">Make comment public</a></div>
 									<?php
 								}
-								if($isEditor || ($SYMB_UID && $comArr['username'] == $PARAMS_ARR['un'])){
+								if($isEditor || ($SYMB_UID && $comArr['username'] == $paramsArr['un'])){
 									?>
 									<div style="margin:20px;">
 										<form name="delcommentform" action="index.php" method="post" onsubmit="return confirm('Are you sure you want to delete comment?')">
@@ -1357,7 +1354,8 @@ header("Content-Type: text/html; charset=".$CHARSET);
 					<?php
 					ob_flush();
 					flush();
-					$rawArchArr = $indManager->checkArchive();
+					$rawArchArr = array();
+					//$rawArchArr = $indManager->checkArchive();
 					//print_r($rawArchArr);
 					if($rawArchArr && $rawArchArr['obj']){
 						$archArr = $rawArchArr['obj'];
@@ -1375,14 +1373,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 						}
 						echo '<table class="styledtable" style="font-family:Arial;font-size:12px;"><tr><th>Field</th><th>Value</th></tr>';
 						foreach($archArr as $f => $v){
-							echo '<tr><td style="width:175px;"><b>'.$f.'</b></td><td>';
-							if(is_array($v)){
-								echo implode(', ',$v);
-							}
-							else{
-								echo $v;
-							}
-							echo '</td></tr>';
+							echo '<tr><td style="width:175px;"><b>'.$f.'</b></td><td>'.$v.'</td></tr>';
 						}
 						if($dets){
 							foreach($dets as $id => $dArr){
