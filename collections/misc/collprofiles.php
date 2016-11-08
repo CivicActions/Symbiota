@@ -162,6 +162,7 @@ if($SYMB_UID){
 				$georefPerc = 0;
 			}
 			if($collData['dynamicProperties']){
+				print_r($collData['dynamicProperties']);
 				$extrastatsArr = json_decode($collData['dynamicProperties'],true);
 				if(is_array($extrastatsArr)){
 					if($extrastatsArr['SpecimensCountID']){
