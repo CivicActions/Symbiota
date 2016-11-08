@@ -20,7 +20,6 @@ $displayQuery = 0;
 $isGenObs = 0;
 $collMap = array();
 $recArr = array();
-//CA: Bookmark
 $headerMapBase = array('dbpk' => 'dbpk','catalognumber' => 'Catalog Number',
 	'othercatalognumbers' => 'Other Catalog #','family' => 'Family','identificationqualifier' => 'ID Qualifier',
 	'sciname' => 'Scientific Name','scientificnameauthorship'=>'Author','recordedby' => 'Collector','recordnumber' => 'Number',
@@ -38,7 +37,7 @@ $headerMapBase = array('dbpk' => 'dbpk','catalognumber' => 'Catalog Number',
 	'samplingprotocol' => 'Sampling Protocol', 'preparations' => 'Preparations', 'reproductivecondition' => 'Reproductive Condition',
 	'typestatus' => 'Type Status','cultivationstatus' => 'Cultivation Status','establishmentmeans' => 'Establishment Means',
 	'disposition' => 'Disposition','duplicatequantity' => 'Duplicate Qty','datelastmodified' => 'Date Last Modified',
-	'processingstatus' => 'Processing Status','recordenteredby' => 'Entered By','basisofrecord' => 'Basis Of Record', 'idcollaboratorindigenous' => 'Collaborator ID', 'sexcollaboratorindigenous' => 'Sex', 'dobcollaboratorindigenous' => 'Date of Birth', 'verbatimindigenous' => 'Verbatim Name', 'validindigenous' => 'Valid Name', 'linklanguagecollaboratorindigenous' => 'Link', 'familylanguagecollaboratorindigenous' => 'Family', 'grouplanguagecollaboratorindigenous' => 'Group', 'subgrouplanguagecollaboratorindigenous' => 'Subgroup', 'villagecollaboratorindigenous' => 'Village', 'municipalitycollaboratorindigenous' => 'Municipality', 'statecollaboratorindigenous' => 'State', 'countrycollaboratorindigenous' => 'Country', 'isolanguagecollaboratorindigenous' => 'ISO', 'vernacularlexiconindigenous' => 'Vernacular Name', 'glosslexiconindigenous' => 'Gloss', 'parselexiconindigenous' => 'Parse', 'parenttaxalexiconindigenous' => 'Parent Taxa', 'siblingtaxalexiconindigenous' => 'Sibling Taxa', 'childtaxalexiconindigenous' => 'Child Taxa', 'othertaxasseindigenous' => 'Other Taxa', 'typologylexiconindigenous' => 'Typology', 'semanticslexiconindigenous' => 'Semantics', 'noteslexiconindigenous' => 'Discussion of Name', 'categoryuseindigenous' => 'Category of Use', 'specificuseindigenous' => 'Specific Use', 'partuseindigenous' => 'Parts Used', 'notesuseindigenous' => 'Discussion of Use');
+	'processingstatus' => 'Processing Status','recordenteredby' => 'Entered By','basisofrecord' => 'Basis Of Record');
 $headMap = array();
 
 $qryCnt = 0;
@@ -160,8 +159,8 @@ else{
 			//Setup header map
 			if($recArr){
 				$headerArr = array();
-				foreach($recArr as $id => $occArr) {
-					foreach($occArr as $k => $v) {
+				foreach($recArr as $id => $occArr){
+					foreach($occArr as $k => $v){
 						if(trim($v) && !array_key_exists($k,$headerArr)){
 							$headerArr[$k] = $k;
 						}
@@ -191,7 +190,7 @@ else{
 									<select name="bufieldname" id="bufieldname" onchange="detectBatchUpdateField();">
 										<option value="">Select Field Name</option>
 										<option value="">----------------------</option>
-										<?php
+										<?php 
 										foreach($headerMapBase as $k => $v){
 											echo '<option value="'.$k.'" '.($buFieldName==$k?'SELECTED':'').'>'.$v.'</option>';
 										}

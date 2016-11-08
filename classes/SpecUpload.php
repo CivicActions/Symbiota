@@ -165,7 +165,7 @@ class SpecUpload{
 				'locationremarks', 'verbatimcoordinates', 'georeferencedby', 'georeferenceprotocol', 'georeferencesources',
 				'georeferenceverificationstatus', 'georeferenceremarks', 'minimumelevationinmeters', 'maximumelevationinmeters',
 				'verbatimelevation', 'disposition', 'language', 'duplicatequantity', 'genericcolumn1', 'genericcolumn2',
-				'labelproject', 'basisofrecord', 'idCollaboratorIndigenous', 'sexCollaboratorIndigenous', 'dobCollaboratorIndigenous', 'verbatimIndigenous', 'validIndigenous', 'linkLanguageCollaboratorIndigenous', 'familyLanguageCollaboratorIndigenous', 'groupLanguageCollaboratorIndigenous', 'subgroupLanguageCollaboratorIndigenous', 'villageCollaboratorIndigenous', 'municipalityCollaboratorIndigenous', 'stateCollaboratorIndigenous', 'countryCollaboratorIndigenous', 'isoLanguageCollaboratorIndigenous', 'vernacularLexiconIndigenous', 'glossLexiconIndigenous', 'parseLexiconIndigenous', 'parentTaxaLexiconIndigenous', 'siblingTaxaLexiconIndigenous', 'childTaxaLexiconIndigenous', 'otherTaxaUseIndigenous', 'typologyLexiconIndigenous', 'semanticsLexiconIndigenous', 'notesLexiconIndigenous', 'categoryUseIndigenous', 'specificUseIndigenous', 'partUseIndigenous', 'notesUseIndigenous', 'ownerinstitutioncode', 'processingstatus', 'recordenteredby');
+				'labelproject','basisofrecord','ownerinstitutioncode', 'processingstatus', 'recordenteredby');
 			$sql = 'SELECT dbpk, '.implode(',',$occFieldArr).' FROM uploadspectemp '.
 				'WHERE collid = '.$this->collId.' ';
 			if($searchVariables){

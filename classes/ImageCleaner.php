@@ -158,61 +158,6 @@ class ImageCleaner{
 			}
 			$imgManager->setTargetPath($finalPath);
 			
-			$imgId = $row->imgid;
-			if($this->verbose){
-				echo '<li>Building thumbnail: <a href="../imgdetails.php?imgid='.$imgId.'" target="_blank">'.$imgId.'</a>...</li> ';
-				ob_flush();
-				flush();
-			}
-			$this->conn->autocommit(false);
-			//Tag for updating; needed to ensure two parallel processes are not processing the same image
-			$testSql = 'SELECT thumbnailurl, url FROM images WHERE (imgid = '.$imgId.') FOR UPDATE ';
-			$textRS = $this->conn->query($testSql);
-			if($testR = $textRS->fetch_object()){
-				if(!$testR->thumbnailurl || (substr($testR->thumbnailurl,0,10) == 'processing' && $testR->thumbnailurl != 'processing '.date('Y-m-d'))){
-					$tagSql = 'UPDATE images SET thumbnailurl = "processing '.date('Y-m-d').'" '.
-						'WHERE (imgid = '.$imgId.')';
-					$this->conn->query($tagSql);
-				}
-				elseif($testR->url == 'empty' || (substr($testR->url,0,10) == 'processing' && $testR->url != 'processing '.date('Y-m-d'))){
-					$tagSql = 'UPDATE images SET url = "processing '.date('Y-m-d').'" '.
-						'WHERE (imgid = '.$imgId.')';
-					$this->conn->query($tagSql);
-				}
-				else{
-					//Records already processed by a parallel running process, thus go to next record
-					if($this->verbose) echo '<div style="margin-left:30px">Already being handled by a parallel running processs</div>';
-					$textRS->free();
-					$this->conn->commit();
-					$this->conn->autocommit(true);
-					continue;
-				}
-			}
-			$textRS->free();
-			$this->conn->commit();
-			$this->conn->autocommit(true);
-
-			//Build target path
-			$finalPath = $targetPath;
-			if($collid){
-				$catNum = $row->catalognumber;
-				if($catNum){
-					$catNum = str_replace(array('/','\\',' '), '', $catNum);
-					if(preg_match('/^(\D{0,8}\d{4,})/', $catNum, $m)){
-						$catPath = substr($m[1], 0, -3);
-						if(is_numeric($catPath) && strlen($catPath)<5) $catPath = str_pad($catPath, 5, "0", STR_PAD_LEFT);
-						$finalPath .= $catPath.'/';
-					}
-					else{
-						$finalPath .= '00000/';
-					}
-				}
-				else{
-					$finalPath .= date('Ym').'/';
-				}
-			}
-			$imgManager->setTargetPath($finalPath);
-			
 			$imgUrl = trim($row->url);
 			if((!$imgUrl || $imgUrl == 'empty') && $row->originalurl){
 				$imgUrl = trim($row->originalurl);
