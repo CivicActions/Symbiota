@@ -165,7 +165,7 @@ class ImageProcessor {
 	//iDigBio Image ingestion processing functions
 	public function processiDigBioOutput($pmTerm){
 		$status = '';
-		$idigbioImageUrl = 'http://api.idigbio.org/v2/media/';
+		$idigbioImageUrl = 'https://api.idigbio.org/v2/media/';
 		$this->initProcessor('idigbio');
 		$collStr = $this->collArr['instcode'].($this->collArr['collcode']?'-'.$this->collArr['collcode']:'');
 		$this->logOrEcho('Starting image processing for '.$collStr.' ('.date('Y-m-d h:i:s A').')');
@@ -178,31 +178,36 @@ class ImageProcessor {
 					$mediaMd5Index = (in_array('MediaMD5',$headerArr)?array_search('MediaMD5',$headerArr):(in_array('ac:hashValue',$headerArr)?array_search('ac:hashValue',$headerArr):''));
 					if(is_numeric($origFileNameIndex) && is_numeric($mediaMd5Index)){
 						while(($data = fgetcsv($fh,1000,",")) !== FALSE){
-							$origFileName = basename($data[$origFileNameIndex]);
-							//basename() function is system specific, thus following code needed to parse filename independent of source file from PC, Mac, etc 
-							if(strpos($origFileName,'/') !== false){
-								$origFileName = substr($origFileName,(strrpos($origFileName,'/')+1));
-							}
-							elseif(strpos($origFileName,'\\') !== false){
-								$origFileName = substr($origFileName,(strrpos($origFileName,'\\')+1));
-							}
-							if(preg_match($pmTerm,$origFileName,$matchArr)){
-								if(array_key_exists(1,$matchArr) && $matchArr[1]){
-									$specPk = $matchArr[1];
-									$occid = $this->getOccid($specPk,$origFileName);
-									if($occid){
-										//Image hasn't been loaded, thus insert image urls into image table
-										$webUrl = $idigbioImageUrl.$data[$mediaMd5Index].'?size=webview';
-										$tnUrl = $idigbioImageUrl.$data[$mediaMd5Index].'?size=thumbnail';
-										$lgUrl = $idigbioImageUrl.$data[$mediaMd5Index].'?size=fullsize';
-										$archiveUrl = $idigbioImageUrl;
-										$this->databaseImage($occid,$webUrl,$tnUrl,$lgUrl,$archiveUrl,$this->collArr['collname'],$origFileName);
+							if($data[$mediaMd5Index]){
+								$origFileName = basename($data[$origFileNameIndex]);
+								//basename() function is system specific, thus following code needed to parse filename independent of source file from PC, Mac, etc 
+								if(strpos($origFileName,'/') !== false){
+									$origFileName = substr($origFileName,(strrpos($origFileName,'/')+1));
+								}
+								elseif(strpos($origFileName,'\\') !== false){
+									$origFileName = substr($origFileName,(strrpos($origFileName,'\\')+1));
+								}
+								if(preg_match($pmTerm,$origFileName,$matchArr)){
+									if(array_key_exists(1,$matchArr) && $matchArr[1]){
+										$specPk = $matchArr[1];
+										$occid = $this->getOccid($specPk,$origFileName);
+										if($occid){
+											//Image hasn't been loaded, thus insert image urls into image table
+											$webUrl = $idigbioImageUrl.$data[$mediaMd5Index].'?size=webview';
+											$tnUrl = $idigbioImageUrl.$data[$mediaMd5Index].'?size=thumbnail';
+											$lgUrl = $idigbioImageUrl.$data[$mediaMd5Index].'?size=fullsize';
+											$archiveUrl = $idigbioImageUrl;
+											$this->databaseImage($occid,$webUrl,$tnUrl,$lgUrl,$archiveUrl,$this->collArr['collname'],$origFileName);
+										}
 									}
+								}
+								else{
+									$this->logOrEcho('NOTICE: File skipped, unable to extract specimen identifier ('.$origFileName.', pmTerm: '.$pmTerm.')',2);
 								}
 							}
 							else{
-								//Output to error log file
-								$this->logOrEcho('NOTICE: File skipped, unable to extract specimen identifier ('.$origFileName.', pmTerm: '.$pmTerm.')',2);
+								$errMsg = $data[array_search('idigbio:mediaStatusDetail',$headerArr)];
+								$this->logOrEcho('NOTICE: File skipped due to apparent iDigBio upload failure (iDigBio Error:'.$errMsg.') ',2);
 							}
 						}
 						$this->cleanHouse(array($this->collid));
@@ -332,11 +337,30 @@ class ImageProcessor {
 	private function databaseImage($occid,$webUrl,$tnUrl,$lgUrl,$archiveUrl,$ownerStr,$sourceIdentifier){
 		$status = true;
 		if($occid){
+			$format = 'image/jpeg';
+			$testUrl = $lgUrl;
+			if(!$testUrl) $testUrl = $webUrl;
+			$imgInfo = getimagesize($testUrl);
+			if($imgInfo){
+				if($imgInfo[2] == IMAGETYPE_GIF){
+					$format = 'image/gif';
+				}
+				elseif($imgInfo[2] == IMAGETYPE_PNG){
+					$format = 'image/png';
+				}
+				elseif($imgInfo[2] == IMAGETYPE_JPEG){
+					$format = 'image/jpeg';
+				}
+				else{
+					$format = '';
+				}
+			}
+
 			//$this->logOrEcho("Preparing to load record into database",2);
-			$sql = 'INSERT images(occid,url,thumbnailurl,originalurl,archiveurl,owner,sourceIdentifier) '.
+			$sql = 'INSERT INTO images(occid,url,thumbnailurl,originalurl,archiveurl,owner,sourceIdentifier,format) '.
 				'VALUES ('.$occid.',"'.$webUrl.'",'.($tnUrl?'"'.$tnUrl.'"':'NULL').','.($lgUrl?'"'.$lgUrl.'"':'NULL').','.
 				($archiveUrl?'"'.$archiveUrl.'"':'NULL').','.($ownerStr?'"'.$this->cleanInStr($ownerStr).'"':'NULL').','.
-				($sourceIdentifier?'"'.$this->cleanInStr($sourceIdentifier).'"':'NULL').')';
+				($sourceIdentifier?'"'.$this->cleanInStr($sourceIdentifier).'"':'NULL').',"'.$format.'")';
 			if($this->conn->query($sql)){
 				//$this->logOrEcho('Image loaded into database (<a href="../individual/index.php?occid='.$occid.'" target="_blank">#'.$occid.($sourceIdentifier?'</a>: '.$sourceIdentifier:'').')',2);
 			}
