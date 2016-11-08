@@ -373,15 +373,15 @@ class ActionManager extends Manager {
           $sql = "update actionrequest set state = ?, priority = ?, resolution = ?, statesetdate = now(), uid_fullfillor = ?, resolutionremarks = ? where actionrequestid = ? ";
           $stmt = $this->conn->stmt_init();
           $stmt->prepare($sql);
-          if ($stmt->error==null) { 
+          if ($stmt->error==null) {
              $stmt->bind_param('sisisi',$state,$priority,$resolution,$uid,$resolutionremarks,$actionrequestid);
              $stmt->execute();
-             if ($stmt->error==null) { 
-                $result=TRUE;
-             } else { 
+             if ($stmt->error==null) {
+                $result = TRUE;
+             } else {
                 $this->errormessage = $stmt->error;
              }
-          } else { 
+          } else {
              $this->errormessage = $stmt->error;
           }
           $stmt->close();

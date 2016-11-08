@@ -29,6 +29,7 @@ class OccurrenceEditorManager {
 		else{
 			$this->conn = MySQLiConnectionFactory::getCon("write");
 		}
+		//CA: Bookmark
 		$this->occFieldArr = array('dbpk', 'catalognumber', 'othercatalognumbers', 'occurrenceid','family', 'scientificname', 'sciname',
 			'tidinterpreted', 'scientificnameauthorship', 'identifiedby', 'dateidentified', 'identificationreferences',
 			'identificationremarks', 'taxonremarks', 'identificationqualifier', 'typestatus', 'recordedby', 'recordnumber',
@@ -40,8 +41,9 @@ class OccurrenceEditorManager {
 			'decimallatitude', 'decimallongitude','geodeticdatum', 'coordinateuncertaintyinmeters', 'footprintwkt',
 			'locationremarks', 'verbatimcoordinates', 'georeferencedby', 'georeferenceprotocol', 'georeferencesources',
 			'georeferenceverificationstatus', 'georeferenceremarks', 'minimumelevationinmeters', 'maximumelevationinmeters',
-			'verbatimelevation', 'disposition', 'language', 'duplicatequantity', 'genericcolumn1', 'genericcolumn2', 'labelproject', 
-			'observeruid','basisofrecord','ownerinstitutioncode','datelastmodified', 'processingstatus', 'recordenteredby', 'dateentered');
+			'verbatimelevation', 'disposition', 'language', 'duplicatequantity', 'genericcolumn1', 'genericcolumn2', 'labelproject',
+			'observeruid','basisofrecord','ownerinstitutioncode','datelastmodified', 'processingstatus', 'recordenteredby', 'dateentered', 'idcollaboratorindigenous', 'sexcollaboratorindigenous', 'dobcollaboratorindigenous', 'verbatimindigenous', 'validindigenous', 'linklanguagecollaboratorindigenous', 'familylanguagecollaboratorindigenous', 'grouplanguagecollaboratorindigenous', 'subgrouplanguagecollaboratorindigenous', 'villagecollaboratorindigenous', 'municipalitycollaboratorindigenous', 'statecollaboratorindigenous', 'countrycollaboratorindigenous', 'isolanguagecollaboratorindigenous', 'vernacularlexiconindigenous', 'glosslexiconindigenous', 'parselexiconindigenous', 'parenttaxalexiconindigenous', 'siblingtaxalexiconindigenous', 'childtaxalexiconindigenous', 'othertaxauseindigenous', 'typologylexiconindigenous', 'semanticslexiconindigenous', 'noteslexiconindigenous', 'categoryuseindigenous', 'specificuseindigenous', 'partuseindigenous', 'notesuseindigenous');
+
 	}
 
 	public function __destruct(){
@@ -756,7 +758,7 @@ class OccurrenceEditorManager {
 				foreach($editArr as $fieldName){
 					if(!array_key_exists($fieldName,$occArr)){
 						//Field is a checkbox that is unchecked: cultivationstatus, localitysecurity
-						$occArr[$fieldName] = 0;
+            $occArr[$fieldName] = 0;
 					}
 					$newValue = $this->cleanInStr($occArr[$fieldName]);
 					$oldValue = $this->cleanInStr($oldValues[$fieldName]);
@@ -910,6 +912,7 @@ class OccurrenceEditorManager {
 	public function addOccurrence($occArr){
 		$status = "SUCCESS: new occurrence record submitted successfully ";
 		if($occArr){
+			//CA: Bookmark
 			$fieldArr = array('basisOfRecord' => 's', 'catalogNumber' => 's', 'otherCatalogNumbers' => 's', 'occurrenceid' => 's', 'ownerInstitutionCode' => 's', 
 				'family' => 's', 'sciname' => 's', 'tidinterpreted' => 'n', 'scientificNameAuthorship' => 's', 'identifiedBy' => 's', 'dateIdentified' => 's', 
 				'identificationReferences' => 's', 'identificationremarks' => 's', 'taxonRemarks' => 's', 'identificationQualifier' => 's', 'typeStatus' => 's',  
@@ -921,8 +924,8 @@ class OccurrenceEditorManager {
 				'decimalLatitude' => 'n', 'decimalLongitude' => 'n', 'geodeticDatum' => 's', 'coordinateUncertaintyInMeters' => 'n', 'verbatimCoordinates' => 's', 'footprintwkt' => 's', 
 				'georeferencedBy' => 's', 'georeferenceProtocol' => 's', 'georeferenceSources' => 's', 
 				'georeferenceVerificationStatus' => 's', 'georeferenceRemarks' => 's', 'minimumElevationInMeters' => 'n', 'maximumElevationInMeters' => 'n', 
-				'verbatimElevation' => 's', 'disposition' => 's', 'language' => 's', 'duplicateQuantity' => 'n', 'labelProject' => 's', 
-				'processingstatus' => 's', 'recordEnteredBy' => 's', 'observeruid' => 'n', 'dateentered' => 'd', 'genericcolumn2' => 's');
+				'verbatimElevation' => 's', 'disposition' => 's', 'language' => 's', 'duplicateQuantity' => 'n', 'labelProject' => 's',
+				'processingstatus' => 's', 'recordEnteredBy' => 's', 'observeruid' => 'n', 'dateentered' => 'd', 'genericcolumn2' => 's', 'idCollaboratorIndigenous' => 's', 'sexCollaboratorIndigenous' => 's', 'dobCollaboratorIndigenous' => 'd', 'verbatimIndigenous' => 's', 'validIndigenous' => 's', 'linkLanguageCollaboratorIndigenous' => 's', 'familyLanguageCollaboratorIndigenous' => 's', 'groupLanguageCollaboratorIndigenous' => 's', 'subgroupLanguageCollaboratorIndigenous' => 's', 'villageCollaboratorIndigenous' => 's', 'municipalityCollaboratorIndigenous' => 's', 'stateCollaboratorIndigenous' => 's', 'countryCollaboratorIndigenous' => 's', 'isoLanguageCollaboratorIndigenous' => 's', 'vernacularLexiconIndigenous' => 's', 'glossLexiconIndigenous' => 's', 'parseLexiconIndigenous' => 's', 'parentTaxaLexiconIndigenous' => 's', 'siblingTaxaLexiconIndigenous' => 's', 'childTaxaLexiconIndigenous' => 's', 'otherTaxaUseIndigenous' => 's', 'typologyLexiconIndigenous' => 's', 'semanticsLexiconIndigenous' => 's', 'notesLexiconIndigenous' => 's', 'categoryUseIndigenous' => 's', 'specificUseIndigenous' => 's', 'partUseIndigenous' => 's', 'notesUseIndigenous' => 's');
 			$sql = 'INSERT INTO omoccurrences(collid, '.implode(array_keys($fieldArr),',').') '.
 				'VALUES ('.$occArr["collid"];
 			$fieldArr = array_change_key_case($fieldArr);

@@ -97,6 +97,7 @@ class OccurrenceIndividualManager extends Manager{
 	}
 
 	private function loadOccurData(){
+		//CA: Bookmark
 		$sql = 'SELECT o.occid, collid, institutioncode AS secondaryinstcode, collectioncode AS secondarycollcode, '.
 			'occurrenceid, catalognumber, occurrenceremarks, tidinterpreted, family, sciname, '.
 			'scientificnameauthorship, identificationqualifier, identificationremarks, identificationreferences, taxonremarks, '.
@@ -107,7 +108,7 @@ class OccurrenceIndividualManager extends Manager{
 			'decimallatitude, decimallongitude, geodeticdatum, coordinateuncertaintyinmeters, verbatimcoordinates, '.
 			'georeferenceremarks, verbatimattributes, '.
 			'typestatus, dbpk, habitat, substrate, associatedtaxa, reproductivecondition, cultivationstatus, establishmentmeans, '.
-			'ownerinstitutioncode, othercatalognumbers, disposition, modified, observeruid, g.guid, recordenteredby, dateentered, datelastmodified '.
+			'ownerinstitutioncode, othercatalognumbers, disposition, modified, observeruid, g.guid, recordenteredby, dateentered, datelastmodified, idCollaboratorIndigenous, sexCollaboratorIndigenous, dobCollaboratorIndigenous, verbatimIndigenous, validIndigenous, linkLanguageCollaboratorIndigenous, familyLanguageCollaboratorIndigenous, groupLanguageCollaboratorIndigenous, subgroupLanguageCollaboratorIndigenous, villageCollaboratorIndigenous, municipalityCollaboratorIndigenous, stateCollaboratorIndigenous, countryCollaboratorIndigenous, isoLanguageCollaboratorIndigenous, vernacularLexiconIndigenous, glossLexiconIndigenous, parseLexiconIndigenous, parentTaxaLexiconIndigenous, siblingTaxaLexiconIndigenous, childTaxaLexiconIndigenous, otherTaxaUseIndigenous, typologyLexiconIndigenous, semanticsLexiconIndigenous, notesLexiconIndigenous, categoryUseIndigenous, specificUseIndigenous, partUseIndigenous, notesUseIndigenous '.
 			'FROM omoccurrences o LEFT JOIN guidoccurrences g ON o.occid = g.occid ';
 		if($this->occid){
 			$sql .= 'WHERE (o.occid = '.$this->occid.')';

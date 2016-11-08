@@ -15,6 +15,7 @@ class WsOccurEditor extends WebServiceBase{
 
 	public function __construct(){
 		parent::__construct(null, 'write');
+		//CA: Bookmark
 		$this->approvedFields = array('catalognumber', 'othercatalognumbers', 'occurrenceid','family', 'sciname',
 			'scientificnameauthorship', 'identifiedby', 'dateidentified', 'identificationreferences',
 			'identificationremarks', 'taxonremarks', 'identificationqualifier', 'typestatus', 'recordedby', 'recordnumber',
@@ -27,7 +28,7 @@ class WsOccurEditor extends WebServiceBase{
 			'locationremarks', 'verbatimcoordinates', 'georeferencedby', 'georeferenceprotocol', 'georeferencesources',
 			'georeferenceverificationstatus', 'georeferenceremarks', 'minimumelevationinmeters', 'maximumelevationinmeters',
 			'verbatimelevation', 'disposition', 'language', 'duplicatequantity',
-			'basisofrecord', 'processingstatus', 'recordenteredby');
+			'basisofrecord', 'processingstatus', 'recordenteredby', 'idCollaboratorIndigenous', 'sexCollaboratorIndigenous', 'dobCollaboratorIndigenous', 'verbatimIndigenous', 'validIndigenous', 'linkLanguageCollaboratorIndigenous', 'familyLanguageCollaboratorIndigenous', 'groupLanguageCollaboratorIndigenous', 'subgroupLanguageCollaboratorIndigenous', 'villageCollaboratorIndigenous', 'municipalityCollaboratorIndigenous', 'stateCollaboratorIndigenous', 'countryCollaboratorIndigenous', 'isoLanguageCollaboratorIndigenous', 'vernacularLexiconIndigenous', 'glossLexiconIndigenous', 'parseLexiconIndigenous', 'parentTaxaLexiconIndigenous', 'siblingTaxaLexiconIndigenous', 'childTaxaLexiconIndigenous', 'otherTaxaUseIndigenous', 'typologyLexiconIndigenous', 'semanticsLexiconIndigenous', 'notesLexiconIndigenous', 'categoryUseIndigenous', 'specificUseIndigenous', 'partUseIndigenous', 'notesUseIndigenous');
 		$this->fieldTranslation = array('species'=>'specificepithet','scientificnameauthor'=>'scientificnameauthorship','collector'=>'recordedby','collectornumber'=>'recordnumber',
 			'yearcollected'=>'year','monthcollected'=>'month','daycollected'=>'day','latitude'=>'decimallatitude','longitude'=>'decimallongitude',
 			'minimumelevation'=>'minimumelevationinmeters','maximumelevation'=>'maximumelevationinmeters','minimumdepth'=>'minimumdepthinmeters',
