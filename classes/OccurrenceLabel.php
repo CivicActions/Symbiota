@@ -179,7 +179,6 @@ class OccurrenceLabel{
 			}
 				
 			//Get occurrence records
-			//CA: Bookmark
 			$sql2 = 'SELECT o.occid, o.collid, o.catalognumber, o.othercatalognumbers, '.
 				'o.family, o.sciname AS scientificname, o.genus, o.specificepithet, o.taxonrank, o.infraspecificepithet, '.
 				'o.scientificnameauthorship, "" AS parentauthor, o.identifiedby, o.dateidentified, o.identificationreferences, '.
@@ -190,7 +189,7 @@ class OccurrenceLabel{
 				'o.stateprovince, o.county, o.municipality, o.locality, o.decimallatitude, o.decimallongitude, '.
 				'o.geodeticdatum, o.coordinateuncertaintyinmeters, o.verbatimcoordinates, '.
 				'o.minimumelevationinmeters, o.maximumelevationinmeters, '.
-				'o.verbatimelevation, o.disposition, o.duplicatequantity, o.datelastmodified, o.verbatimindigenous, o.validindigenous, o.linklanguagecollaboratorindigenous, o.familylanguagecollaboratorindigenous, o.grouplanguagecollaboratorindigenous, o.subgrouplanguagecollaboratorindigenous, o.villagecollaboratorindigenous, o.municipalitycollaboratorindigenous, o.statecollaboratorindigenous, o.countrycollaboratorindigenous, o.isolanguagecollaboratorindigenous, o.vernacularlexiconindigenous, o.glosslexiconindigenous, o.parselexiconindigenous, o.parentaxalexiconindigenous, o.siblingtaxalexiconindigenous, o.childtaxalexiconindigenous, o.othertaxauseindigenous, o.typologylexiconindigenous, o.semanticslexiconindigenous, o.noteslexiconindigenous, o.categoryuseindigenous, o.specificuseindigenous, o.partuseindigenous, o.notesuseindigenous '.
+				'o.verbatimelevation, o.disposition, o.duplicatequantity, o.datelastmodified '.
 				'FROM omoccurrences o '.$sqlWhere;
 			//echo 'SQL: '.$sql2;
 			if($rs2 = $this->conn->query($sql2)){
@@ -348,7 +347,6 @@ class OccurrenceLabel{
 				header('Pragma: public');
 				
 				$fh = fopen('php://output','w');
-				//CA: Bookmark
 				$headerArr = array("occid","catalogNumber","otherCatalogNumbers","family","scientificName","genus","specificEpithet",
 					"taxonRank","infraSpecificEpithet","scientificNameAuthorship","parentAuthor","identifiedBy",
 					"dateIdentified","identificationReferences","identificationRemarks","taxonRemarks","identificationQualifier",
@@ -357,7 +355,7 @@ class OccurrenceLabel{
 		 			"reproductiveCondition","establishmentMeans","country",
 		 			"stateProvince","county","municipality","locality","decimalLatitude","decimalLongitude",
 			 		"geodeticDatum","coordinateUncertaintyInMeters","verbatimCoordinates",
-		 			"minimumElevationInMeters","maximumElevationInMeters","verbatimElevation","disposition","idCollaboratorIndigenous","sexCollaboratorIndigenous","dobCollaboratorIndigenous","verbatimIndigenous","validIndigenous","linkLanguageCollaboratorIndigenous","familyLanguageCollaboratorIndigenous","groupLanguageCollaboratorIndigenous","subgroupLanguageCollaboratorIndigenous","villageCollaboratorIndigenous","municipalityCollaboratorIndigenous","stateCollaboratorIndigenous","countryCollaboratorIndigenous","isoLanguageCollaboratorIndigenous","vernacularLexiconIndigenous","glossLexiconIndigenous","parseLexiconIndigenous","parentTaxaLexiconIndigenous","siblingTaxaLexiconIndigenous","childTaxaLexiconIndigenous","otherTaxaUseIndigenous","typologyLexiconIndigenous","semanticsLexiconIndigenous","notesLexiconIndigenous","categoryUseIndigenous","specificUseIndigenous","partUseIndigenous","notesUseIndigenous");
+		 			"minimumElevationInMeters","maximumElevationInMeters","verbatimElevation","disposition");
 
 				fputcsv($fh,$headerArr);
 				//change header value to lower case

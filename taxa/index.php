@@ -175,7 +175,6 @@ if($taxonManager->getSciName() != "unknown"){
 				}
 				?>
 			</td>
-			</td>
 			<td class="desc">
 				<?php 
 				//Middle Right Section (Description section)
@@ -465,7 +464,7 @@ if($taxonManager->getSciName() != "unknown"){
 	echo '<div style="margin-top:15px;text-align:center;">';
 	if($taxonRank > 180){
 		if($taxonRank > 180 && $links){
-			echo '<a href="toggle(\'links\')">'.$LANG['WEB_LINKS'].'</a>';
+			echo '<a href="" onclick="toggle(\'links\');return false;">'.$LANG['WEB_LINKS'].'</a>';
 		}
 	}
 

@@ -1,8 +1,6 @@
 <?php
 include_once($serverRoot.'/config/dbconnection.php');
 include_once($serverRoot.'/classes/GPoint.php');
-//CA: Bookmark
-// For adding associatedTaxa and therefore the other Taxa away.
 
 class OccurrenceAssociations extends Manager {
 
