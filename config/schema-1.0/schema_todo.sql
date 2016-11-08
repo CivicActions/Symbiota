@@ -1,6 +1,6 @@
 #Specimen attribute (traits) model
 CREATE TABLE `tmtraits` (
-  `traitid` INT NOT NULL AUTO_INCREMENT,
+  `traitid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `traitname` VARCHAR(100) NOT NULL,
   `traittype` VARCHAR(2) NOT NULL DEFAULT 'UM',
   `units` VARCHAR(45) NULL,
@@ -22,8 +22,8 @@ CREATE TABLE `tmtraits` (
     FOREIGN KEY (`modifieduid`)   REFERENCES `users` (`uid`)   ON DELETE SET NULL   ON UPDATE CASCADE);
 
 CREATE TABLE `tmstates` (
-  `stateid` INT NOT NULL AUTO_INCREMENT,
-  `traitid` INT NOT NULL,
+  `stateid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `traitid` INT UNSIGNED NOT NULL,
   `statecode` VARCHAR(2) NOT NULL,
   `statename` VARCHAR(75) NOT NULL,
   `description` VARCHAR(250) NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `tmstates` (
     FOREIGN KEY (`traitid`)   REFERENCES `tmtraits` (`traitid`)   ON DELETE RESTRICT   ON UPDATE CASCADE);
 
 CREATE TABLE `tmattributes` (
-  `stateid` INT NOT NULL,
+  `stateid` INT UNSIGNED NOT NULL,
   `occid` INT UNSIGNED NOT NULL,
   `modifier` VARCHAR(100) NULL,
   `xvalue` DOUBLE(15,5) NULL,
@@ -78,7 +78,7 @@ CREATE TABLE `tmattributes` (
 );
 
 CREATE TABLE `tmtraittaxalink` (
-  `traitid` INT NOT NULL,
+  `traitid` INT UNSIGNED NOT NULL,
   `tid` INT UNSIGNED NOT NULL,
   `relation` VARCHAR(45) NOT NULL DEFAULT 'include',
   `initialtimestamp` TIMESTAMP NOT NULL DEFAULT current_timestamp,
@@ -90,6 +90,20 @@ CREATE TABLE `tmtraittaxalink` (
   CONSTRAINT `FK_traittaxalink_tid`
     FOREIGN KEY (`tid`)  REFERENCES `taxa` (`TID`)  ON DELETE CASCADE  ON UPDATE CASCADE
 );
+
+CREATE TABLE `tmtraitdependencies` (
+  `traitid` INT UNSIGNED NOT NULL,
+  `parentstateid` INT UNSIGNED NOT NULL,
+  `initialtimestamp` TIMESTAMP NULL DEFAULT current_timestamp,
+  PRIMARY KEY (`traitid`, `parentstateid`),
+  INDEX `FK_tmdepend_traitid_idx` (`traitid` ASC),
+  INDEX `FK_tmdepend_stateid_idx` (`parentstateid` ASC),
+  CONSTRAINT `FK_tmdepend_traitid` 
+    FOREIGN KEY (`traitid`) REFERENCES `tmtraits` (`traitid`)  ON DELETE CASCADE  ON UPDATE CASCADE,
+  CONSTRAINT `FK_tmdepend_stateid`
+    FOREIGN KEY (`parentstateid`)  REFERENCES `tmstates` (`stateid`)  ON DELETE CASCADE  ON UPDATE CASCADE  
+);
+
 
 #Occurrence associations
 ALTER TABLE `omoccurassococcurrences` 
@@ -384,23 +398,6 @@ CREATE TABLE `omcollectioncontacts` (
   CONSTRAINT `FK_contact_uid`   FOREIGN KEY (`uid`)   REFERENCES `users` (`uid`)   ON DELETE CASCADE   ON UPDATE CASCADE);
 
 
-ALTER TABLE `omcollcatlink` 
-  ADD COLUMN `isPrimary` TINYINT(1) NULL DEFAULT 1 AFTER `collid`;
-
-# Establishes many-many relationship to be used in DwC eml.xml file
-CREATE TABLE `omcollectioncontacts` (
-  `collid` INT UNSIGNED NOT NULL,
-  `uid` INT UNSIGNED NOT NULL,
-  `positionName` VARCHAR(45) NULL,
-  `role` VARCHAR(45) NULL,
-  `notes` VARCHAR(250) NULL,
-  `initialtimestamp` TIMESTAMP NULL DEFAULT current_timestamp,
-  PRIMARY KEY (`collid`, `uid`),
-  INDEX `FK_contact_uid_idx` (`uid` ASC),
-  CONSTRAINT `FK_contact_collid`   FOREIGN KEY (`collid`)   REFERENCES `omcollections` (`CollID`)   ON DELETE CASCADE   ON UPDATE CASCADE,
-  CONSTRAINT `FK_contact_uid`   FOREIGN KEY (`uid`)   REFERENCES `users` (`uid`)   ON DELETE CASCADE   ON UPDATE CASCADE);
-
-
 ALTER TABLE `omoccurrences` 
   ADD INDEX `Index_locality` (`locality`(100) ASC),
   ADD INDEX `Index_otherCatalogNumbers` (`otherCatalogNumbers` ASC);
@@ -410,6 +407,7 @@ ALTER TABLE `omoccurrences`
   ADD COLUMN `latestDateCollected` DATE NULL AFTER `eventDate`,
   ADD COLUMN `waterBody`  varchar(255) NULL AFTER `municipality`,
   CHANGE COLUMN `establishmentMeans` `establishmentMeans` VARCHAR(150) NULL DEFAULT NULL,
+  CHANGE COLUMN `disposition` `disposition` varchar(250) NULL DEFAULT NULL,
   ADD INDEX `Index_latestDateCollected` (`latestDateCollected` ASC);
 
 
