@@ -1,5 +1,4 @@
 <?php
-//BOOKMARK FILE: CivicActions
 include_once($SERVER_ROOT.'/config/dbconnection.php');
 include_once($SERVER_ROOT.'/classes/OccurrenceEditorDeterminations.php');
 include_once($SERVER_ROOT.'/classes/OccurrenceEditorImages.php');
@@ -30,7 +29,6 @@ class OccurrenceEditorManager {
 		else{
 			$this->conn = MySQLiConnectionFactory::getCon("write");
 		}
-		//CA: Bookmark
 		$this->occFieldArr = array('dbpk', 'catalognumber', 'othercatalognumbers', 'occurrenceid','family', 'scientificname', 'sciname',
 			'tidinterpreted', 'scientificnameauthorship', 'identifiedby', 'dateidentified', 'identificationreferences',
 			'identificationremarks', 'taxonremarks', 'identificationqualifier', 'typestatus', 'recordedby', 'recordnumber',
@@ -43,7 +41,7 @@ class OccurrenceEditorManager {
 			'locationremarks', 'verbatimcoordinates', 'georeferencedby', 'georeferenceprotocol', 'georeferencesources',
 			'georeferenceverificationstatus', 'georeferenceremarks', 'minimumelevationinmeters', 'maximumelevationinmeters',
 			'verbatimelevation', 'disposition', 'language', 'duplicatequantity', 'genericcolumn1', 'genericcolumn2', 'labelproject', 
-			'observeruid','basisofrecord','ownerinstitutioncode','datelastmodified', 'processingstatus', 'recordenteredby', 'dateentered', 'idcollaboratorindigenous', 'sexcollaboratorindigenous', 'dobcollaboratorindigenous', 'verbatimindigenous', 'validindigenous', 'linklanguagecollaboratorindigenous', 'familylanguagecollaboratorindigenous', 'grouplanguagecollaboratorindigenous', 'subgrouplanguagecollaboratorindigenous', 'villagecollaboratorindigenous', 'municipalitycollaboratorindigenous', 'statecollaboratorindigenous', 'countrycollaboratorindigenous', 'isolanguagecollaboratorindigenous', 'vernacularlexiconindigenous', 'glosslexiconindigenous', 'parselexiconindigenous', 'parenttaxalexiconindigenous', 'siblingtaxalexiconindigenous', 'childtaxalexiconindigenous', 'othertaxauseindigenous', 'typologylexiconindigenous', 'semanticslexiconindigenous', 'noteslexiconindigenous', 'categoryuseindigenous', 'specificuseindigenous', 'partuseindigenous', 'notesuseindigenous');
+			'observeruid','basisofrecord','ownerinstitutioncode','datelastmodified', 'processingstatus', 'recordenteredby', 'dateentered');
 	}
 
 	public function __destruct(){
@@ -758,7 +756,7 @@ class OccurrenceEditorManager {
 				foreach($editArr as $fieldName){
 					if(!array_key_exists($fieldName,$occArr)){
 						//Field is a checkbox that is unchecked: cultivationstatus, localitysecurity
-            $occArr[$fieldName] = 0;
+						$occArr[$fieldName] = 0;
 					}
 					$newValue = $this->cleanInStr($occArr[$fieldName]);
 					$oldValue = $this->cleanInStr($oldValues[$fieldName]);
@@ -912,7 +910,6 @@ class OccurrenceEditorManager {
 	public function addOccurrence($occArr){
 		$status = "SUCCESS: new occurrence record submitted successfully ";
 		if($occArr){
-			//CA: Bookmark
 			$fieldArr = array('basisOfRecord' => 's', 'catalogNumber' => 's', 'otherCatalogNumbers' => 's', 'occurrenceid' => 's', 'ownerInstitutionCode' => 's', 
 				'family' => 's', 'sciname' => 's', 'tidinterpreted' => 'n', 'scientificNameAuthorship' => 's', 'identifiedBy' => 's', 'dateIdentified' => 's', 
 				'identificationReferences' => 's', 'identificationremarks' => 's', 'taxonRemarks' => 's', 'identificationQualifier' => 's', 'typeStatus' => 's',  
@@ -925,7 +922,7 @@ class OccurrenceEditorManager {
 				'georeferencedBy' => 's', 'georeferenceProtocol' => 's', 'georeferenceSources' => 's', 
 				'georeferenceVerificationStatus' => 's', 'georeferenceRemarks' => 's', 'minimumElevationInMeters' => 'n', 'maximumElevationInMeters' => 'n', 
 				'verbatimElevation' => 's', 'disposition' => 's', 'language' => 's', 'duplicateQuantity' => 'n', 'labelProject' => 's', 
-				'processingstatus' => 's', 'recordEnteredBy' => 's', 'observeruid' => 'n', 'dateentered' => 'd', 'genericcolumn2' => 's', 'idCollaboratorIndigenous' => 's', 'sexCollaboratorIndigenous' => 's', 'dobCollaboratorIndigenous' => 'd', 'verbatimIndigenous' => 's', 'validIndigenous' => 's', 'linkLanguageCollaboratorIndigenous' => 's', 'familyLanguageCollaboratorIndigenous' => 's', 'groupLanguageCollaboratorIndigenous' => 's', 'subgroupLanguageCollaboratorIndigenous' => 's', 'villageCollaboratorIndigenous' => 's', 'municipalityCollaboratorIndigenous' => 's', 'stateCollaboratorIndigenous' => 's', 'countryCollaboratorIndigenous' => 's', 'isoLanguageCollaboratorIndigenous' => 's', 'vernacularLexiconIndigenous' => 's', 'glossLexiconIndigenous' => 's', 'parseLexiconIndigenous' => 's', 'parentTaxaLexiconIndigenous' => 's', 'siblingTaxaLexiconIndigenous' => 's', 'childTaxaLexiconIndigenous' => 's', 'otherTaxaUseIndigenous' => 's', 'typologyLexiconIndigenous' => 's', 'semanticsLexiconIndigenous' => 's', 'notesLexiconIndigenous' => 's', 'categoryUseIndigenous' => 's', 'specificUseIndigenous' => 's', 'partUseIndigenous' => 's', 'notesUseIndigenous' => 's');
+				'processingstatus' => 's', 'recordEnteredBy' => 's', 'observeruid' => 'n', 'dateentered' => 'd', 'genericcolumn2' => 's');
 			$sql = 'INSERT INTO omoccurrences(collid, '.implode(array_keys($fieldArr),',').') '.
 				'VALUES ('.$occArr["collid"];
 			$fieldArr = array_change_key_case($fieldArr);
@@ -1083,6 +1080,22 @@ class OccurrenceEditorManager {
 				}
 				$rs->free();
 				$archiveArr['imgs'] = $imgArr;
+				//Delete images
+				if($imgArr){
+					$imgidStr = implode(',',array_keys($imgArr));
+					//Remove any OCR text blocks linked to the image
+					if(!$this->conn->query('DELETE FROM specprocessorrawlabels WHERE (imgid IN('.$imgidStr.'))')){
+						$this->errorArr[] = 'ERROR removing OCR blocks linked to images: '.$this->conn->error;
+					}
+					//Remove image tags
+					if(!$this->conn->query('DELETE FROM imagetag WHERE (imgid IN('.$imgidStr.'))')){
+						$this->errorArr[] = 'ERROR removing imageTags linked to images: '.$this->conn->error;
+					}
+					//Remove images
+					if(!$this->conn->query('DELETE FROM images WHERE (imgid IN('.$imgidStr.'))')){
+						$this->errorArr[] = 'ERROR removing image links: '.$this->conn->error;
+					}
+				}
 
 				//Archive Exsiccati info
 				$exsArr = array();
@@ -1749,10 +1762,9 @@ class OccurrenceEditorManager {
 				'CONCAT_WS(", ",u.lastname,u.firstname) AS username, r.externaltimestamp, r.initialtimestamp '.
 				'FROM omoccurrevisions r LEFT JOIN users u ON r.uid = u.uid '.
 				'WHERE (r.occid = '.$this->occid.') ORDER BY r.initialtimestamp DESC ';
-		echo '<div>'.$sql.'</div>';
+		//echo '<div>'.$sql.'</div>';
 		$rs = $this->conn->query($sql);
-		echo '<div>' . print_r($rs) . '</div>';
-                while($r = $rs->fetch_object()){
+		while($r = $rs->fetch_object()){
 			$editor = $r->externaleditor;
 			if($r->username) $editor .= ' ('.$r->username.')';
 			$ts = $r->initialtimestamp;

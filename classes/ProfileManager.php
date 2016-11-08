@@ -726,8 +726,7 @@ class ProfileManager{
     	$fileName = $tempPath.$buFileName;
     	$specFH = fopen($fileName.'_spec.csv', "w");
     	//Output header 
-    	//CA: Bookmark
-		  $headerStr = 'occid,dbpk,basisOfRecord,otherCatalogNumbers,ownerInstitutionCode, '.
+    	$headerStr = 'occid,dbpk,basisOfRecord,otherCatalogNumbers,ownerInstitutionCode, '.
 			'family,scientificName,sciname,tidinterpreted,genus,specificEpithet,taxonRank,infraspecificEpithet,scientificNameAuthorship, '.
 			'taxonRemarks,identifiedBy,dateIdentified,identificationReferences,identificationRemarks,identificationQualifier, '.
 			'typeStatus,recordedBy,recordNumber,associatedCollectors,eventDate,year,month,day,startDayOfYear,endDayOfYear, '.
@@ -737,7 +736,7 @@ class ProfileManager{
 			'locality,localitySecurity,localitySecurityReason,decimalLatitude,decimalLongitude,geodeticDatum, '.
 			'coordinateUncertaintyInMeters,verbatimCoordinates,georeferencedBy,georeferenceProtocol,georeferenceSources, '.
 			'georeferenceVerificationStatus,georeferenceRemarks,minimumElevationInMeters,maximumElevationInMeters,verbatimElevation, '.
-			'previousIdentifications,disposition,modified,language,processingstatus,recordEnteredBy,duplicateQuantity,dateLastModified,idCollaboratorIndigenous,sexCollaboratorIndigenous,dobCollaboratorIndigenous,verbatimIndigenous,validIndigenous,linkLanguageCollaboratorIndigenous,familyLanguageCollaboratorIndigenous,groupLanguageCollaboratorIndigenous,subgroupLanguageCollaboratorIndigenous,villageCollaboratorIndigenous,municipalityCollaboratorIndigenous,stateCollaboratorIndigenous,countryCollaboratorIndigenous,isoLanguageCollaboratorIndigenous,vernacularLexiconIndigenous,glossLexiconIndigenous,parseLexiconIndigenous,parentTaxaLexiconIndigenous,siblingTaxaLexiconIndigenous,childTaxaLexiconIndigenous,otherTaxaUseIndigenous,typologyLexiconIndigenous,semanticsLexiconIndigenous,notesLexiconIndigenous,categoryUseIndigenous,specificUseIndigenous,partUseIndigenous,notesUseIndigenous ';
+			'previousIdentifications,disposition,modified,language,processingstatus,recordEnteredBy,duplicateQuantity,dateLastModified ';
 		fputcsv($specFH, explode(',',$headerStr));
 		//Query and output values
     	$sql = 'SELECT '.$headerStr.
