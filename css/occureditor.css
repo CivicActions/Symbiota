@@ -743,110 +743,110 @@ table {
 
 /* New Fields */
 
-#idCollaboratorIndigenousDiv {
+#idConsultantIndigenousDiv {
 	float:left;
 	margin:3px;
 	width: 30%;
 }
-#sexCollaboratorIndigenousDiv{
+#sexConsultantIndigenousDiv{
 	float:left;
 	margin:3px;
 	width: 30%;
 }
-#dobCollaboratorIndigenousDiv{
+#dobConsultantIndigenousDiv{
 	float:left;
 	margin:3px;
 	width: 30%;
 }
-#idCollaboratorIndigenousDiv input {
+#idConsultantIndigenousDiv input {
 	width: 95%;
 }
-#sexCollaboratorIndigenousDiv input {
+#sexConsultantIndigenousDiv input {
 	width: 95%;
 }
-#dobCollaboratorIndigenousDiv input {
+#dobConsultantIndigenousDiv input {
 	width: 95%;
 }
-#verbatimIndigenousDiv{
+#nameFirstConsultantIndigenousDiv{
 	float:left;
 	margin:3px;
 }
-#validIndigenousDiv{
+#nameLastConsultantIndigenousDiv{
 	float:left;
 	margin:3px;
 }
-#linkLanguageCollaboratorIndigenousDiv{
+#linkLanguageConsultantIndigenousDiv{
 	clear: both;
 	float:left;
 	margin:3px;
 	width: 90%;
 }
-#linkLanguageCollaboratorIndigenousDiv input {
+#linkLanguageConsultantIndigenousDiv input {
 	width: 100%;
 }
-#familyLanguageCollaboratorIndigenousDiv{
+#familyLanguageConsultantIndigenousDiv{
 	clear: left;
 	float:left;
 	margin:3px;
 	width: 30%;
 }
-#groupLanguageCollaboratorIndigenousDiv{
+#groupLanguageConsultantIndigenousDiv{
 	float:left;
 	width: 30%;
 	margin:3px;
 }
-#subgroupLanguageCollaboratorIndigenousDiv{
+#subgroupLanguageConsultantIndigenousDiv{
 	float:left;
 	width: 30%;
 	margin:3px;
 }
-#familyLanguageCollaboratorIndigenousDiv input {
+#familyLanguageConsultantIndigenousDiv input {
 	width: 95%;
 }
-#groupLanguageCollaboratorIndigenousDiv input {
+#groupLanguageConsultantIndigenousDiv input {
 	width: 95%;
 }
-#subgroupLanguageCollaboratorIndigenousDiv input {
+#subgroupLanguageConsultantIndigenousDiv input {
 	width: 95%;
 }
-#villageCollaboratorIndigenousDiv{
+#villageConsultantIndigenousDiv{
 	width: 45%;
 	float:left;
 	margin:3px;
 }
-#municipalityCollaboratorIndigenousDiv{
+#municipalityConsultantIndigenousDiv{
 	float:left;
 	margin:3px;
 	width: 45%;
 }
-#stateCollaboratorIndigenousDiv{
+#stateConsultantIndigenousDiv{
 	float:left;
 	margin:3px;
 	width: 45%;
 }
-#countryCollaboratorIndigenousDiv input {
+#countryConsultantIndigenousDiv input {
 	width: 95%;
 }
-#villageCollaboratorIndigenousDiv input {
+#villageConsultantIndigenousDiv input {
 	width: 95%;
 }
-#municipalityCollaboratorIndigenousDiv input {
+#municipalityConsultantIndigenousDiv input {
 	width: 95%;
 }
-#stateCollaboratorIndigenousDiv input {
+#stateConsultantIndigenousDiv input {
 	width: 95%;
 }
-#countryCollaboratorIndigenousDiv{
+#countryConsultantIndigenousDiv{
 	float:left;
 	margin:3px;
 	width: 45%;
 }
-#isoLanguageCollaboratorIndigenousDiv{
+#isoLanguageConsultantIndigenousDiv{
 	float:left;
 	margin:3px;
 	width: 30%;
 }
-#isoLanguageCollaboratorIndigenousDiv input {
+#isoLanguageConsultantIndigenousDiv input {
 	width: 95%;
 }
 #vernacularLexiconIndigenousDiv{
@@ -864,33 +864,24 @@ table {
 	width: 30%;
 	margin:3px;
 }
-#parentTaxaLexiconIndigenousDiv{
+#parentTaxonIndigenousDiv{
 	clear: left;
 	width: 30%;
 	float:left;
 	margin:3px;
+	margin-top: 15px !important;
 }
-#siblingTaxaLexiconIndigenousDiv{
+#siblingTaxaIndigenousDiv{
 	float:left;
 	width: 30%;
 	margin:3px;
+	margin-top: 15px !important;
 }
-#childTaxaLexiconIndigenousDiv{
+#childTaxaIndigenousDiv{
 	float:left;
 	width: 30%;
 	margin:3px;
-}
-#parentTaxaLexiconIndigenousDiv img {
-	width: 15px;
-}
-#siblingTaxaLexiconIndigenousDiv img {
-	width: 15px;
-}
-#childTaxaLexiconIndigenousDiv img {
-	width: 15px;
-}
-#otherTaxaUseIndigenousDiv img {
-	width: 15px;
+	margin-top: 15px !important;
 }
 #vernacularLexiconIndigenousDiv input {
 	width: 95%;
@@ -901,13 +892,13 @@ table {
 #parseLexiconIndigenousDiv input {
 	width: 95%;
 }
-#parentTaxaLexiconIndigenousDiv textarea{
+#parentTaxonIndigenousDiv textarea{
 	width: 80%;
 }
-#siblingTaxaLexiconIndigenousDiv textarea{
+#siblingTaxaIndigenousDiv textarea{
 	width: 80%;
 }
-#childTaxaLexiconIndigenousDiv textarea{
+#childTaxaIndigenousDiv textarea{
 	width: 80%;
 }
 #otherTaxaUseIndigenousDiv{
@@ -935,14 +926,14 @@ table {
 #semanticsLexiconIndigenousDiv select {
 	width: 95%;
 }
-#notesLexiconIndigenousDiv{
+#notesIndigenousDiv{
 	float:left;
 	margin:3px;
 	width: 90%;
 	clear: both;
 }
 
-#notesLexiconIndigenousDiv textarea {
+#notesIndigenousDiv textarea {
 	width: 100%;
 	min-height: 40px !important;
 }

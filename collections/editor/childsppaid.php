@@ -27,9 +27,9 @@ header("Content-Type: text/html; charset=".$charset);
 		function addName(){
 		    var nameElem = document.getElementById("taxonname");
 		    if(nameElem.value){
-		    	var asStr = opener.document.fullform.childTaxaLexiconIndigenous.value;
+		    	var asStr = opener.document.fullform.childTaxaIndigenous.value;
 		    	if(asStr) asStr = asStr + ", ";  
-		    	opener.document.fullform.childTaxaLexiconIndigenous.value = asStr + nameElem.value;
+		    	opener.document.fullform.childTaxaIndigenous.value = asStr + nameElem.value;
 		    	nameElem.value = "";
 		    	nameElem.focus();
 		    }
@@ -42,7 +42,7 @@ header("Content-Type: text/html; charset=".$charset);
 	<!-- This is inner text! -->
 	<div id="innertext" style="background-color:white;">
 		<fieldset style="width:450px;">
-			<legend><b>Child Species Entry Aid</b></legend>
+			<legend><b>Child Taxa Entry Aid</b></legend>
 			<div style="">
 				Taxon: 
 				<input id="taxonname" type="text" style="width:350px;" /><br/>
