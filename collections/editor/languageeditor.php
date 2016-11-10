@@ -637,7 +637,7 @@ else{
                               <input type="text" name="grouplanguageconsultantindigenous" tabindex="128" maxlength="50" value="<?php echo array_key_exists('grouplanguageconsultantindigenous',$occArr)?$occArr['grouplanguageconsultantindigenous']:''; ?>" onchange="fieldChanged('grouplanguageconsultantindigenous');" />
                             </div>
                             <div id="subgroupLanguageCollaboratorIndigenousDiv">
-                              <?php //echo (defined('SUBGROUPLANGUAGECOLLABORATORINDIGENOUSLABEL')?SUBGROUPLANGUAGECOLLABORATORINDIGENOUSLABEL:'Subgroup'); ?>
+                              <?php echo (defined('SUBGROUPLANGUAGECOLLABORATORINDIGENOUSLABEL')?SUBGROUPLANGUAGECOLLABORATORINDIGENOUSLABEL:'Subgroup'); ?>
                               <a href="#" onclick="return dwcDoc('subgroupLanguageCollaboratorIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
                               <input type="text" name="subgrouplanguagecollaboratorindigenous" tabindex="129" maxlength="50" value="<?php echo array_key_exists('subgrouplanguageconsultantindigenous',$occArr)?$occArr['subgrouplanguageconsultantindigenous']:''; ?>" onchange="fieldChanged('subgrouplanguagecollaboratorindigenous');" />
                             </div>
