@@ -17,7 +17,7 @@ function openParentSppAid(){
 	var parentWindow = open("parentsppaid.php","parentaid","resizable=0,width=550,height=150,left=20,top=20");
 	if(parentWindow != null){
 		if (parentWindow.opener == null) parentWindow.opener = self;
-		fieldChanged("parenttaxalexiconindigenous");
+		fieldChanged("parenttaxonindigenous");
 		parentWindow.focus();
 	}
 	else{
@@ -29,7 +29,7 @@ function openSiblingSppAid(){
 	var siblingWindow = open("siblingsppaid.php","siblingaid","resizable=0,width=550,height=150,left=20,top=20");
 	if(siblingWindow != null){
 		if (siblingWindow.opener == null) siblingWindow.opener = self;
-		fieldChanged("siblingtaxalexiconindigenous");
+		fieldChanged("siblingtaxaindigenous");
 		siblingWindow.focus();
 	}
 	else{
@@ -41,7 +41,7 @@ function openChildSppAid(){
 	var childWindow = open("childsppaid.php","childaid","resizable=0,width=550,height=150,left=20,top=20");
 	if(childWindow != null){
 		if (childWindow.opener == null) childWindow.opener = self;
-		fieldChanged("childtaxalexiconindigenous");
+		fieldChanged("childtaxaindigenous");
 		childWindow.focus();
 	}
 	else{

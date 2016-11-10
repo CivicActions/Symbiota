@@ -717,130 +717,130 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							<?php 
 						}
 						//CA: Bookmark
-						/*idCollaboratorIndigenous*/
-						if($occArr['idcollaboratorindigenous']){
+						/*idConsultantIndigenous*/
+						if($occArr['idconsultantindigenous']){
 							?>
 							<div style="clear:both;">
-								<b>Collaborator ID: </b>
-								<?php echo $occArr['idcollaboratorindigenous']; ?>
+								<b>Consultant ID: </b>
+								<?php echo $occArr['idconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*sexCollaboratorIndigenous*/
-						if($occArr['sexcollaboratorindigenous']){
+						/*sexConsultantIndigenous*/
+						if($occArr['sexconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Sex: </b>
-								<?php echo $occArr['sexcollaboratorindigenous']; ?>
+								<?php echo $occArr['sexconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
 						/*dobCollaboratorIndigenous*/
-						if($occArr['dobcollaboratorindigenous']){
+						if($occArr['dobconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Date of Birth: </b>
-								<?php echo $occArr['dobcollaboratorindigenous']; ?>
+								<?php echo $occArr['dobconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*verbatimIndigenous*/
-						if($occArr['verbatimindigenous']){
+						/*nameFirstConsultantIndigenous*/
+						if($occArr['namefirstconsultantindigenous']){
 							?>
 							<div style="clear:both;">
-								<b>Verbatim Name: </b>
-								<?php echo $occArr['verbatimindigenous']; ?>
+								<b>Consultant First Name: </b>
+								<?php echo $occArr['namefirstconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*validIndigenous*/
-						if($occArr['validindigenous']){
+						/*nameLastConsultantIndigenous*/
+						if($occArr['namelastconsultantindigenous']){
 							?>
 							<div style="clear:both;">
-								<b>Valid Name: </b>
-								<?php echo $occArr['validindigenous']; ?>
+								<b>Consultant Last Name: </b>
+								<?php echo $occArr['namelastconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*linkLanguageCollaboratorIndigenous*/
-						if($occArr['linklanguagecollaboratorindigenous']){
+						/*linkLanguageConsultantIndigenous*/
+						if($occArr['linklanguageconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Link: </b>
-								<?php echo $occArr['linklanguagecollaboratorindigenousor']; ?>
+								<?php echo $occArr['linklanguageconsultantindigenousor']; ?>
 							</div>
 							<?php
 						}
 
-						/*familyLanguageCollaboratorIndigenous*/
-						if($occArr['familylanguagecollaboratorinigenous']){
+						/*familyLanguageConsultantIndigenous*/
+						if($occArr['familylanguageconsultantinigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Family: </b>
-								<?php echo $occArr['familylanguagecollaboratorindigenous']; ?>
+								<?php echo $occArr['familylanguageconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*groupLanguageCollaboratorIndigenous*/
-						if($occArr['grouplanguagecollaboratorindigenous']){
+						/*groupLanguageConsultantIndigenous*/
+						if($occArr['grouplanguageconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Group: </b>
-								<?php echo $occArr['grouplanguagecollaboratorindigenous']; ?>
+								<?php echo $occArr['grouplanguageconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*subgroupLanguageCollaboratorIndigenous*/
-						if($occArr['subgrouplanguagecollaboratorindigenous']){
+						/*subgroupLanguageConsultantIndigenous*/
+						if($occArr['subgrouplanguageconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Subgroup: </b>
-								<?php echo $occArr['subgrouplanguagecollaboratorindigenous']; ?>
+								<?php echo $occArr['subgrouplanguageconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*villageCollaboratorIndigenous*/
-						if($occArr['villagecollaboratorindigenous']){
+						/*villageConsultantIndigenous*/
+						if($occArr['villageconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Village: </b>
-								<?php echo $occArr['villagecollaboratorindigenous']; ?>
+								<?php echo $occArr['villageconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*municipalityCollaboratorIndigenous*/
-						if($occArr['municipalitycollaboratorindigenous']){
+						/*municipalityConsultantIndigenous*/
+						if($occArr['municipalityconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Municipality: </b>
-								<?php echo $occArr['municipalitycollaboratorindigenous']; ?>
+								<?php echo $occArr['municipalityconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*stateCollaboratorIndigenous*/
-						if($occArr['statecollaboratorindigenous']){
+						/*stateConsultantIndigenous*/
+						if($occArr['stateconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>State: </b>
-								<?php echo $occArr['statecollaboratorindigenous']; ?>
+								<?php echo $occArr['stateconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*countryCollaboratorIndigenous*/
-						if($occArr['countrycollaboratorindigenous']){
+						/*countryConsultantIndigenous*/
+						if($occArr['countryconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>Country: </b>
-								<?php echo $occArr['countrycollaboratorindigenous']; ?>
+								<?php echo $occArr['countryconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*isoLanguageCollaboratorIndigenous*/
-						if($occArr['isolanguagecollaboratorindigenous']){
+						/*isoLanguageConsultantIndigenous*/
+						if($occArr['isolanguageconsultantindigenous']){
 							?>
 							<div style="clear:both;">
 								<b>ISO: </b>
-								<?php echo $occArr['isolanguagecollaboratorindigenous']; ?>
+								<?php echo $occArr['isolanguageconsultantindigenous']; ?>
 							</div>
 							<?php
 						}
@@ -871,30 +871,30 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							</div>
 							<?php
 						}
-						/*parentTaxaLexiconIndigenous*/
-						if($occArr['parenttaxalexiconindigenous']){
+						/*parentTaxonIndigenous*/
+						if($occArr['parenttaxonindigenous']){
 							?>
 							<div style="clear:both;">
-								<b>Parent Taxonomy: </b>
-								<?php echo $occArr['parenttaxalexiconindigenous']; ?>
+								<b>Parent Taxon: </b>
+								<?php echo $occArr['parenttaxonindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*siblingTaxaLexiconIndigenous*/
-						if($occArr['siblingtaxalexiconindigenous']){
+						/*siblingTaxaIndigenous*/
+						if($occArr['siblingtaxaindigenous']){
 							?>
 							<div style="clear:both;">
-								<b>Sibling Taxonomy: </b>
-								<?php echo $occArr['siblingtaxalexiconindigenous']; ?>
+								<b>Sibling Taxa: </b>
+								<?php echo $occArr['siblingtaxaindigenous']; ?>
 							</div>
 							<?php
 						}
-						/*childTaxaLexiconIndigenous*/
-						if($occArr['childtaxalexiconindigenous']){
+						/*childTaxaIndigenous*/
+						if($occArr['childtaxaindigenous']){
 							?>
 							<div style="clear:both;">
-								<b>Child Taxonomy: </b>
-								<?php echo $occArr['childtaxalexiconindigenous']; ?>
+								<b>Child Taxa: </b>
+								<?php echo $occArr['childtaxaindigenous']; ?>
 							</div>
 							<?php
 						}
@@ -925,12 +925,12 @@ header("Content-Type: text/html; charset=".$CHARSET);
 							</div>
 							<?php
 						}
-						/*notesLexiconIndigenous*/
-						if($occArr['noteslexiconindigenous']){
+						/*notesIndigenous*/
+						if($occArr['notesindigenous']){
 							?>
 							<div style="clear:both;">
-								<b>Discussion of Name: </b>
-								<?php echo $occArr['noteslexiconindigenous']; ?>
+								<b>Discussion: </b>
+								<?php echo $occArr['notesindigenous']; ?>
 							</div>
 							<?php
 						}

@@ -195,12 +195,12 @@ else{
 					'sciname'=>'Scientific Name','sex'=>'Sex','specificEpithet'=>'Specific Epithet','stateProvince'=>'State/Province',
 					'substrate'=>'Substrate','taxonRemarks'=>'Taxon Remarks','typeStatus'=>'Type Status','verbatimCoordinates'=>'Verbatim Coordinates',
 					'verbatimEventDate'=>'Verbatim Date','verbatimDepth'=>'Verbatim Depth','verbatimElevation'=>'Verbatim Elevation','ocrFragment'=>'OCR Fragment',
-					'verbatimIndigenousName'=>'Verbatim Name','validIndigenousName'=>'Valid Name','linkIndigenousName'=>'Link','familyLanguageIndigenousName'=>'Family',
-          'groupLanguageIndigenousName'=>'Group','subgroupLanguageIndigenousName'=>'Subgroup','villageIndigenousname'=>'Village','municipalityIndigenousname'=>'Municipality','stateIndigenousname'=>'State',
-          'countryIndigenousname'=>'Country','isoIndigenousname'=>'ISO','vernacularIndigenousName'=>'Vernacular Name','glossIndigenousName'=>'Gloss','parseIndigenousName'=>'Parse',
-          'parentTaxaIndigenousName'=>'Parent Taxonomy','siblingTaxaIndigenousName'=>'Sibling Taxonomy','childTaxaIndigenousName'=>'Child Taxonomy','otherTaxaIndigenousName'=>'Other Taxonomy','typologyNameIndigenousName'=>'Typology',
-          'semanticsNameIndigenousName'=>'Semantics','discussionNameIndigenousName'=>'Discussion of Name','categoryUseIndigenousName'=>'Category of Use','specificUseIndigenousName'=>'Specific Use',
-          'partUseIndigenousName'=>'Parts Used','discussionUseIndigenousName'=>'Discussion of Use');
+					'nameFirstConsultantIndigenous'=>'Consultant First Name','nameLastConsultantIndigenous'=>'Consultant Last Name','linkLanguageConsultantIndigenous'=>'Link','familyLanguageConsultantIndigenous'=>'Family',
+          'groupLanguageConsultantIndigenous'=>'Group','subgroupLanguageConsultantIndigenous'=>'Subgroup','villageConsultantIndigenous'=>'Village','municipalityConsultantIndigenous'=>'Municipality','stateConsultantIndigenous'=>'State',
+          'countryConsultantIndigenous'=>'Country','isoLanguageConsultantIndigenous'=>'ISO','vernacularLexiconIndigenous'=>'Vernacular Name','glossLexiconIndigenous'=>'Gloss','parseLexiconIndigenous'=>'Parse',
+          'parentTaxonIndigenous'=>'Parent Taxon','siblingTaxaIndigenous'=>'Sibling Taxa','childTaxaIndigenous'=>'Child Taxa','otherTaxaUseIndigenous'=>'Other Taxonomy','typologyLexiconIndigenous'=>'Typology',
+          'semanticsLexiconIndigenous'=>'Semantics','notesIndigenous'=>'Discussion','categoryUseIndigenous'=>'Category of Use','specificUseIndigenous'=>'Specific Use',
+          'partUseIndigenous'=>'Parts Used','discussionUseIndigenous'=>'Discussion of Use');
       }
 			//sort($advFieldArr);
 			?>
