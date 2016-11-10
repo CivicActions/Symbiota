@@ -390,7 +390,7 @@ class OccurrenceEditorDeterminations extends OccurrenceEditorManager{
 		return $retArr;
 	}
 
-	public function editIdentificationRanking($ranking,$notes){
+	public function editIdentificationRanking($ranking,$notes=''){
 		$statusStr = '';
 		if(is_numeric($ranking)){
 			//Will be replaced if an identification ranking already exists for occurrence record 
