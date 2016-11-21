@@ -744,9 +744,8 @@ table {
 /* New Fields */
 
 #idConsultantIndigenousDiv {
-	float:left;
 	margin:3px;
-	width: 30%;
+	width: 60%;
 }
 #sexConsultantIndigenousDiv{
 	float:left;
@@ -759,7 +758,7 @@ table {
 	width: 30%;
 }
 #idConsultantIndigenousDiv input {
-	width: 95%;
+	width: 150px;
 }
 #sexConsultantIndigenousDiv input {
 	width: 95%;
@@ -784,6 +783,12 @@ table {
 #linkLanguageConsultantIndigenousDiv input {
 	width: 100%;
 }
+#selectFamilyLanguageConsultantIndigenousDiv{
+	clear: left;
+	float:left;
+	margin:3px;
+	width: 55%;
+}
 #familyLanguageConsultantIndigenousDiv{
 	clear: left;
 	float:left;
@@ -801,7 +806,7 @@ table {
 	margin:3px;
 }
 #familyLanguageConsultantIndigenousDiv input {
-	width: 95%;
+	width: 150px;
 }
 #groupLanguageConsultantIndigenousDiv input {
 	width: 95%;
@@ -810,9 +815,9 @@ table {
 	width: 95%;
 }
 #villageConsultantIndigenousDiv{
-	width: 45%;
 	float:left;
 	margin:3px;
+	width: 53%;
 }
 #municipalityConsultantIndigenousDiv{
 	float:left;
@@ -828,7 +833,7 @@ table {
 	width: 95%;
 }
 #villageConsultantIndigenousDiv input {
-	width: 95%;
+	width: 150px;
 }
 #municipalityConsultantIndigenousDiv input {
 	width: 95%;
@@ -850,9 +855,8 @@ table {
 	width: 95%;
 }
 #vernacularLexiconIndigenousDiv{
-	float:left;
 	margin:3px;
-	width: 30%;
+	width: 60%;
 }
 #glossLexiconIndigenousDiv{
 	float:left;
@@ -884,7 +888,7 @@ table {
 	margin-top: 15px !important;
 }
 #vernacularLexiconIndigenousDiv input {
-	width: 95%;
+	width: 150px;
 }
 #glossLexiconIndigenousDiv input {
 	width: 95%;

@@ -1247,11 +1247,10 @@ else{
                           <fieldset>
                             <legend><b>Consultant Information</b></legend>
                             <div id="idConsultantIndigenousDiv">
+                              <a style="font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;float:right;" href="/collections/editor/consultanteditor.php?gotomode=1&collid=1">Enter New Consultant Information</a>
                               <?php echo (defined('IDCONSULTANTINDIGENOUSLABEL')?IDCONSULTANTINDIGENOUSLABEL:'Consultant ID'); ?>
                               <a href="#" onclick="return dwcDoc('idconsultantIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
-                              <!--<input type="text" name="idconsultantindigenous" tabindex="121" maxlength="100" value="<?php echo array_key_exists('idconsultantindigenous',$occArr)?$occArr['idconsultantindigenous']:''; ?>" onchange="fieldChanged('idconsultantindigenous');" />-->
-															<br/>
-															<a style="width:150px;font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;" href="/collections/editor/consultanteditor.php?gotomode=1&collid=1">Enter Consultant Information</a>
+                              <input type="text" name="idconsultantindigenous" tabindex="121" maxlength="100" value="<?php echo array_key_exists('idconsultantindigenous',$occArr)?$occArr['idconsultantindigenous']:''; ?>" onchange="fieldChanged('idconsultantindigenous');" />
                             </div>
                           </fieldset>
                         </div>
@@ -1260,11 +1259,10 @@ else{
                           <fieldset>
                             <legend><b>Lexicon Information</b></legend>
                             <div id="vernacularLexiconIndigenousDiv">
+                              <a style="font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;float:right;" href="/collections/editor/lexiconeditor.php?gotomode=1&collid=1">Enter New Vernacular Information</a>
                               <?php echo (defined('VERNACULARLEXICONINDIGENOUSLABEL')?VERNACULARLEXICONINDIGENOUSLABEL:'Vernacular name'); ?>
                               <a href="#" onclick="return dwcDoc('vernacularLexiconIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
-                              <!--<input type="text" name="vernacularlexiconindigenous" tabindex="130" maxlength="100" value="<?php echo array_key_exists('vernacularlexiconindigenous',$occArr)?$occArr['vernacularlexiconindigenous']:''; ?>" onchange="fieldChanged('vernacularlexiconindigenous');" />-->
-															<br/>
-															<a style="width:150px;font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;" href="/collections/editor/lexiconeditor.php?gotomode=1&collid=1">Enter Vernacular Information</a>
+                              <input type="text" name="vernacularlexiconindigenous" tabindex="130" maxlength="100" value="<?php echo array_key_exists('vernacularlexiconindigenous',$occArr)?$occArr['vernacularlexiconindigenous']:''; ?>" onchange="fieldChanged('vernacularlexiconindigenous');" />
                             </div>
                             <div id="parentTaxonIndigenousDiv">
                               <?php echo (defined('PARENTTAXONINDIGENOUSLABEL')?PARENTTAXONINDIGENOUSLABEL:'Parent taxon'); ?>
@@ -1306,18 +1304,23 @@ else{
                         <div class="clearfix">
                           <fieldset>
                             <legend><b>Use Information</b></legend>
-                            <div id="categoryUseIndigenousDiv">
-                              <?php echo (defined('CATEGORYUSEINDIGENOUSLABEL')?CATEGORYUSEINDIGENOUSLABEL:'Uses'); ?>
-                              <a href="#" onclick="return dwcDoc('categoryUseIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
-                              <!--<input type="text" name="categoryuseindigenous" tabindex="139" maxlength="100" value="<?php echo array_key_exists('categoryuseindigenous',$occArr)?$occArr['categoryuseindigenous']:''; ?>" onchange="fieldChanged('categoryuseindigenous');" />-->
-															<br/>
-															<a style="width:150px;font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;" href="/collections/editor/useeditor.php?gotomode=1&collid=1">Enter Use Information</a>
-                            </div>
-														<div class="clearfix"></div>
 														<div id="specificUseIndigenousDiv">
 															<?php echo (defined('SPECIFICUSEINDIGENOUSLABEL')?SPECIFICUSEINDIGENOUSLABEL:'Specific use'); ?>
 															<a href="#" onclick="return dwcDoc('specificUseIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
-															<input type="text" name="specificuseindigenous" tabindex="140" maxlength="50" value="<?php echo array_key_exists('specificuseindigenous',$occArr)?$occArr['specificuseindigenous']:''; ?>" onchange="fieldChanged('specificuseindigenous');" />
+															<select name="specificuseindigenous" tabindex="140" maxlength="50" onchange="fieldChanged('specificuseindigenous');" />
+																<option value="">--------------</option>
+																<option value="adornment-ornamental" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='adornment-ornamental') { echo 'selected=""';} ?>>Adornment/Ornamental</option>
+																<option value="fencing" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='fencing') { echo 'selected=""';} ?>>Fencing</option>
+																<option value="firewood" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='firewood') { echo 'selected=""';} ?>>Firewood</option>
+																<option value="house-construction" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='house-construction') { echo 'selected=""';} ?>>House construction</option>
+																<option value="hunting-fishing" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='hunting-fishing') { echo 'selected=""';} ?>>Hunting/Fishing</option>
+																<option value="medicinal-external" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='medicinal-external') { echo 'selected=""';} ?>>Medicinal: External</option>
+																<option value="medicinal-internal" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='medicinal-internal') { echo 'selected=""';} ?>>Medicinal: Internal</option>
+																<option value="tools-agriculture" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='tools-agriculture') { echo 'selected=""';} ?>>Tools: Agriculture</option>
+																<option value="tools-kitchen" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='tools-kitchen') { echo 'selected=""';} ?>>Tools: Kitchen</option>
+																<option value="toys" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='toys') { echo 'selected=""';} ?>>Toys</option>
+																<option value="veterinary" <?php if (isset($occArr['specificuseindigenous']) && $occArr['specificuseindigenous']=='veterinary') { echo 'selected=""';} ?>>Veterinary</option>
+															</select>
 														</div>
 														<div id="partUseIndigenousDiv">
 															<?php echo (defined('PARTUSEINDIGENOUSLABEL')?PARTUSEINDIGENOUSLABEL:'Part used'); ?>

@@ -190,6 +190,7 @@ if($SYMB_UID){
 								<input name="occindex" type="hidden" value="0" />
 							</form>
 						</fieldset>
+						<div style="float:left">
 						<ul>
 							<?php
 							if(stripos($collData['colltype'],'observation') !== false){
@@ -255,6 +256,42 @@ if($SYMB_UID){
 							}
 							?>
 						</ul>
+						</div>
+						<div style="float:left">
+						<b>Ethnobiological Data Editor</b>
+						<ul>
+							<li>
+								<a href="../editor/consultanteditor.php?gotomode=1&collid=<?php echo $collid; ?>">
+									Add New Consultant Record
+								</a>
+							</li>
+							<li>
+								<a href="../editor/consultanteditor.php?gotomode=1&collid=<?php echo $collid; ?>">
+									Edit Existing Consultant Record
+								</a>
+							</li>
+							<li>
+								<a href="../editor/lexiconeditor.php?gotomode=1&collid=<?php echo $collid; ?>">
+									Add New Vernacular Record
+								</a>
+							</li>
+							<li>
+								<a href="../editor/lexiconeditor.php?gotomode=1&collid=<?php echo $collid; ?>">
+									Edit Existing Vernacular Record
+								</a>
+							</li>
+							<li>
+								<a href="../editor/villageeditor.php?gotomode=1&collid=<?php echo $collid; ?>">
+									Add New Village Record
+								</a>
+							</li>
+							<li>
+								<a href="../editor/villageeditor.php?gotomode=1&collid=<?php echo $collid; ?>">
+									Edit Existing Village Record
+								</a>
+							</li>
+						</ul>
+						</div>
 					</fieldset>
 					<?php
 					if($editCode > 1){
