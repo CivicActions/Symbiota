@@ -382,7 +382,7 @@ else{
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $CHARSET; ?>">
-	<title><?php echo $DEFAULT_TITLE; ?> Occurrence Editor</title>
+	<title><?php echo $DEFAULT_TITLE; ?> Lexicon Editor</title>
 	<link href="../../css/jquery-ui.css" type="text/css" rel="stylesheet" />
     <?php
     if($crowdSourceMode == 1){
@@ -566,7 +566,7 @@ else{
 												echo 'Occurrence Data';
 											}
 											else{
-												echo '<span style="color:red;">New Occurrence Record</span>';
+												echo '<span style="color:red;">New Lexicon Record</span>';
 											}
 											?>
 										</a>
@@ -673,12 +673,11 @@ else{
                               <a href="#" onclick="return dwcDoc('notesIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
                               <textarea name="notesindigenous" tabindex="138" onchange="fieldChanged('notesindigenous');" style="..."><?php echo array_key_exists('notesindigenous',$occArr)?$occArr['notesindigenous']:''; ?></textarea>
 														</div>
-														<div id="familyLanguageConsultantIndigenousDiv">
+														<div id="selectFamilyLanguageConsultantIndigenousDiv">
+															<a style="font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;float:right;" href="/collections/editor/languageeditor.php?gotomode=1&collid=1">Enter New Language Information</a>
 															<?php echo (defined('FAMILYLANGUAGECONSULTANTINDIGENOUSLABEL')?FAMILYLANGUAGECONSULTANTINDIGENOUSLABEL:'Language family'); ?>
 															<a href="#" onclick="return dwcDoc('familyLanguageConsultantIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
-															<!--<input type="text" name="familylanguageconsultantindigenous" tabindex="127" maxlength="50" value="<?php echo array_key_exists('familylanguageconsultantindigenous',$occArr)?$occArr['familylanguageconsultantindigenous']:''; ?>" onchange="fieldChanged('familylanguageconsultantindigenous');" />-->
-															<br/>
-															<a style="width:150px;font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;" href="/collections/editor/languageeditor.php?gotomode=1&collid=1">Enter Language Information</a>
+															<input type="text" name="familylanguageconsultantindigenous" tabindex="127" maxlength="50" value="<?php echo array_key_exists('familylanguageconsultantindigenous',$occArr)?$occArr['familylanguageconsultantindigenous']:''; ?>" onchange="fieldChanged('familylanguageconsultantindigenous');" />
 														</div>
                           </fieldset>
                         </div>

@@ -382,7 +382,7 @@ else{
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $CHARSET; ?>">
-	<title><?php echo $DEFAULT_TITLE; ?> Occurrence Editor</title>
+	<title><?php echo $DEFAULT_TITLE; ?> Language Editor</title>
 	<link href="../../css/jquery-ui.css" type="text/css" rel="stylesheet" />
     <?php
     if($crowdSourceMode == 1){
@@ -566,7 +566,7 @@ else{
 												echo 'Occurrence Data';
 											}
 											else{
-												echo '<span style="color:red;">New Occurrence Record</span>';
+												echo '<span style="color:red;">New Language Record</span>';
 											}
 											?>
 										</a>
