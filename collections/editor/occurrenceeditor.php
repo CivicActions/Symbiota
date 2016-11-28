@@ -1259,7 +1259,7 @@ else{
                           <fieldset>
                             <legend><b>Lexicon Information</b></legend>
                             <div id="vernacularLexiconIndigenousDiv">
-                              <a style="font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;float:right;" href="/collections/editor/lexiconeditor.php?gotomode=1&collid=1">Enter New Vernacular Information</a>
+                              <a style="font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;float:right;" href="/collections/editor/lexiconeditor.php?gotomode=1&collid=1">Enter New Vernacular Name Information</a>
                               <?php echo (defined('VERNACULARLEXICONINDIGENOUSLABEL')?VERNACULARLEXICONINDIGENOUSLABEL:'Vernacular name'); ?>
                               <a href="#" onclick="return dwcDoc('vernacularLexiconIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
                               <input type="text" name="vernacularlexiconindigenous" tabindex="130" maxlength="100" value="<?php echo array_key_exists('vernacularlexiconindigenous',$occArr)?$occArr['vernacularlexiconindigenous']:''; ?>" onchange="fieldChanged('vernacularlexiconindigenous');" />

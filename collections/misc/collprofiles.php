@@ -272,12 +272,12 @@ if($SYMB_UID){
 							</li>
 							<li>
 								<a href="../editor/lexiconeditor.php?gotomode=1&collid=<?php echo $collid; ?>">
-									Add New Vernacular Record
+									Add New Vernacular Name Record
 								</a>
 							</li>
 							<li>
 								<a href="../editor/lexiconeditor.php?gotomode=1&collid=<?php echo $collid; ?>">
-									Edit Existing Vernacular Record
+									Edit Existing Vernacular Name Record
 								</a>
 							</li>
 							<li>
