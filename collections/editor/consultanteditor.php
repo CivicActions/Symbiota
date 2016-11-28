@@ -661,7 +661,7 @@ else{
 														<div class="clearfix"></div>
                             <div id="selectFamilyLanguageConsultantIndigenousDiv">
                               <a style="font-weight:bold;margin:10px;padding:5px 10px;border: #333 1px solid;text-decoration:none;float:right;" href="/collections/editor/languageeditor.php?gotomode=1&collid=1">Enter New Language Information</a>
-                              <?php echo (defined('FAMILYLANGUAGECONSULTANTINDIGENOUSLABEL')?FAMILYLANGUAGECONSULTANTINDIGENOUSLABEL:'Language family'); ?>
+                              <?php echo (defined('FAMILYLANGUAGECONSULTANTINDIGENOUSLABEL')?FAMILYLANGUAGECONSULTANTINDIGENOUSLABEL:'Language'); ?>
                               <a href="#" onclick="return dwcDoc('familyLanguageConsultantIndigenous')"><img class="docimg" src="../../images/qmark.png" /></a><br/>
                               <input type="text" name="familylanguageconsultantindigenous" tabindex="127" maxlength="50" value="<?php echo array_key_exists('familylanguageconsultantindigenous',$occArr)?$occArr['familylanguageconsultantindigenous']:''; ?>" onchange="fieldChanged('familylanguageconsultantindigenous');" />
                             </div>
